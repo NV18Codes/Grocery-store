@@ -245,11 +245,15 @@
                     <span class="bg-purple-600 text-white text-sm px-4 py-1 rounded-full">Fresh Picks</span>
                 </div>
                 <div class="relative carousel">
-                    <!-- Previous Button -->
-                    <button id="carousel-prev-veg"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">&#8249;</button>
 
-                    <div id="carousel-container-veg" class="flex overflow-x-hidden gap-4">
+                     <!-- Prev Button -->
+                     <button id="carousel-prev-veg"
+                     class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full ml-10 text-2xl">
+                     &#8249;
+                 </button>
+
+                    <div id="carousel-container-veg" class="flex overflow-x-hidden gap-4"  style="overflow: hidden; scroll-behavior: smooth;">
+                        
                         <!-- Product Card for Cabbage -->
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg"
@@ -413,8 +417,9 @@
 
                     <!-- Next Button -->
                     <button id="carousel-next-veg"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full mr-10 text-2xl">&#8250;</button>
-                </div>
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">
+                        &#8250;
+                    </button>
             </div>
         </section>
 
@@ -566,14 +571,25 @@
         </section>
 
 
+
         <!-- Dairy & Poultry Section -->
-        <section id="dairy-poultry" class="py-8 ">
+        <section id="fruits" class="py-8 bg-white-100">
             <div class="container mx-auto">
-                <h3 class="text-2xl font-bold mb-4">Dairy & Poultry</h3>
+                <h3 class="text-2xl font-bold mb-4">Fruits</h3>
                 <div class="relative carousel">
-                    <button
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl ml-10">&#8249;</button>
-                    <div class="flex gap-4 carousel-container">
+
+                    <!-- Prev Button -->
+                    <button id="#dairy-poultry .carousel-prev"
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full ml-10 text-2xl">
+                        &#8249;
+                    </button>
+
+                    <!-- Carousel Container -->
+                    <div id="fruits-carousel-container" class="flex gap-4"
+                        style="overflow: hidden; scroll-behavior: smooth;">
+
+
+                        <!-- Product Cards -->
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2014/03/05/01/20/chicken-breast-279848_1280.jpg"
                                 alt="Chicken" class="w-full h-32 object-cover rounded">
@@ -588,6 +604,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2022/11/04/18/54/eggs-7570512_1280.jpg" alt="Eggs"
                                 class="w-full h-32 object-cover rounded">
@@ -602,6 +619,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/02/26/10/16/milk-1223800_640.jpg" alt="Milk"
                                 class="w-full h-32 object-cover rounded">
@@ -617,12 +635,16 @@
                             </div>
                         </div>
                     </div>
-                    <button
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">&#8250;</button>
+                    <!-- Next Button -->
+                    <button id="#dairy-poultry .carousel-next"
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">
+                        &#8250;
+                    </button>
                 </div>
             </div>
-
         </section>
+
+
 
     </div>
 

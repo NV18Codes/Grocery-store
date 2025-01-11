@@ -38,7 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
         locationText.textContent = 'Geolocation not supported';
     }
 
-    // Carousel Functionality
+
+
+
+
+
+    //Flash Carousel Functionality
     const carouselPrev = document.getElementById('carousel-prev');
     const carouselNext = document.getElementById('carousel-next');
     const carouselContainer = document.getElementById('carousel-container');
@@ -76,7 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarouselButtons();
 
-    // Product Counter Functionality
+
+
+    // Product Card Add Button Functionality
     const productCards = document.querySelectorAll('.product-card');
 
     productCards.forEach((card) => {
@@ -115,83 +122,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-document.addEventListener('DOMContentLoaded', () => {
-    // Carousel Functionality
-    const carouselPrev = document.getElementById('carousel-prev-veg');
-    const carouselNext = document.getElementById('carousel-next-veg');
-    const carouselContainer = document.getElementById('carousel-container-veg');
 
-    let scrollPosition = 0;
-    const cardWidth = 220; // Approximate width of a card (including margin)
-    const scrollStep = cardWidth * 1; // Scroll 2 cards at a time
 
-    const updateCarouselButtons = () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        carouselPrev.classList.toggle('hidden', scrollPosition <= 0);
-        carouselNext.classList.toggle('hidden', scrollPosition >= maxScroll);
+
+    // Vegetables Carousel Functionality
+    const carouselPrevVeg = document.getElementById('carousel-prev-veg');
+    const carouselNextVeg = document.getElementById('carousel-next-veg');
+    const carouselContainerVeg = document.getElementById('carousel-container-veg');
+
+    let vegScrollPosition = 0;
+    const vegCardWidth = 220; // Approximate width of a card (including margin)
+    const vegScrollStep = vegCardWidth * 1; // Scroll 1 cards at a time
+
+    const updateVegCarouselButtons = () => {
+        const maxScroll = carouselContainerVeg.scrollWidth - carouselContainerVeg.offsetWidth;
+        carouselPrevVeg.classList.toggle('hidden', vegScrollPosition <= 0);
+        carouselNextVeg.classList.toggle('hidden', vegScrollPosition >= maxScroll);
     };
 
-    carouselPrev.addEventListener('click', () => {
-        scrollPosition -= scrollStep;
-        if (scrollPosition < 0) scrollPosition = 0;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
+    carouselPrevVeg.addEventListener('click', () => {
+        vegScrollPosition -= vegScrollStep;
+        if (vegScrollPosition < 0) vegScrollPosition = 0;
+        carouselContainerVeg.scrollTo({
+            left: vegScrollPosition,
             behavior: 'smooth',
         });
-        updateCarouselButtons();
+        updateVegCarouselButtons();
     });
 
-    carouselNext.addEventListener('click', () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        scrollPosition += scrollStep;
-        if (scrollPosition > maxScroll) scrollPosition = maxScroll;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
+    carouselNextVeg.addEventListener('click', () => {
+        const maxScroll = carouselContainerVeg.scrollWidth - carouselContainerVeg.offsetWidth;
+        vegScrollPosition += vegScrollStep;
+        if (vegScrollPosition > maxScroll) vegScrollPosition = maxScroll;
+        carouselContainerVeg.scrollTo({
+            left: vegScrollPosition,
             behavior: 'smooth',
         });
-        updateCarouselButtons();
+        updateVegCarouselButtons();
     });
 
-    updateCarouselButtons();
+    updateVegCarouselButtons();
 
-    // Product Counter Functionality
-    const productCards = document.querySelectorAll('.product-card');
+    
 
-    productCards.forEach((card) => {
-        const addButton = card.querySelector('.addButton');
-        const counterSection = card.querySelector('.counterSection');
-        const counter = card.querySelector('.counter');
-        const decreaseButton = card.querySelector('.decrease');
-        const increaseButton = card.querySelector('.increase');
 
-        let count = 1; // Default counter value
-
-        // Show counter and hide "ADD" button
-        addButton.addEventListener('click', () => {
-            addButton.classList.add('hidden');
-            counterSection.classList.remove('hidden');
-            count = 1; // Reset count to 1 when ADD is clicked
-            counter.textContent = count;
-        });
-
-        // Decrease counter or revert to "ADD" button
-        decreaseButton.addEventListener('click', () => {
-            if (count > 1) {
-                count--;
-                counter.textContent = count;
-            } else {
-                counterSection.classList.add('hidden');
-                addButton.classList.remove('hidden');
-            }
-        });
-
-        // Increase counter
-        increaseButton.addEventListener('click', () => {
-            count++;
-            counter.textContent = count;
-        });
-    });
-});
 // Fruits Carousel Functionality
 const fruitsCarouselPrev = document.getElementById('fruits-carousel-prev');
 const fruitsCarouselNext = document.getElementById('fruits-carousel-next');
@@ -229,7 +203,12 @@ fruitsCarouselNext.addEventListener('click', () => {
 });
 
 updateFruitsCarouselButtons();
-// Carousel Functionality for Dairy & Poultry Section
+
+
+
+
+
+//Dairy & Poultry Carousel Functionality 
 const dairyCarouselPrev = document.querySelector('#dairy-poultry .carousel-prev');
 const dairyCarouselNext = document.querySelector('#dairy-poultry .carousel-next');
 const dairyCarouselContainer = document.querySelector('#dairy-poultry .carousel-container');
@@ -261,40 +240,5 @@ dairyCarouselNext.addEventListener('click', () => {
 
 updateDairyCarouselButtons();
 
-// Product Counter Functionality for Dairy & Poultry Section
-const dairyProductCards = document.querySelectorAll('#dairy-poultry .product-card');
 
-dairyProductCards.forEach((card) => {
-    const addButton = card.querySelector('.addButton');
-    const counterSection = card.querySelector('.counterSection');
-    const counter = card.querySelector('.counter');
-    const decreaseButton = card.querySelector('.decrease');
-    const increaseButton = card.querySelector('.increase');
 
-    let count = 1; // Default counter value
-
-    // Show counter and hide "ADD" button
-    addButton.addEventListener('click', () => {
-        addButton.classList.add('hidden');
-        counterSection.classList.remove('hidden');
-        count = 1; // Reset count to 1 when ADD is clicked
-        counter.textContent = count;
-    });
-
-    // Decrease counter or revert to "ADD" button
-    decreaseButton.addEventListener('click', () => {
-        if (count > 1) {
-            count--;
-            counter.textContent = count;
-        } else {
-            counterSection.classList.add('hidden');
-            addButton.classList.remove('hidden');
-        }
-    });
-
-    // Increase counter
-    increaseButton.addEventListener('click', () => {
-        count++;
-        counter.textContent = count;
-    });
-});
