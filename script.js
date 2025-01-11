@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scrollPosition = 0;
     const cardWidth = 220; // Width of a card (including margin)
-    const scrollStep = cardWidth * 2; // Scroll 2 cards at a time
+    const scrollStep = cardWidth * 1; // Scroll 2 cards at a time
 
     const updateCarouselButtons = () => {
         const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
@@ -199,7 +199,7 @@ const fruitsCarouselContainer = document.getElementById('fruits-carousel-contain
 
 let fruitsScrollPosition = 0;
 const fruitsCardWidth = 220; // Width of a card (including margin)
-const fruitsScrollStep = fruitsCardWidth * 2; // Scroll 2 cards at a time
+const fruitsScrollStep = fruitsCardWidth * 1; // Scroll 2 cards at a time
 
 const updateFruitsCarouselButtons = () => {
     const maxScroll = fruitsCarouselContainer.scrollWidth - fruitsCarouselContainer.offsetWidth;
@@ -236,7 +236,7 @@ const dairyCarouselContainer = document.querySelector('#dairy-poultry .carousel-
 
 let dairyScrollPosition = 0;
 const dairyCardWidth = 220; // Width of a card (including gap)
-const dairyScrollStep = dairyCardWidth * 2; // Scroll 2 cards at a time
+const dairyScrollStep = dairyCardWidth * 1; // Scroll 2 cards at a time
 
 const updateDairyCarouselButtons = () => {
     const maxScroll = dairyCarouselContainer.scrollWidth - dairyCarouselContainer.offsetWidth;
