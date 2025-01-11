@@ -425,71 +425,181 @@
         <div class="container mx-auto">
             <h3 class="text-2xl font-bold mb-4">Fruits</h3>
             <div class="relative carousel">
-                <button
-                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8249;</button>
-                <div class="flex overflow-x-scroll no-scrollbar gap-4 carousel-container">
+                <!-- Prev Button -->
+                <button id="fruits-carousel-prev"
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+                    &#8249;
+                </button>
+
+                <!-- Carousel Container -->
+                <div id="fruits-carousel-container" class="flex gap-4"
+                    style="overflow: hidden; scroll-behavior: smooth;">
+                    <!-- Product Cards -->
                     <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                         <img src="https://via.placeholder.com/150" alt="Apples"
                             class="w-full h-32 object-cover rounded">
                         <h4 class="text-lg font-semibold mt-2">Apples</h4>
                         <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
                             </div>
                         </div>
                     </div>
+
                     <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                         <img src="https://via.placeholder.com/150" alt="Oranges"
                             class="w-full h-32 object-cover rounded">
                         <h4 class="text-lg font-semibold mt-2">Oranges</h4>
                         <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                        <img src="https://via.placeholder.com/150" alt="Bananas"
-                            class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Bananas</h4>
-                        <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                        <img src="https://via.placeholder.com/150" alt="Grapes"
-                            class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Grapes</h4>
-                        <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                         <img src="https://via.placeholder.com/150" alt="Strawberries"
                             class="w-full h-32 object-cover rounded">
                         <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
                         <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Avocados"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Avocados</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Bananas"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Bananas</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Grapes"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Grapes</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Watermelon"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Watermelon</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Lemons"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Lemons</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button id="fruits-carousel-next"
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
+                    &#8250;
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Dairy & Poultry Section -->
+    <section id="dairy-poultry" class="py-8 bg-green-100">
+        <div class="container mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Dairy & Poultry</h3>
+            <div class="relative carousel">
+                <button
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8249;</button>
+                <div class="flex gap-4 carousel-container">
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Chicken"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Chicken</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Eggs" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Eggs</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Milk" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Milk</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
                             </div>
                         </div>
                     </div>
@@ -500,57 +610,6 @@
         </div>
     </section>
 
-    <!-- Dairy & Poultry Section -->
-    <section id="dairy-poultry" class="py-8 bg-green-100">
-        <div class="container mx-auto">
-            <h3 class="text-2xl font-bold mb-4">Dairy & Poultry</h3>
-            <div class="relative carousel">
-                <button
-                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8249;</button>
-                <div class="flex overflow-x-scroll no-scrollbar gap-4 carousel-container">
-                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                        <img src="https://via.placeholder.com/150" alt="Chicken"
-                            class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Chicken</h4>
-                        <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                        <img src="https://via.placeholder.com/150" alt="Eggs" class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Eggs</h4>
-                        <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                        <img src="https://via.placeholder.com/150" alt="Milk" class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Milk</h4>
-                        <div class="flex items-center justify-center gap-2 mt-4">
-                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
-                            <div id="counterSection" class="hidden items-center gap-2">
-                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
-                                <span id="counter" class="text-lg font-bold">1</span>
-                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button
-                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8250;</button>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="bg-green-600 text-white py-4 text-center">
