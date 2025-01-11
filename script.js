@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scrollPosition = 0;
     const cardWidth = 220; // Approximate width of a card (including margin)
-    const scrollStep = cardWidth * 2; // Scroll 2 cards at a time
+    const scrollStep = cardWidth * 1; // Scroll 2 cards at a time
 
     const updateCarouselButtons = () => {
         const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
