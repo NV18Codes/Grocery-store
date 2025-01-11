@@ -115,3 +115,124 @@
     box-sizing: border-box;
     /* Include padding and border within width */
 }
+
+/* Carousel Styling */
+.carousel {
+    position: relative;
+}
+
+.carousel-prev,
+.carousel-next {
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: #f3f3f3;
+}
+
+.carousel-prev.hidden,
+.carousel-next.hidden {
+    display: none;
+}
+
+/* Carousel Container Styling */
+#carousel-container-veg {
+    display: flex;
+    gap: 16px;
+    /* Space between cards */
+    overflow-x: hidden;
+    /* Hide scrollbar */
+    scroll-behavior: smooth;
+    /* Smooth scrolling */
+}
+
+/* Hide Scrollbar */
+#carousel-container-veg::-webkit-scrollbar {
+    display: none;
+    /* For WebKit browsers */
+}
+
+#carousel-container-veg {
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+/* Navigation Buttons */
+.carousel-prev,
+.carousel-next {
+    background-color: #f3f4f6;
+    /* Light gray */
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: #e5e7eb;
+    /* Darker gray */
+}
+
+.carousel-prev {
+    left: -20px;
+    /* Adjust based on container padding */
+}
+
+.carousel-next {
+    right: -20px;
+    /* Adjust based on container padding */
+}
+
+/* Product Card Styling */
+.product-card {
+    flex-shrink: 0;
+    min-width: 200px;
+    max-width: 220px;
+    text-align: center;
+}
+
+/* Hide scrollbars */
+.carousel-container {
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+    /* Prevents showing a scrollbar */
+    scroll-behavior: smooth;
+}
+
+/* Hide carousel buttons when not needed */
+.carousel-prev.hidden,
+.carousel-next.hidden {
+    display: none;
+}
+
+/* Button Styles */
+.carousel-prev,
+.carousel-next {
+    z-index: 10;
+    cursor: pointer;
+}
