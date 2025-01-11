@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gems Online Grocery Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header top-0 z-50 text-white py-4 shadow-md">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
+
+            <!-- Store Title with Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-green-600 font-bold">Logo</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-white">Gems Grocery</h1>
+            </div>
+
+            <!-- Search Bar Section (Centered) -->
+            <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    aria-label="Search products" />
+                <div id="no-results" class="text-red-500 hidden">No items found</div>
+                <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            </div>
+
+            <!-- Login, Cart, and Location Section (Right Aligned) -->
+            <div class="flex items-center space-x-6 mb-4 sm:mb-0">
+                <button
+                    class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 text-green-600 font-bold transition duration-300"
+                    aria-label="Login">
+                    Login
+                </button>
+                <div class="relative cursor-pointer" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                        0
+                    </span>
+                </div>
+            </div>
+
+            <!-- Location Section (Aligned below Cart) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-green-100 py-3 flex justify-center space-x-6">
+        <a href="#" class="text-green-700 font-semibold nav-link">Vegetables</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Fruits</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Milk & Dairy</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
+    </nav>
+
+
+    <!-- Flash Deals Section -->
+    <!-- Flash Deals Section -->
+    <section id="flash-deals" class="py-8">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Flash Deals</h3>
+                <span class="bg-purple-600 text-white text-sm px-4 py-1 rounded-full">Limited Offer</span>
+            </div>
+            <div class="relative carousel">
+                <button id="carousel-prev"
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full hidden">&#8249;</button>
+                <div id="carousel-container" class="flex overflow-x-hidden gap-4">
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Potatoes"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Potatoes</h4>
+                        <p class="text-green-600 font-bold">₹25 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Tomatoes"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Tomatoes</h4>
+                        <p class="text-green-600 font-bold">₹30 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Onions"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Onions</h4>
+                        <p class="text-green-600 font-bold">₹18 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Green Beans"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Green Beans</h4>
+                        <p class="text-green-600 font-bold">₹35 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Okra" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Okra</h4>
+                        <p class="text-green-600 font-bold">₹40 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Green Chillies"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Green Chillies</h4>
+                        <p class="text-green-600 font-bold">₹20 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Dhania/Coriander"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Dhania / Coriander</h4>
+                        <p class="text-green-600 font-bold">₹10 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Mint" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Mint</h4>
+                        <p class="text-green-600 font-bold">₹15 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Ginger"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Ginger</h4>
+                        <p class="text-green-600 font-bold">₹25 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Garlic"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Garlic</h4>
+                        <p class="text-green-600 font-bold">₹30 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Sour Herbs"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Sour Herbs</h4>
+                        <p class="text-green-600 font-bold">₹12 / 100g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="carousel-next"
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full">&#8250;</button>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Vegetables Section -->
+    <!-- Vegetables Section -->
+    <section id="vegetables" class="py-8">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Vegetables</h3>
+                <span class="bg-purple-600 text-white text-sm px-4 py-1 rounded-full">Fresh Picks</span>
+            </div>
+            <div class="relative carousel">
+                <!-- Previous Button -->
+                <button id="carousel-prev-veg"
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full">&#8249;</button>
+
+                <div id="carousel-container-veg" class="flex overflow-x-hidden gap-4">
+                    <!-- Product Card for Cabbage -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Cabbage"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Cabbage</h4>
+                        <p class="text-green-600 font-bold">₹30 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Broccoli -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Broccoli"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Broccoli</h4>
+                        <p class="text-green-600 font-bold">₹60 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Cauliflower -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Cauliflower"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Cauliflower</h4>
+                        <p class="text-green-600 font-bold">₹40 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Green Guard / Kalabash -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Green Guard / Kalabash"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Green Guard / Kalabash</h4>
+                        <p class="text-green-600 font-bold">₹25 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Carrots -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Carrots"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Carrots</h4>
+                        <p class="text-green-600 font-bold">₹30 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Beetroot -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Beetroot"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Beetroot</h4>
+                        <p class="text-green-600 font-bold">₹35 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Radish -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Radish"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Radish</h4>
+                        <p class="text-green-600 font-bold">₹20 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Baby Marrow -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Baby Marrow"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Baby Marrow</h4>
+                        <p class="text-green-600 font-bold">₹50 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Butternut -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Butternut"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Butternut</h4>
+                        <p class="text-green-600 font-bold">₹40 / 1kg</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card for Peppers -->
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Peppers"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Peppers</h4>
+                        <p class="text-green-600 font-bold">₹80 / 500g</p>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <div class="counterSection hidden items-center gap-2">
+                                <button class="decrease bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span class="counter text-lg font-bold">1</span>
+                                <button class="increase bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                            <button class="addButton bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button id="carousel-next-veg"
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full">&#8250;</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Fruits Section -->
+    <section id="fruits" class="py-8 bg-white-100">
+        <div class="container mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Fruits</h3>
+            <div class="relative carousel">
+                <button
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8249;</button>
+                <div class="flex overflow-x-scroll no-scrollbar gap-4 carousel-container">
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Apples"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Apples</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Oranges"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Oranges</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Bananas"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Bananas</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Grapes"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Grapes</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Strawberries"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8250;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dairy & Poultry Section -->
+    <section id="dairy-poultry" class="py-8 bg-green-100">
+        <div class="container mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Dairy & Poultry</h3>
+            <div class="relative carousel">
+                <button
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8249;</button>
+                <div class="flex overflow-x-scroll no-scrollbar gap-4 carousel-container">
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Chicken"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Chicken</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Eggs" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Eggs</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <img src="https://via.placeholder.com/150" alt="Milk" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Milk</h4>
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button id="addButton" class="bg-blue-500 text-white w-20 h-8 rounded-full">ADD</button>
+                            <div id="counterSection" class="hidden items-center gap-2">
+                                <button id="decrease" class="bg-green-500 text-white w-8 h-8 rounded-full">-</button>
+                                <span id="counter" class="text-lg font-bold">1</span>
+                                <button id="increase" class="bg-green-500 text-white w-8 h-8 rounded-full">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">&#8250;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-4 text-center">
+        &copy; 2025 Gems Online Grocery Store. All rights reserved.
+    </footer>
+</body>
+
+</html>

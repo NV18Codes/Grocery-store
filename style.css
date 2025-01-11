@@ -1,0 +1,117 @@
+/* Remove scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.body {
+    background-color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+
+.flash-deals {
+    background-color: #e7f6e7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    color: #0b0b0b;
+    margin-bottom: 1rem;
+}
+
+.header,
+.footer {
+    background-color: rgb(22 163 74);
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.add-button {
+    background-color: rgb(22 163 74);
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: rgb(6, 53, 23);
+}
+
+.increase-button {
+    background-color: #009900;
+}
+
+#carousel-container {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.5s ease;
+    width: calc(25% * 4);
+    /* This will show 4 items at once */
+    overflow: hidden;
+}
+
+.product-card {
+    min-width: 200px;
+    /* Width of a single product card */
+}
+
+.carousel-prev,
+.carousel-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-prev.hidden,
+.carousel-next.hidden {
+    display: none;
+}
+
+.counter-section {
+    display: none;
+}
+
+.carousel {
+    overflow-x: hidden;
+    /* Ensure no horizontal scrolling */
+    padding: 0;
+    /* Make sure there’s no unintended padding causing overflow */
+    box-sizing: border-box;
+    /* Include padding in the element's total width */
+}
+
+#carousel-container-veg {
+    display: flex;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    gap: 4px;
+}
+
+.product-card {
+    min-width: 200px;
+    text-align: center;
+    box-sizing: border-box;
+    /* Include padding and border within width */
+}
