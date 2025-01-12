@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gems Online Grocery Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header top-0 z-50 text-white py-4 shadow-md">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
+
+            <!-- Store Title with Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="price font-bold">Logo</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-white"><a href="index.html">Gems Grocery</h1></a>
+            </div>
+
+            <!-- Search Bar Section (Centered) -->
+            <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    aria-label="Search products" />
+                <div id="no-results" class="text-red-500 hidden">No items found</div>
+                <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            </div>
+
+            <!-- Login, Cart, and Location Section (Right Aligned) -->
+            <div class="flex items-center space-x-6 mb-4 sm:mb-0">
+                <button
+                    class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 price font-bold transition duration-300"
+                    aria-label="Login">
+                    Login
+                </button>
+                <div class="relative cursor-pointer" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                        0
+                    </span>
+                </div>
+            </div>
+
+            <!-- Location Section (Aligned below Cart) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-green-100 py-3 flex justify-center space-x-6">
+        <a href="#" class="text-green-700 font-semibold nav-link active">Vegetables</a>
+        <a href="fruits.html" class="text-green-700 font-semibold nav-link">Fruits</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Milk & Dairy</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
+    </nav>
+    <!-- Categories -->
+    <div class="bg-green-100 p-4 flex flex-wrap gap-4 justify-center">
+        <button class="bg-white px-4 py-2 rounded-md shadow">All</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">OTP</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Greens</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Organic</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Herbs and Seasoning</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Sprouts</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Cut Veggies</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Exotic Veg</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Hydroponic</button>
+    </div>
+    <style>
+        .decrease {
+            background-color: #f44336;
+            /* Red color */
+            color: white;
+        }
+
+        .decrease:hover {
+            background-color: #e53935;
+        }
+
+        .increase {
+            background-color: #4caf50;
+            /* Green color */
+            color: white;
+        }
+
+        .increase:hover {
+            background-color: #43a047;
+        }
+
+        .addButton {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .addButton:hover {
+            background-color: #43a047;
+        }
+
+        .counterSection {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer { background-color: rgb(22 163 74);}
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const addButtons = document.querySelectorAll(".addButton");
+
+            addButtons.forEach((addButton) => {
+                addButton.addEventListener("click", () => {
+                    addButton.classList.add("hidden");
+                    const counterSection = addButton.nextElementSibling;
+                    counterSection.classList.remove("hidden");
+                    const counter = counterSection.querySelector(".counter");
+                    counter.textContent = 1;
+                    updateCartCount(1);
+                });
+            });
+
+            const counters = document.querySelectorAll(".counterSection");
+            counters.forEach((counterSection) => {
+                const decreaseButton = counterSection.querySelector(".decrease");
+                const increaseButton = counterSection.querySelector(".increase");
+                const counter = counterSection.querySelector(".counter");
+
+                decreaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    if (currentCount > 1) {
+                        currentCount--;
+                        counter.textContent = currentCount;
+                        updateCartCount(-1);
+                    } else {
+                        counterSection.classList.add("hidden");
+                        const addButton = counterSection.previousElementSibling;
+                        addButton.classList.remove("hidden");
+                        updateCartCount(-1);
+                    }
+                });
+
+                increaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    currentCount++;
+                    counter.textContent = currentCount;
+                    updateCartCount(1);
+                });
+            });
+        });
+
+        function updateCartCount(change) {
+            const cartCount = document.getElementById("cart-count");
+            let currentCount = parseInt(cartCount.textContent);
+            currentCount += change;
+            cartCount.textContent = currentCount;
+        }
+    </script>
+    </head>
+
+
+
+    <main class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- 10 Product Cards -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_1280.jpg" alt="French Beans"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">French Beans</h3>
+                <p class="text-green-600 font-bold">R 96.60/kg</p>
+                <p class="text-sm">350 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copy and customize the card details for 9 more products -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2019/07/19/11/19/tomatoes-4348557_1280.jpg" alt="Tomatoes"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Tomatoes</h3>
+                <p class="text-green-600 font-bold">R 65.50/kg</p>
+                <p class="text-sm">500 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat for additional products -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2020/05/18/15/54/onion-5187140_1280.jpg" alt="Onions"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Onions</h3>
+                <p class="text-green-600 font-bold">R 30.00/kg</p>
+                <p class="text-sm">1 kg</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2016/09/25/16/34/carrots-1694087_1280.jpg" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Carrots</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2017/08/11/09/16/eggplant-2630097_1280.png" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Eggplant</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2018/06/17/14/44/cucumber-3480646_1280.jpg" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Cucumber</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2019/09/05/07/27/eat-4453350_1280.png" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Peas</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2019/02/17/08/10/okra-4001742_1280.jpg" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Okra</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more cards here -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/appetite-1238251_1280.jpg" alt="Product Image"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Broccoli</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class=" text-white py-4 text-center bg-green-600">
+        &copy; 2025 Gems Online Grocery Store. All rights reserved.
+    </footer>
+</body>
+
+</html>
