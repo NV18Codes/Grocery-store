@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gems Online Grocery Store - Fruits</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header top-0 z-50 text-white py-4 shadow-md">
+
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
+
+            <!-- Store Title with Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="price font-bold">Logo</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-white"><a href="index.html">Gems Grocery</h1></a>
+            </div>
+
+            <!-- Search Bar Section (Centered) -->
+            <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    aria-label="Search products" />
+                <div id="no-results" class="text-red-500 hidden">No items found</div>
+                <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            </div>
+
+            <!-- Login, Cart, and Location Section (Right Aligned) -->
+            <div class="flex items-center space-x-6 mb-4 sm:mb-0">
+                <button
+                    class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 price font-bold transition duration-300"
+                    aria-label="Login">
+                    Login
+                </button>
+                <div class="relative cursor-pointer" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                        0
+                    </span>
+                </div>
+            </div>
+
+            <!-- Location Section (Aligned below Cart) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-green-100 py-3 flex justify-center space-x-6">
+        <a href="vegetables.html" class="text-green-700 font-semibold nav-link">Vegetables</a>
+        <a href="#" class="text-green-700 font-semibold nav-link active">Fruits</a>
+        <a href="#" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
+    </nav>
+    <!-- Categories -->
+    <div class="bg-green-100 p-4 flex flex-wrap gap-4 justify-center">
+        <button class="bg-white px-4 py-2 rounded-md shadow">All</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Citrus</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Berries</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Tropical</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Stone Fruits</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Melons</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Exotic Fruits</button>
+        <button class="bg-white px-4 py-2 rounded-md shadow">Dried Fruits</button>
+    </div>
+    <style>
+        .decrease {
+            background-color: #f44336;
+            /* Red color */
+            color: white;
+        }
+
+        .decrease:hover {
+            background-color: #e53935;
+        }
+
+        .increase {
+            background-color: #4caf50;
+            /* Green color */
+            color: white;
+        }
+
+        .increase:hover {
+            background-color: #43a047;
+        }
+
+        .addButton {
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .addButton:hover {
+            background-color: #43a047;
+        }
+
+        .counterSection {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const addButtons = document.querySelectorAll(".addButton");
+
+            addButtons.forEach((addButton) => {
+                addButton.addEventListener("click", () => {
+                    addButton.classList.add("hidden");
+                    const counterSection = addButton.nextElementSibling;
+                    counterSection.classList.remove("hidden");
+                    const counter = counterSection.querySelector(".counter");
+                    counter.textContent = 1;
+                    updateCartCount(1);
+                });
+            });
+
+            const counters = document.querySelectorAll(".counterSection");
+            counters.forEach((counterSection) => {
+                const decreaseButton = counterSection.querySelector(".decrease");
+                const increaseButton = counterSection.querySelector(".increase");
+                const counter = counterSection.querySelector(".counter");
+
+                decreaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    if (currentCount > 1) {
+                        currentCount--;
+                        counter.textContent = currentCount;
+                        updateCartCount(-1);
+                    } else {
+                        counterSection.classList.add("hidden");
+                        const addButton = counterSection.previousElementSibling;
+                        addButton.classList.remove("hidden");
+                        updateCartCount(-1);
+                    }
+                });
+
+                increaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    currentCount++;
+                    counter.textContent = currentCount;
+                    updateCartCount(1);
+                });
+            });
+        });
+
+        function updateCartCount(change) {
+            const cartCount = document.getElementById("cart-count");
+            let currentCount = parseInt(cartCount.textContent);
+            currentCount += change;
+            cartCount.textContent = currentCount;
+        }
+    </script>
+
+    <main class="container mx-auto px-4 py-6">
+        <!-- Back Button -->
+        <div class="mb-4">
+            <a href="index.html"
+                class="inline-flex items-center px-4 py-2 bg-white text-green-600 rounded-md shadow hover:bg-green-600 hover:text-white transition duration-300">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- 10 Product Cards -->
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Apple</h3>
+                <p class="text-green-600 font-bold">R 120.00/kg</p>
+                <div class="flex items-center mt-4 text-center justify-center">
+                    <button class="addButton py-2 px-4 rounded-full ">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2017/04/04/17/42/fruits-2202426_1280.jpg" alt="Oranges"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Oranges</h3>
+                <p class="text-green-600 font-bold">R 80.00/kg</p>
+                <div class="flex items-center mt-4 text-center justify-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2020/04/21/08/31/grape-5072149_1280.jpg" alt="Grapes"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Grapes</h3>
+                <p class="text-green-600 font-bold">R 90.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2022/05/27/10/35/strawberry-7224875_1280.jpg" alt="Strawberries"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Strawberries</h3>
+                <p class="text-green-600 font-bold">R 150.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2016/03/05/22/18/food-1239241_1280.jpg" alt="Mangoes"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Mangoes</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2020/04/29/12/47/pineapple-5108775_1280.jpg" alt="Pineapple"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Pineapple</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_1280.jpg" alt="Guava"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Guava</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2018/03/05/08/03/food-3200187_1280.jpg" alt="Papaya"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Papaya</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg" alt="Watermelon"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Watermelon</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="https://cdn.pixabay.com/photo/2014/07/08/14/17/muskmelons-387466_1280.jpg" alt="muskmelon"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Muskmelon</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white py-4 text-center bg-green-600">
+        &copy; 2025 Gems Online Grocery Store. All rights reserved.
+    </footer>
+</body>
