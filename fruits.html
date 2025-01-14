@@ -73,38 +73,11 @@
         <button class="bg-white px-4 py-2 rounded-md shadow">Exotic Fruits</button>
         <button class="bg-white px-4 py-2 rounded-md shadow">Dried Fruits</button>
     </div>
+
+
+
     <style>
-        .decrease {
-            background-color: #f44336;
-            /* Red color */
-            color: white;
-        }
-
-        .decrease:hover {
-            background-color: #e53935;
-        }
-
-        .increase {
-            background-color: #4caf50;
-            /* Green color */
-            color: white;
-        }
-
-        .increase:hover {
-            background-color: #43a047;
-        }
-
-        .addButton {
-            background-color: #4caf50;
-            color: white;
-            font-weight: bold;
-        }
-
-        .addButton:hover {
-            background-color: #43a047;
-        }
-
-        .counterSection {
+         .counterSection {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -114,6 +87,9 @@
             display: none;
         }
     </style>
+
+
+
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
             const addButtons = document.querySelectorAll(".addButton");
@@ -179,7 +155,7 @@
             <div class="bg-white p-4 rounded shadow text-center">
                 <img src="https://cdn.pixabay.com/photo/2016/11/18/13/47/apple-1834639_1280.jpg" alt="Apple"
                     class="w-full h-32 object-cover mb-2">
-                <h3 class="text-lg font-semibold">Apple</h3>
+                <h3 class="text-lg font-semibold">Apple Red</h3>
                 <p class="text-green-600 font-bold">R 120.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton py-2 px-4 rounded-full ">ADD</button>
@@ -213,7 +189,7 @@
             <div class="bg-white p-4 rounded shadow text-center">
                 <img src="https://cdn.pixabay.com/photo/2020/04/21/08/31/grape-5072149_1280.jpg" alt="Grapes"
                     class="w-full h-32 object-cover mb-2">
-                <h3 class="text-lg font-semibold">Grapes</h3>
+                <h3 class="text-lg font-semibold">Grapes White</h3>
                 <p class="text-green-600 font-bold">R 90.00/kg</p>
                 <div class="flex items-center mt-4 justify-center text-center">
                     <button class="addButton py-2 px-4 rounded-full">ADD</button>
@@ -328,6 +304,86 @@
                 <img src="https://cdn.pixabay.com/photo/2014/07/08/14/17/muskmelons-387466_1280.jpg" alt="muskmelon"
                     class="w-full h-32 object-cover mb-2">
                 <h3 class="text-lg font-semibold">Muskmelon</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/fruits/banana.jpg" alt="banana"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Banana</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/fruits/applegreen.jpg" alt="green apple"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Apples Green Granny Smith</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/fruits/grapesred.jpg" alt="grapes red"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Grapes Red</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/fruits/applegolden.jpg" alt="apple golden"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Apples Golden Delicious</h3>
+                <p class="text-green-600 font-bold">R 100.00/kg</p>
+                <div class="flex items-center mt-4 justify-center text-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/fruits/avocado.jpg" alt="avocados"
+                    class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Avocados</h3>
                 <p class="text-green-600 font-bold">R 100.00/kg</p>
                 <div class="flex items-center mt-4 justify-center text-center">
                     <button class="addButton py-2 px-4 rounded-full">ADD</button>
