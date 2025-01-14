@@ -73,36 +73,10 @@
         <button class="bg-white px-4 py-2 rounded-md shadow">Quail</button>
         <button class="bg-white px-4 py-2 rounded-md shadow">Goose</button>
     </div>
+
+
+    
     <style>
-        .decrease {
-            background-color: #f44336;
-            /* Red color */
-            color: white;
-        }
-
-        .decrease:hover {
-            background-color: #e53935;
-        }
-
-        .increase {
-            background-color: #4caf50;
-            /* Green color */
-            color: white;
-        }
-
-        .increase:hover {
-            background-color: #43a047;
-        }
-
-        .addButton {
-            background-color: #4caf50;
-            color: white;
-            font-weight: bold;
-        }
-
-        .addButton:hover {
-            background-color: #43a047;
-        }
 
         .counterSection {
             display: flex;
@@ -114,6 +88,9 @@
             display: none;
         }
     </style>
+
+
+
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
             const addButtons = document.querySelectorAll(".addButton");
@@ -177,8 +154,8 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- 10 Product Cards -->
             <div class="bg-white p-4 rounded shadow text-center">
-                <img src="https://cdn.pixabay.com/photo/2014/03/05/01/20/chicken-breast-279848_1280.jpg" alt="Apple" class="w-full h-32 object-cover mb-2">
-                <h3 class="text-lg font-semibold">Chicken fillets</h3>
+                <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Chicken Cut Pieces</h3>
                 <p class="text-green-600 font-bold">R 75.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton py-2 px-4 rounded-full ">ADD</button>
@@ -193,8 +170,23 @@
             </div>
 
             <div class="bg-white p-4 rounded shadow text-center">
-                <img src="https://cdn.pixabay.com/photo/2022/11/04/18/54/eggs-7570512_1280.jpg" alt="Oranges" class="w-full h-32 object-cover mb-2">
-                <h3 class="text-lg font-semibold">Eggs</h3>
+                <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">30 Eggs</h3>
+                <p class="text-green-600 font-bold">R 80.00/dozen</p>
+                <div class="flex items-center mt-4 text-center justify-center">
+                    <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                    <div class="counterSection hidden">
+                        <button
+                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
+                        <span class="counter text-lg font-bold">1</span>
+                        <button
+                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <img src="img/eggs/wholechicken.jpg" alt="whole chicken" class="w-full h-32 object-cover mb-2">
+                <h3 class="text-lg font-semibold">Whole Chicken</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton py-2 px-4 rounded-full">ADD</button>

@@ -57,6 +57,61 @@
         </div>
     </header>
 
+
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const addButtons = document.querySelectorAll(".addButton");
+
+            addButtons.forEach((addButton) => {
+                addButton.addEventListener("click", () => {
+                    addButton.classList.add("hidden");
+                    const counterSection = addButton.nextElementSibling;
+                    counterSection.classList.remove("hidden");
+                    const counter = counterSection.querySelector(".counter");
+                    counter.textContent = 1;
+                    updateCartCount(1);
+                });
+            });
+
+            const counters = document.querySelectorAll(".counterSection");
+            counters.forEach((counterSection) => {
+                const decreaseButton = counterSection.querySelector(".decrease");
+                const increaseButton = counterSection.querySelector(".increase");
+                const counter = counterSection.querySelector(".counter");
+
+                decreaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    if (currentCount > 1) {
+                        currentCount--;
+                        counter.textContent = currentCount;
+                        updateCartCount(-1);
+                    } else {
+                        counterSection.classList.add("hidden");
+                        const addButton = counterSection.previousElementSibling;
+                        addButton.classList.remove("hidden");
+                        updateCartCount(-1);
+                    }
+                });
+
+                increaseButton.addEventListener("click", () => {
+                    let currentCount = parseInt(counter.textContent);
+                    currentCount++;
+                    counter.textContent = currentCount;
+                    updateCartCount(1);
+                });
+            });
+        });
+
+        function updateCartCount(change) {
+            const cartCount = document.getElementById("cart-count");
+            let currentCount = parseInt(cartCount.textContent);
+            currentCount += change;
+            cartCount.textContent = currentCount;
+        }
+        </script>
+
+
+
     <nav class="bg-green-100 py-3 flex justify-center items-center space-x-6 flex-wrap">
         <a href="vegetables.html" class="text-green-700 font-semibold nav-link">Vegetables</a>
         <a href="fruits.html" class="text-green-700 font-semibold nav-link">Fruits</a>
