@@ -59,7 +59,12 @@
         <!-- Login Modal -->
         <div id="login-modal"
             class="fixed inset-0 bg-gray-500 bg-opacity-50 z-50 hidden flex justify-center items-center">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                <!-- Close Button -->
+                <button id="close-login-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+
                 <!-- Modal Content -->
                 <div class="text-center mb-4">
                     <h2 class="text-2xl font-bold text-green-500">Login</h2>
@@ -125,7 +130,12 @@
         <!-- Sign Up Modal (Initially Hidden) -->
         <div id="sign-up-modal"
             class="fixed inset-0 bg-gray-500 bg-opacity-50 z-50 hidden flex justify-center items-center">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                <!-- Close Button -->
+                <button id="close-sign-up-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+
                 <!-- Modal Content -->
                 <div class="text-center mb-4">
                     <h2 class="text-2xl font-bold text-green-500">Sign Up</h2>
@@ -177,44 +187,21 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
         <script>
+            // JavaScript to close modals
+            document.getElementById('close-login-modal').addEventListener('click', function () {
+                document.getElementById('login-modal').classList.add('hidden');
+            });
+
+            document.getElementById('close-sign-up-modal').addEventListener('click', function () {
+                document.getElementById('sign-up-modal').classList.add('hidden');
+            });
+
             // JavaScript to reload captcha image using an icon click
             document.getElementById('reload-captcha').addEventListener('click', function () {
                 var captchaImage = document.getElementById('captcha-image');
                 captchaImage.src = "captcha_image.php?" + new Date().getTime(); // Prevent caching
             });
 
-            // Show Login Modal
-            document.getElementById('login-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Show Sign Up Modal
-            document.getElementById('sign-up-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.add('hidden');
-                document.getElementById('sign-up-modal').classList.remove('hidden');
-            });
-
-            // Show Login Modal from Sign Up Modal
-            document.getElementById('login-btn-sign-up').addEventListener('click', function () {
-                document.getElementById('sign-up-modal').classList.add('hidden');
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Close the modal when clicking outside of it
-            window.onclick = function (event) {
-                if (event.target == document.getElementById('login-modal')) {
-                    document.getElementById('login-modal').classList.add('hidden');
-                }
-                if (event.target == document.getElementById('sign-up-modal')) {
-                    document.getElementById('sign-up-modal').classList.add('hidden');
-                }
-            };
-        </script>
-
-
-        <!-- Tailwind CSS & FontAwesome Icons CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-        <script>
             // Show Login Modal
             document.getElementById('login-btn').addEventListener('click', function () {
                 document.getElementById('login-modal').classList.remove('hidden');
