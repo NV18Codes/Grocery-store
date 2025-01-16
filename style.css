@@ -148,7 +148,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(239, 235, 235, 0.852);
     transition: background-color 0.3s;
 }
 
@@ -202,7 +202,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(229, 221, 221, 0.735);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -252,4 +252,3 @@
     z-index: 10;
     cursor: pointer;
 }
-.footer{background-color: #009900;}
