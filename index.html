@@ -19,11 +19,14 @@
 
             <!-- Store Title with Logo (Left Aligned) -->
             <div class="flex items-center space-x-4 mb-4 sm:mb-0">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <span class="price font-bold">Logo</span>
+                <div class="flex items-center justify-center p-2 rounded-lg">
+                    <img src="img/logo-5.png" alt="Gems Grocery Store Logo" class="w-40 h-auto">
+                    <a href="index.html"></a>
                 </div>
-                <h1 class="text-2xl sm:text-3xl font-bold text-white"><a href="index.html">Gems Grocery</h1></a>
+                <div class="text-2xl sm:text-3xl font-bold text-white">
+                </div>
             </div>
+
 
             <!-- Search Bar Section (Centered) -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
@@ -42,12 +45,15 @@
                     Login
                 </button>
                 <div class="relative cursor-pointer" aria-label="Shopping Cart">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-count"
-                        class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
-                        0
-                    </span>
+                    <a href="cart.html" class="flex items-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count"
+                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                            0
+                        </span>
+                    </a>
                 </div>
+
             </div>
 
             <!-- Location Section (Aligned below Cart) -->
@@ -230,7 +236,7 @@
             };
         </script>
     </header>
-    
+
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
             const addButtons = document.querySelectorAll(".addButton");
@@ -307,7 +313,9 @@
                             <h4 class="text-lg font-semibold mt-2">Potatoes</h4>
                             <p class="price font-bold">R 25 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -324,7 +332,9 @@
                             <h4 class="text-lg font-semibold mt-2">Tomatoes</h4>
                             <p class="price font-bold">R 30 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -341,7 +351,9 @@
                             <h4 class="text-lg font-semibold mt-2">Onions</h4>
                             <p class="price font-bold">R 18 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -358,7 +370,9 @@
                             <h4 class="text-lg font-semibold mt-2">Green Beans</h4>
                             <p class="price font-bold">R 35 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -375,7 +389,9 @@
                             <h4 class="text-lg font-semibold mt-2">Okra</h4>
                             <p class="price font-bold">R 40 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -392,7 +408,9 @@
                             <h4 class="text-lg font-semibold mt-2">Green Chillies</h4>
                             <p class="price font-bold">R 20 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -409,7 +427,9 @@
                             <h4 class="text-lg font-semibold mt-2">Dhania / Coriander</h4>
                             <p class="price font-bold">R 10 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -426,7 +446,9 @@
                             <h4 class="text-lg font-semibold mt-2">Mint</h4>
                             <p class="price font-bold">R 15 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -443,7 +465,9 @@
                             <h4 class="text-lg font-semibold mt-2">Ginger</h4>
                             <p class="price font-bold">R 25 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -460,7 +484,9 @@
                             <h4 class="text-lg font-semibold mt-2">Garlic</h4>
                             <p class="price font-bold">R 30 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -477,7 +503,9 @@
                             <h4 class="text-lg font-semibold mt-2">Sour Herbs</h4>
                             <p class="price font-bold">R 12 / 100g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -535,7 +563,9 @@
                             <h4 class="text-lg font-semibold mt-2">Cabbage</h4>
                             <p class="price font-bold">R 30 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -554,7 +584,9 @@
                             <h4 class="text-lg font-semibold mt-2">Broccoli</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -573,7 +605,9 @@
                             <h4 class="text-lg font-semibold mt-2">Cauliflower</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -592,7 +626,9 @@
                             <h4 class="text-lg font-semibold mt-2">Green Guard/Calabash</h4>
                             <p class="price font-bold">R 25 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -611,7 +647,9 @@
                             <h4 class="text-lg font-semibold mt-2">Carrots</h4>
                             <p class="price font-bold">R 30 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -630,7 +668,9 @@
                             <h4 class="text-lg font-semibold mt-2">Beetroot</h4>
                             <p class="price font-bold">R 35 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -649,7 +689,9 @@
                             <h4 class="text-lg font-semibold mt-2">Radish</h4>
                             <p class="price font-bold">R 20 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -668,7 +710,9 @@
                             <h4 class="text-lg font-semibold mt-2">Baby Marrow</h4>
                             <p class="price font-bold">R 50 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -687,7 +731,9 @@
                             <h4 class="text-lg font-semibold mt-2">Butternut</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -706,7 +752,9 @@
                             <h4 class="text-lg font-semibold mt-2">Peppers Mixed</h4>
                             <p class="price font-bold">R 80 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -764,7 +812,9 @@
                             <h4 class="text-lg font-semibold mt-2">Apples</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -782,7 +832,9 @@
                             <h4 class="text-lg font-semibold mt-2">Oranges</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -800,7 +852,9 @@
                             <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -813,20 +867,28 @@
                         </div>
 
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/05/19/03/appetite-1238257_1280.jpg"
-                                alt="Avocados" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Avocados</h4>
-                            <p class="price font-bold">R 60 / 500g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
-                                <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                                    <!-- Ensure flex layout and spacing -->
-                                    <button
-                                        class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                                    <span class="counter text-lg font-bold">1</span>
-                                    <button
-                                        class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
-                                </div>
+                            <!-- Out of Stock Badge -->
+                            <div
+                                class="absolute top-2 left-2 bg-gray-300 text-gray-700 text-sm px-2 py-1 rounded font-semibold">
+                                Out of stock
+                            </div>
+
+                            <!-- Product Image -->
+                            <img src="img/fruits/avocado.jpg" alt="avocados"
+                                class="w-auto h-48 object-cover mb-2 opacity-50">
+
+                            <!-- Product Details -->
+                            <h3 class="text-lg font-semibold text-gray-500">Avocados</h3>
+                            <p class="text-green-600 font-bold line-through">R 60.00/kg</p>
+                            <p class="text-gray-500">Currently unavailable</p>
+
+                            <!-- Disabled Add Button -->
+                            <div class="mt-4">
+                                <button
+                                    class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
+                                    disabled>
+                                    ADD
+                                </button>
                             </div>
                         </div>
 
@@ -836,7 +898,9 @@
                             <h4 class="text-lg font-semibold mt-2">Bananas</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -854,7 +918,9 @@
                             <h4 class="text-lg font-semibold mt-2">Grapes</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -872,7 +938,9 @@
                             <h4 class="text-lg font-semibold mt-2">Watermelon</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -890,7 +958,9 @@
                             <h4 class="text-lg font-semibold mt-2">Lemons</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -950,7 +1020,9 @@
                             <h4 class="text-lg font-semibold mt-2">Chicken Cut Pieces</h4>
                             <p class="price font-bold">R 75/kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -967,7 +1039,9 @@
                             <h4 class="text-lg font-semibold mt-2">30 Eggs</h4>
                             <p class="price font-bold">R 60.00 </p>
                             <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
                                 <div class="counterSection hidden flex items-center space-x-2 ml-4">
                                     <!-- Ensure flex layout and spacing -->
                                     <button
@@ -979,20 +1053,29 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="img/eggs/wholechicken.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Whole Chicken</h4>
-                            <p class="price font-bold">R 60.00/kg </p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton py-2 px-4 rounded-full">ADD</button>
-                                <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                                    <!-- Ensure flex layout and spacing -->
-                                    <button
-                                        class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                                    <span class="counter text-lg font-bold">1</span>
-                                    <button
-                                        class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
-                                </div>
+                        <div class="bg-white p-4 rounded shadow text-center relative">
+                            <!-- Out of Stock Badge -->
+                            <div
+                                class="absolute top-2 left-2 bg-gray-300 text-gray-700 text-sm px-2 py-1 rounded font-semibold">
+                                Out of stock
+                            </div>
+
+                            <!-- Product Image -->
+                            <img src="img/eggs/wholechicken.jpg" alt="Whole Chicken"
+                                class="w-auto h-48 object-cover mb-2 opacity-50">
+
+                            <!-- Product Details -->
+                            <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
+                            <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
+                            <p class="text-gray-500">Currently unavailable</p>
+
+                            <!-- Disabled Add Button -->
+                            <div class="mt-4">
+                                <button
+                                    class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
+                                    disabled>
+                                    ADD
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1019,17 +1102,19 @@
     </div>
     <footer class="bg-green-600 text-white py-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-start">
                 <!-- Logo and About Section -->
                 <div class="flex flex-col items-center md:items-start">
-                    <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-32 h-auto mb-4">
+                    <img src="img/logo-5.png" alt="Gems Grocery Store Logo" class="w-32 h-auto mb-4">
                     <p class="text-sm text-gray-300 text-center md:text-left">
-                        Your one-stop shop for fresh and organic groceries. We deliver quality products right to your
+                        Your one-stop shop for fresh and organic groceries.<br> We deliver quality products right to
+                        your
                         doorstep.
                     </p>
                 </div>
+
                 <!-- Quick Links Section -->
-                <div class="text-center md:text-left">
+                <div class="text-center md:text-left md:ml-auto">
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="index.html" class="hover:text-green-400">Home</a></li>
@@ -1038,8 +1123,9 @@
                         <li><a href="eggs.html" class="hover:text-green-400">Eggs & Poultry</a></li>
                     </ul>
                 </div>
+
                 <!-- Contact Section -->
-                <div class="text-center md:text-left">
+                <div class="text-center md:text-left md:ml-8">
                     <h3 class="text-xl font-bold mb-4">Contact Us</h3>
                     <ul class="text-sm text-gray-300 space-y-2">
                         <li>📞 +91 9876543210</li>
@@ -1059,6 +1145,7 @@
             </div>
         </div>
     </footer>
+
 
 
 </body>
