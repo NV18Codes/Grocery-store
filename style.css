@@ -38,6 +38,7 @@
     margin-bottom: 1rem;
 }
 
+
 .header,
 .footer {
     background-color: rgb(22 163 74);
@@ -87,10 +88,6 @@
     overflow: hidden;
 }
 
-.product-card {
-    min-width: 200px;
-    /* Width of a single product card */
-}
 
 .carousel-prev,
 .carousel-next {
@@ -231,24 +228,4 @@
     text-align: center;
 }
 
-/* Hide scrollbars */
-.carousel-container {
-    display: flex;
-    gap: 1rem;
-    overflow: hidden;
-    /* Prevents showing a scrollbar */
-    scroll-behavior: smooth;
-}
 
-/* Hide carousel buttons when not needed */
-.carousel-prev.hidden,
-.carousel-next.hidden {
-    display: none;
-}
-
-/* Button Styles */
-.carousel-prev,
-.carousel-next {
-    z-index: 10;
-    cursor: pointer;
-}
