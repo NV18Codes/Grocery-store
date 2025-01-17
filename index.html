@@ -14,13 +14,13 @@
 </head>
 
 <body>
-    <header class="header top-0 z-50 text-white py-4 shadow-md">
+    <header class="header top-0 z-50 text-white shadow-md">
         <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
 
             <!-- Store Title with Logo (Left Aligned) -->
             <div class="flex items-center space-x-4 mb-4 sm:mb-0">
                 <div class="flex items-center justify-center p-2 rounded-lg">
-                    <img src="img/logo-5.png" alt="Gems Grocery Store Logo" class="w-40 h-auto">
+                    <img src="img\logo.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
                     <a href="index.html"></a>
                 </div>
                 <div class="text-2xl sm:text-3xl font-bold text-white">
@@ -520,21 +520,6 @@
                             class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full mr-10 text-2xl">&#8250;</button>
                     </div>
                 </div>
-                <div class="flex justify-end mt-4">
-                    <a href="#" class="flex items-center text-green-600 font-bold text-md">
-                        SEE MORE
-                        <span
-                            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-green-600 text-green-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-
-
         </section>
 
 
@@ -549,7 +534,7 @@
 
                     <!-- Prev Button -->
                     <button id="carousel-prev-veg"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
                         &#8249;
                     </button>
 
@@ -769,7 +754,7 @@
 
                     <!-- Next Button -->
                     <button id="carousel-next-veg"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
                         &#8250;
                     </button>
                 </div>
@@ -798,7 +783,7 @@
                 <div class="relative owl-carousel">
                     <!-- Prev Button -->
                     <button id="fruits-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
                         &#8249;
                     </button>
 
@@ -874,8 +859,9 @@
                             </div>
 
                             <!-- Product Image -->
-                            <img src="img/fruits/avocado.jpg" alt="avocados"
-                                class="w-auto h-48 object-cover mb-2 opacity-50">
+                            <img src="https://cdn.pixabay.com/photo/2016/03/05/19/03/appetite-1238257_1280.jpg"
+                                alt="avocados" class="w-auto h-48 object-contain mb-2 opacity-50">
+
 
                             <!-- Product Details -->
                             <h3 class="text-lg font-semibold text-gray-500">Avocados</h3>
@@ -975,7 +961,7 @@
 
                     <!-- Next Button -->
                     <button id="fruits-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
                         &#8250;
                     </button>
                 </div>
@@ -1000,12 +986,12 @@
         <!-- Dairy & Poultry Section -->
         <section id="dairy-poultry" class="py-8 bg-white-100 ">
             <div class="container mx-auto">
-                <h3 class="text-2xl font-bold mb-4">Eggs and Poultry</h3>
+                <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
                 <div class="relative carousel">
 
                     <!-- Prev Button -->
                     <button id="dairy-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
                         &#8249;
                     </button>
 
@@ -1081,7 +1067,7 @@
                     </div>
                     <!-- Next Button -->
                     <button id="dairy-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
                         &#8250;
                     </button>
                 </div>
@@ -1102,19 +1088,19 @@
     </div>
     <footer class="bg-green-600 text-white py-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-start">
+            <!-- Top Section -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:space-y-0">
                 <!-- Logo and About Section -->
-                <div class="flex flex-col items-center md:items-start">
-                    <img src="img/logo-5.png" alt="Gems Grocery Store Logo" class="w-32 h-auto mb-4">
-                    <p class="text-sm text-gray-300 text-center md:text-left">
-                        Your one-stop shop for fresh and organic groceries.<br> We deliver quality products right to
-                        your
-                        doorstep.
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <img src="img\logo.png" alt="Gems Grocery Store Logo" class="w-30 h-40 mb-4">
+                    <p class="text-sm text-gray-300">
+                        Your one-stop shop for fresh and organic groceries.<br>
+                        We deliver quality products right to your doorstep.
                     </p>
                 </div>
 
                 <!-- Quick Links Section -->
-                <div class="text-center md:text-left md:ml-auto">
+                <div class="flex flex-col items-center md:items-start  md:text-left">
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="index.html" class="hover:text-green-400">Home</a></li>
@@ -1125,19 +1111,21 @@
                 </div>
 
                 <!-- Contact Section -->
-                <div class="text-center md:text-left md:ml-8">
+                <div class="flex flex-col md:items-start md:text-left">
                     <h3 class="text-xl font-bold mb-4">Contact Us</h3>
                     <ul class="text-sm text-gray-300 space-y-2">
                         <li>📞 +91 9876543210</li>
-                        <li>📧 support@gemsgrocerystore.com</li>
+                        <li>📧 <a href="mailto:support@gems.co.za"
+                                class="hover:underline text-gray-300">support@gems.co.za</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Footer Bottom -->
-            <div class="mt-8 flex flex-col md:flex-row items-center justify-between border-t border-gray-700 pt-4">
+            <div
+                class="mt-8 flex flex-col md:flex-row items-center justify-between border-t border-gray-700 pt-4 space-y-4 md:space-y-0">
                 <div class="text-sm text-white text-center md:text-left">
-                    &copy; 2025 Gems Grocery Store. All rights reserved.
+                    &copy; 2025 <b>Gems</b> Fruit & Veg. All rights reserved.
                 </div>
                 <div class="text-sm text-white text-center md:text-right">
                     Designed with ❤️ by Gems Team.
@@ -1145,6 +1133,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
