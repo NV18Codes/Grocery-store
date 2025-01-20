@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gems Online Grocery Store | Vegetables</title>
+    <title>Gems Fruit & Veg | Vegetables</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -23,8 +23,7 @@
                     <a href="index.html"> <img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-40 h-30">
                     </a>
                 </div>
-                <div class="text-2xl sm:text-3xl font-bold text-white">
-                </div>
+
             </div>
 
             <!-- Search Bar Section (Centered) -->
@@ -311,491 +310,539 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2010/12/13/10/25/potatoes-2795_1280.jpg" alt="French Beans"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Potatoes</h3>
                 <p class="text-green-600 font-bold">R 96.60/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2022/09/05/09/50/tomatoes-7433786_1280.jpg" alt="Tomatoes"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Tomatoes</h3>
                 <p class="text-green-600 font-bold">R 65.50/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2013/09/06/16/02/onion-179474_1280.jpg" alt="Onions"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Onions</h3>
                 <p class="text-green-600 font-bold">R 30.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_640.jpg" alt="Onions"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold"> Red onions</h3>
                 <p class="text-green-600 font-bold">R 30.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg" alt="French Beans"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Beans</h3>
                 <p class="text-green-600 font-bold">R 96.60/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2021/08/15/18/50/lady-finger-6548610_1280.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Okra</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://media.istockphoto.com/id/942849220/photo/ripe-green-chilli-pepper.jpg?s=612x612&w=0&k=20&c=bARROQGUGj5w-3PsV9gIll3K32rKsDKa9VFAcpWUL9E="
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green chillies</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_640.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Dhania/Coriander</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Mint</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Ginger</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Garlic</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/spinach-7650539_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Spinach</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://1.bp.blogspot.com/-P0CkyiM-bSg/XeIF0JmLkCI/AAAAAAAAAes/mkv_nLMei3shyHUab0gOjar2_f3iIgGBQCEwYBhgL/s1600/gongura%2Bred%2Bstem.JPG"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Sour herbs</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cabbage</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2014/10/22/18/34/broccoli-498605_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Broccoli</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cauliflower</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Gourd/Calabash</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2016/11/23/00/22/carrots-1851424_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Carrots</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Beetroot</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://imgs.search.brave.com/RQIfVoABzthwoI5A0Umz6gh8U0gEv7Ro95BPTBhzIXA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JnYW5pY2ZhY3Rz/Lm5ldC93cC1jb250/ZW50L3VwbG9hZHMv/MjAxMy8wNS9SYWRk/aXNoLmpwZw"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Raddish</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Baby marrow</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2013/05/06/13/32/butternut-squash-109131_640.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Butternut</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://media.istockphoto.com/id/865271826/photo/raw-ripe-eggplant-display-at-vegetable-stall.jpg?s=612x612&w=0&k=20&c=ornq52DBAgslGActK1I-w5ESE-fAIx7xR3RA-ksbk8U="
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Eggplant</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
-                <img src="https://cdn.pixabay.com/photo/2023/01/06/03/46/cucumber-7700336_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                <img src="https://cdn.pixabay.com/photo/2023/06/05/01/04/cucumber-8041166_640.jpg" alt="Product Image"
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cucumber</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2015/05/23/13/10/vegetables-780528_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Peas</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -803,20 +850,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534410_1280.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Bitter Gourd</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -824,20 +873,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2018/08/29/10/25/bhutan-3639572_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Brinjal</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -845,20 +896,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2020/07/26/02/05/potato-5438263_640.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Gilora</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -866,20 +919,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2020/07/03/23/52/taro-5367857_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Madumbe</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -887,20 +942,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2017/11/09/10/08/fenugreek-2932921_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Methi/Fenugreek Herbs</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -908,20 +965,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg" alt="Product Image"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Peppers Mixed</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -929,20 +988,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyyPA1JWT77C-jVktv2kkgo91dXndgnwqEzg&s"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Ridge Gourd/Luffa</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -950,20 +1011,22 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2019/04/29/08/56/fresh-green-onion-bunches-4165548_640.jpg"
-                    alt="Product Image" class="w-auto h-48 object-cover mb-2">
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Spring Onions</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -971,28 +1034,52 @@
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden flex items-center space-x-2 ml-4">
-                        <!-- Ensure flex layout and spacing -->
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded text-center relative">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                <img src="https://cdn.pixabay.com/photo/2023/06/16/09/42/banana-tree-8067514_1280.jpg"
+                    alt="Product Image" class="w-full h-32 object-cover rounded">
+                <h3 class="text-lg font-semibold">Green Bananas</h3>
+                <p class="text-green-600 font-bold">R 52.00/kg</p>
+                <p class="text-sm">400 g</p>
+                <div class="flex items-center mt-4 text-center justify-center">
+                    <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card relative">
                 <!-- Out of Stock Badge -->
-                <div
-                    class="top-2 left-2 bg-black text-white font-bold text-sm px-2 py-1 rounded font-semibold">
-                    Out of stock
+                <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
+                    Out of Stock
                 </div>
 
                 <!-- Product Image -->
-                <img src="https://cdn.pixabay.com/photo/2020/05/07/15/49/yam-5142029_1280.jpg" alt="Sweet Potato"
-                    class="w-auto h-48 object-cover mb-2 opacity-50">
-
+                <img src="https://media.istockphoto.com/id/525799994/photo/potatoes.jpg?s=612x612&w=0&k=20&c=8qyPcL7y42Ksbp5VkMnb_7M_Xw_kGeKSIDYDPK2TC2g="
+                    alt="Sweet Potato" class="w-full h-32 rounded object-cover opacity-40">
                 <!-- Product Details -->
                 <h3 class="text-lg font-semibold text-gray-500">Sweet Potato</h3>
                 <p class="text-green-600 font-bold line-through">R 52.00/kg</p>
@@ -1007,6 +1094,8 @@
                     </button>
                 </div>
             </div>
+
+
         </div>
         </div>
     </main>

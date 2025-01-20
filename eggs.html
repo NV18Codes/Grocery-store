@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gems Online Grocery Store - Fruits</title>
+    <title>Gems Fruit & Veg | Eggs & Poultry</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,20 +16,19 @@
     <header class="header sticky top-0 left-0 w-full z-50 text-white shadow-md">
         <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
 
-            <!-- Store Title with Logo (Left Aligned) -->
-            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
-                <div class="flex items-center justify-center p-2 rounded-lg">
-                    <a href="index.html"> <img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
+            <!-- Store Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0 ">
+                <div class="flex items-center justify-center p-1 rounded-lg">
+                    <a href="index.html"> <img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-40 h-30">
                     </a>
                 </div>
-                <div class="text-2xl sm:text-3xl font-bold text-white">
-                </div>
+                
             </div>
 
             <!-- Search Bar Section (Centered) -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
                     aria-label="Search products" />
                 <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
@@ -59,6 +58,11 @@
                 <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
             </div>
         </div>
+
+
+
+
+
         <!-- Login Modal -->
         <div id="login-modal"
             class="fixed inset-0 bg-gray-500 bg-opacity-50 z-50 hidden flex justify-center items-center">
@@ -327,52 +331,59 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow text-center">
-                <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-auto h-48 object-cover mb-2">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Cut Pieces</h3>
                 <p class="text-green-600 font-bold">R 75.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden">
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
-                <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-auto h-48 object-cover mb-2">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">30 Eggs</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden">
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow text-center relative">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <!-- Out of Stock Badge -->
-                <div class="absolute top-2 left-2 bg-gray-300 text-gray-700 text-sm px-2 py-1 rounded font-semibold">
-                    Out of stock
-                </div>
+                <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
+                        Out of Stock
+                    </div>
 
                 <!-- Product Image -->
                 <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
-                    alt="Whole Chicken" class="w-auto h-48 object-cover mb-2 opacity-50">
+                    alt="Whole Chicken" class="w-full h-32 rounded object-cover mb-2 opacity-40">
 
                 <!-- Product Details -->
                 <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
@@ -390,21 +401,24 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow text-center">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg" alt="chicken fillets"
-                    class="w-auto h-48 object-cover mb-2">
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Fillets</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                    <div class="counterSection hidden">
-                        <button
-                            class="decrease w-8 h-8 rounded-full flex items-center justify-center font-bold">-</button>
-                        <span class="counter text-lg font-bold">1</span>
-                        <button
-                            class="increase w-8 h-8 rounded-full flex items-center justify-center font-bold">+</button>
+                    <div class="counterSection flex items-center space-x-2 hidden">
+                        <!-- Counter Button -->
+                        <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                            <button
+                                class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                            <span class="counter text-lg font-bold">1</span>
+                            <button
+                                class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
