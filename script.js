@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
     //Vegetables Carousel Functionality
     const carouselPrev = document.getElementById('carousel-prev-veg');
     const carouselNext = document.getElementById('carousel-next-veg');
@@ -217,6 +218,8 @@ let dairyScrollPosition = 0;
 const dairyCardWidth = 220; // Width of a card (including gap)
 const dairyScrollStep = dairyCardWidth * 1; // Scroll 1 cards at a time
 
+
+
 const updateDairyCarouselButtons = () => {
     const maxScroll = dairyCarouselContainer.scrollWidth - dairyCarouselContainer.offsetWidth;
     dairyCarouselPrev.classList.toggle('hidden', dairyScrollPosition <= 0);
@@ -246,6 +249,7 @@ dairyCarouselNext.addEventListener('click', () => {
 
 updateDairyCarouselButtons();
 
+    
 
 
    
