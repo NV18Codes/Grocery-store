@@ -28,7 +28,7 @@
             <!-- Search Bar Section (Centered) -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
                     aria-label="Search products" />
                 <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
@@ -323,17 +323,17 @@
         }
     </script>
 
-    <main class="container mx-auto px-4 py-6">
+    <main class="container mx-auto px-4 py-2">
         <!-- Back Button -->
         <div class="mb-4">
             <a href="index.html"
-                class="inline-flex items-center px-4 py-2 bg-white text-green-600 rounded-md shadow hover:bg-green-600 hover:text-white transition duration-300">
+                class="inline-flex items-center px-4 py-2 bg-white text-[#090] rounded-md shadow hover:bg-green-600 hover:text-white transition duration-300">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                 <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Cut Pieces</h3>
                 <p class="text-green-600 font-bold">R 75.00/kg</p>
@@ -355,7 +355,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                 <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">30 Eggs</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
@@ -375,7 +375,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                 <!-- Out of Stock Badge -->
                 <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
                     Out of Stock
@@ -401,7 +401,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg" alt="chicken fillets"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Fillets</h3>
@@ -476,10 +476,9 @@
                 </div>
             </div>
         </div>
-
         <!-- Footer Bottom -->
         <div
-            class="mt-8 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between border-t border-green-950 pt-4">
+            class="mt-8 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between border-t border-green-950 pt-4 px-10">
             <div class="text-m">
                 &copy; 2025 <b>Gems</b> Fruit & Veg Store. All rights reserved.
             </div>

@@ -50,12 +50,6 @@
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
 
-            <!-- Location Section (Aligned below Cart) -->
-            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
-                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
-                <span id="location-text" class="text-m font-medium text-gray-200">Bangalore</span>
-            </div>
-
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
                 <button id="login-btn"
@@ -72,11 +66,16 @@
                         </span>
                     </a>
                 </div>
-
             </div>
 
-
+            <!-- Location Section (Aligned below Cart) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
         </div>
+
+
 
 
         <!-- Login Modal -->
@@ -322,14 +321,17 @@
                 </div>
                 <div class="relative">
 
+                    <!-- Prev Button -->
                     <button id="carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full  ml-5 text-2xl">&#8249;</button>
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
+                        &#8249;
+                    </button>
 
 
                     <div id="carousel-container" class="flex gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
                                 alt="Potatoes" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Potatoes</h4>
@@ -351,7 +353,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/03/26/16/44/tomatoes-1280859_640.jpg"
                                 alt="Tomatoes" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Tomatoes</h4>
@@ -373,10 +375,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_1280.jpg"
                                 alt="Onions" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Onions</h4>
+                            <h4 class="text-lg font-semibold mt-2">Red Onions</h4>
                             <p class="price font-bold">R 18 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -395,7 +397,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg"
                                 alt="Green Beans" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Beans</h4>
@@ -417,7 +419,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg"
                                 alt="Okra" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Okra</h4>
@@ -439,7 +441,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
                                 alt="Green Chillies" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Chillies</h4>
@@ -461,7 +463,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_1280.jpg"
                                 alt="Dhania/Coriander" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Dhania / Coriander</h4>
@@ -483,7 +485,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
                                 alt="Mint" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Mint</h4>
@@ -505,8 +507,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_640.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg"
                                 alt="Ginger" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Ginger</h4>
                             <p class="price font-bold">R 25 / 100g</p>
@@ -527,8 +529,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2021/11/30/01/17/garlic-6834190_640.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg"
                                 alt="Garlic" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Garlic</h4>
                             <p class="price font-bold">R 30 / 100g</p>
@@ -549,7 +551,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmbmCXaY-kDUjo7hPYPdIHByJHh38sbcckU4ZcHlUJAvE6p4LSh4kBvmev9r3O4FB4MYs&usqp=CAU"
                                 alt="Sour Herbs" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Sour Herbs</h4>
@@ -569,25 +571,25 @@
                                             class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Next Button -->
                 <button id="carousel-next"
                     class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                     &#8250;
                 </button>
             </div>
-
-
         </section>
 
 
 
 
         <!-- Vegetables Section -->
-        <section id="vegetables" class="py-8  ">
+        <section id="vegetables" class="py-8">
             <div class="container mx-auto">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold">Vegetables</h3>
@@ -605,7 +607,7 @@
                         style="overflow: hidden; scroll-behavior: smooth;">
 
                         <!-- Product Card for Cabbage -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg"
                                 alt="Cabbage" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Cabbage</h4>
@@ -629,7 +631,7 @@
                         </div>
 
                         <!-- Product Card for Broccoli -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2023/01/25/18/46/broccoli-7744338_1280.jpg"
                                 alt="Broccoli" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Broccoli</h4>
@@ -653,8 +655,8 @@
                         </div>
 
                         <!-- Product Card for Cauliflower -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2019/04/22/17/31/cauliflower-4147118_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
                                 alt="Cauliflower" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Cauliflower</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
@@ -677,8 +679,8 @@
                         </div>
 
                         <!-- Product Card for Green Guard / Calabash -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_3k2Jot9Q2CeNugL5doLYVYglaivCEY90WgFSOcNLA5gPO8lKFks5HF9551gPwWP3Wqs&usqp=CAU"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg"
                                 alt="Green Guard / Calabash" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Guard/Calabash</h4>
                             <p class="price font-bold">R 25 / 500g</p>
@@ -701,7 +703,7 @@
                         </div>
 
                         <!-- Product Card for Carrots -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/11/23/00/22/carrots-1851424_640.jpg"
                                 alt="Carrots" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Carrots</h4>
@@ -725,8 +727,8 @@
                         </div>
 
                         <!-- Product Card for Beetroot -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_640.jpg"
                                 alt="Beetroot" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Beetroot</h4>
                             <p class="price font-bold">R 35 / 1kg</p>
@@ -749,7 +751,7 @@
                         </div>
 
                         <!-- Product Card for Radish -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://imgs.search.brave.com/RQIfVoABzthwoI5A0Umz6gh8U0gEv7Ro95BPTBhzIXA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JnYW5pY2ZhY3Rz/Lm5ldC93cC1jb250/ZW50L3VwbG9hZHMv/MjAxMy8wNS9SYWRk/aXNoLmpwZw"
                                 alt="Radish" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Radish</h4>
@@ -773,7 +775,7 @@
                         </div>
 
                         <!-- Product Card for Baby Marrow -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
                                 alt="Baby Marrow" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Baby Marrow</h4>
@@ -797,8 +799,8 @@
                         </div>
 
                         <!-- Product Card for Butternut -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2018/08/10/22/42/butternut-squash-3597776_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2013/05/06/13/32/butternut-squash-109131_640.jpg"
                                 alt="Butternut" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Butternut</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
@@ -821,8 +823,8 @@
                         </div>
 
                         <!-- Product Card for Peppers -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2021/10/03/11/45/vegetables-6677791_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg"
                                 alt="Peppers" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Peppers Mixed</h4>
                             <p class="price font-bold">R 80 / 500g</p>
@@ -852,10 +854,10 @@
                     </button>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="vegetables.html" class="flex items-center text-green-600 font-bold text-lg">
+                    <a href="vegetables.html" class="flex items-center text-[#090] font-bold text-md">
                         SEE MORE
                         <span
-                            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-green-600 text-green-600">
+                            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#090] text-[#090]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" class="w-4 h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -884,10 +886,10 @@
                     <div id="fruits-carousel-container" class="flex gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
                         <!-- Product Cards -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/08/12/22/38/apple-1589874_1280.jpg"
                                 alt="Apples" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Apples</h4>
+                            <h4 class="text-lg font-semibold mt-2">Apples Red</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -907,8 +909,8 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2023/08/16/10/09/oranges-8193789_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_640.jpg"
                                 alt="Oranges" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Oranges</h4>
                             <p class="price font-bold">R 60 / 500g</p>
@@ -930,8 +932,8 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
-                            <img src="https://cdn.pixabay.com/photo/2022/05/27/10/35/strawberry-7224875_1280.jpg"
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+                            <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_640.jpg"
                                 alt="Strawberries" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
                             <p class="price font-bold">R 60 / 500g</p>
@@ -979,7 +981,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_640.jpg"
                                 alt="Bananas" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Bananas</h4>
@@ -1002,10 +1004,10 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg"
                                 alt="Grapes" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Grapes</h4>
+                            <h4 class="text-lg font-semibold mt-2">Grapes White</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -1025,7 +1027,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
                                 alt="Watermelon" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Watermelon</h4>
@@ -1048,7 +1050,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_1280.jpg"
                                 alt="Lemons" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Lemons</h4>
@@ -1080,10 +1082,10 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="fruits.html" class="flex items-center text-green-600 font-bold text-md">
+                <a href="fruits.html" class="flex items-center text-[#090] font-bold text-md">
                     SEE MORE
                     <span
-                        class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-green-600 text-green-600">
+                        class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#090] text-[#090]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -1115,7 +1117,7 @@
                         style="overflow: hidden; scroll-behavior: smooth;">
 
                         <!-- Product Cards -->
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="img/eggs/cutchicken.jpg" alt="Chicken" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Chicken Cut Pieces</h4>
                             <p class="price font-bold">R 75/kg</p>
@@ -1137,7 +1139,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="img/eggs/30eggs.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">30 Eggs</h4>
                             <p class="price font-bold">R 60.00 </p>
@@ -1185,7 +1187,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg"
                                 alt="Chicken fillets" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Chicken Fillets</h4>
@@ -1209,10 +1211,7 @@
                         </div>
                     </div>
                     <!-- Next Button -->
-                    <!--<button id="dairy-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
-                        &#8250;
-                    </button>-->
+
                     <button id="dairy-carousel-next"
                         class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
@@ -1220,10 +1219,10 @@
                 </div>
             </div>
             <div class="flex justify-end mt-4">
-                <a href="eggs.html" class="flex items-center text-green-600 font-bold text-md">
+                <a href="eggs.html" class="flex items-center text-[#090] font-bold text-md">
                     SEE MORE
                     <span
-                        class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-green-600 text-green-600">
+                        class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#090] text-[#090]">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -1315,18 +1314,18 @@
                     </a>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <!-- Footer Bottom -->
-            <div
-                class="mt-8 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between border-t border-green-950 pt-4">
-                <div class="text-m">
-                    &copy; 2025 <b>Gems</b> Fruit & Veg Store. All rights reserved.
-                </div>
-                <div class="text-m">
-                    Designed by Gems Team.
-                </div>
+        <!-- Footer Bottom -->
+        <div
+            class="mt-8 flex flex-col items-center text-center space-y-4 md:space-y-0 md:flex-row md:justify-between border-t border-green-950 pt-4 px-10">
+            <div class="text-m">
+                &copy; 2025 <b>Gems</b> Fruit & Veg Store. All rights reserved.
             </div>
+            <div class="text-m">
+                Designed by Gems Team.
+            </div>
+        </div>
         </div>
     </footer>
 
