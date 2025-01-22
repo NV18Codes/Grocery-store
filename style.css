@@ -47,7 +47,7 @@
 
 .header,
 .footer {
-    background-color: rgb(22 163 74);
+    background-color: rgb(0, 153, 0);
 }
 
 .nav-link:hover {
@@ -55,17 +55,13 @@
 }
 
 .addButton {
-    background-color: rgb(22 163 74);
+    background-color: rgb(0, 153, 0);
     color: white;
     border-radius: 9999px;
     padding: 0.5rem;
     font-weight: bold;
     transition: background-color 0.3s ease;
 
-}
-
-.addButton:hover {
-    background-color: rgb(17, 91, 44);
 }
 
 .increase {
@@ -79,7 +75,7 @@
 }
 
 .price {
-    color: #009900;
+    color: rgb(0, 153, 0);
     font-size: 1.1rem;
 }
 
@@ -143,6 +139,7 @@
     box-shadow: 0px 4px 6px rgba(229, 221, 221, 0.735);
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 
 .carousel-prev:hover,
@@ -196,10 +193,13 @@
         margin-top: 2rem;
     }
     
-   
 }
 
 .app{
-    background-color: rgb(22 163 74);
+    background-color: rgb(0, 153, 0);
  
+}
+.shoppingbutton{
+    background-color: rgb(0, 153, 0);
+
 }

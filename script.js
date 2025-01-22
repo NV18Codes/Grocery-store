@@ -66,7 +66,7 @@ $carouselContainer.owlCarousel({
                 items: 3, // Show 2 items for medium screens
             },
             1000: {
-                items: 6, // Show 4 items for large screens
+                items: 5, // Show 4 items for large screens
             },
         },
     });
@@ -147,7 +147,7 @@ $vegCarouselContainer.owlCarousel({
             items: 3, // Show 2 items for medium screens
         },
         1000: {
-            items: 6, // Show 4 items for large screens
+            items: 5, // Show 4 items for large screens
         },
     },
 });
@@ -187,7 +187,7 @@ $fruitsCarouselContainer.owlCarousel({
             items: 3, // Show 2 items for medium screens
         },
         1000: {
-            items: 6, // Show 4 items for large screens
+            items: 5, // Show 4 items for large screens
         },
     },
 });
@@ -225,7 +225,7 @@ $dairyCarouselContainer.owlCarousel({
             items: 3, // Show 2 items for medium screens
         },
         1000: {
-            items: 6, // Show 4 items for large screens
+            items: 5, // Show 4 items for large screens
         },
     },
 });
@@ -238,7 +238,6 @@ dairyCarouselPrev.addEventListener('click', () => {
 dairyCarouselNext.addEventListener('click', () => {
     $dairyCarouselContainer.trigger('next.owl.carousel'); // Go to the next item
 });
-
 
 
 
