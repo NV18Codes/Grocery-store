@@ -11,6 +11,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <!-- Include Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- Include jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Include Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 
 
 
@@ -23,7 +35,7 @@
             <!-- Store Title with Logo (Left Aligned) -->
             <div class="flex items-center space-x-4  sm:mb-0">
                 <div class="flex items-center justify-center p-2 rounded-lg">
-                    <a href="index.html"><img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-40 h-30 "></a>
+                    <a href="index.html"><img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20 "></a>
                 </div>
 
             </div>
@@ -41,7 +53,7 @@
             <!-- Location Section (Aligned below Cart) -->
             <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-4 sm:mt-0 sm:ml-8">
                 <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
-                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+                <span id="location-text" class="text-m font-medium text-gray-200">Bangalore</span>
             </div>
 
             <!-- Login, Cart, and Location Section (Right Aligned) -->
@@ -309,9 +321,14 @@
                     <span class="bg-yellow-300 text-black text-sm px-4 py-1 rounded-full">Limited Offer</span>
                 </div>
                 <div class="relative">
+
                     <button id="carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full hidden ml-10 text-2xl">&#8249;</button>
-                    <div id="carousel-container" class="flex gap-4 " style="overflow: hidden; scroll-behavior: smooth;">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full  ml-5 text-2xl">&#8249;</button>
+
+
+                    <div id="carousel-container" class="flex gap-4 owl-carousel"
+                        style="overflow: hidden; scroll-behavior: smooth;">
+
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
                             <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
                                 alt="Potatoes" class="w-full h-32 object-cover rounded">
@@ -554,11 +571,19 @@
                                 </div>
                             </div>
                         </div>
-                        <button id="carousel-next"
-                            class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full mr-10 text-2xl">&#8250;</button>
                     </div>
                 </div>
+                <!-- Next Button -->
+                <button id="carousel-next"
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
+                    &#8250;
+                </button>
+            </div>
+
+
         </section>
+
+
 
 
         <!-- Vegetables Section -->
@@ -572,11 +597,11 @@
 
                     <!-- Prev Button -->
                     <button id="carousel-prev-veg"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
                         &#8249;
                     </button>
 
-                    <div id="carousel-container-veg" class="flex gap-4 "
+                    <div id="veg-carousel-container" class="flex gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
 
                         <!-- Product Card for Cabbage -->
@@ -822,7 +847,7 @@
 
                     <!-- Next Button -->
                     <button id="carousel-next-veg"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>
                 </div>
@@ -851,12 +876,12 @@
                 <div class="relative ">
                     <!-- Prev Button -->
                     <button id="fruits-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
                         &#8249;
                     </button>
 
                     <!-- Carousel Container -->
-                    <div id="fruits-carousel-container" class="flex gap-4 "
+                    <div id="fruits-carousel-container" class="flex gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
                         <!-- Product Cards -->
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
@@ -1049,7 +1074,7 @@
 
                     <!-- Next Button -->
                     <button id="fruits-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>
                 </div>
@@ -1080,19 +1105,14 @@
                 <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
                 <div class="relative ">
 
-                    <!-- Prev Button -->
-                    <!--<button id="dairy-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
-                        &#8249;
-                    </button>-->
+
 
                     <button id="dairy-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-10 text-2xl">
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
                         &#8249;</button>
                     <!-- Carousel Container -->
-                    <div id="dairy-carousel-container" class="flex gap-4 "
+                    <div id="dairy-carousel-container" class="flex gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
-
 
                         <!-- Product Cards -->
                         <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card">
@@ -1190,11 +1210,11 @@
                     </div>
                     <!-- Next Button -->
                     <!--<button id="dairy-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>-->
                     <button id="dairy-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-10">
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>
                 </div>
@@ -1219,7 +1239,7 @@
 
 
     <!--App Download-->
-    <div class="flex flex-col md:flex-row items-center justify-between bg-lime-400 m-10 rounded-3xl p-6 shadow-lg">
+    <div class="app flex flex-col md:flex-row items-center justify-between  m-10 rounded-3xl p-6 shadow-lg">
         <!-- Left Section: Offer Badge and Text -->
         <div class="flex items-center space-x-4">
             <!-- Offer Badge -->
@@ -1258,7 +1278,7 @@
                 class="flex flex-col items-center  text-center space-y-6 md:space-y-0 md:flex-row md:justify-between md:items-start">
                 <!-- Logo and About Section -->
                 <div class="flex flex-col items-center text-center md:items-start md:text-left">
-                    <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-40 h-30 ">
+                    <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20 ">
                     <p class="text-m">
                         Your one-stop shop for fresh and organic groceries.<br>
                         We deliver quality products right to your doorstep.
@@ -1285,6 +1305,16 @@
                                 class="hover:text-green-950 hover:underline">support@gems.co.za</a></li>
                     </ul>
                 </div>
+                <!-- Play Store and App Store Section -->
+                <div class="flex flex-col justify-center items-center space-y-4 pt-4">
+                    <a href="https://play.google.com/store" target="_blank">
+                        <img src="img/playstore.jpg" alt="Play Store" class="w-32 h-auto">
+                    </a>
+                    <a href="https://www.apple.com/app-store/" target="_blank">
+                        <img src="img/appstore.jpg" alt="App Store" class="w-32 h-auto">
+                    </a>
+                </div>
+            </div>
             </div>
 
             <!-- Footer Bottom -->
