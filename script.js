@@ -47,40 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carousel Functionality
     const carouselPrev = document.getElementById('carousel-prev');
     const carouselNext = document.getElementById('carousel-next');
-    const carouselContainer = document.getElementById('carousel-container');
+    // Use jQuery for the carousel container
+const $carouselContainer = $('#carousel-container');
 
-    let scrollPosition = 0;
-    const cardWidth = 220; // Width of a card (including margin)
-    const scrollStep = cardWidth * 1; // Scroll 1 cards at a time
+// Initialize Owl Carousel
+$carouselContainer.owlCarousel({
+        loop: false, // Enables infinite looping
+        margin: 5, // Gap between items
+        nav: false, // Disable default navigation
+        dots: false, // Disable dots
+        touchDrag: true, // Enable touch dragging
+        mouseDrag: true, // Enable mouse dragging
+        responsive: {
+            0: {
+                items: 1, // Show 1 item for small screens
+            },
+            600: {
+                items: 3, // Show 2 items for medium screens
+            },
+            1000: {
+                items: 6, // Show 4 items for large screens
+            },
+        },
+    });
 
-    const updateCarouselButtons = () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        carouselPrev.classList.toggle('hidden', scrollPosition <= 0);
-        carouselNext.classList.toggle('hidden', scrollPosition >= maxScroll);
-    };
-
+    // Add event listeners for custom next and previous buttons
     carouselPrev.addEventListener('click', () => {
-        scrollPosition -= scrollStep;
-        if (scrollPosition < 0) scrollPosition = 0;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth',
-        });
-        updateCarouselButtons();
+        $carouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
     });
 
     carouselNext.addEventListener('click', () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        scrollPosition += scrollStep;
-        if (scrollPosition > maxScroll) scrollPosition = maxScroll;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth',
-        });
-        updateCarouselButtons();
+        $carouselContainer.trigger('next.owl.carousel'); // Go to the next item
     });
-
-    updateCarouselButtons();
 
 
 
@@ -127,129 +125,120 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    //Vegetables Carousel Functionality
-    const carouselPrev = document.getElementById('carousel-prev-veg');
-    const carouselNext = document.getElementById('carousel-next-veg');
-    const carouselContainer = document.getElementById('carousel-container-veg');
+//Vegetables Carousel Functionality
+const vegCarouselPrev = document.getElementById('carousel-prev-veg');
+const vegCarouselNext = document.getElementById('carousel-next-veg');
+// Use jQuery for the carousel container
+const $vegCarouselContainer = $('#veg-carousel-container');
 
-    let scrollPosition = 0;
-    const cardWidth = 220; // Approximate width of a card (including margin)
-    const scrollStep = cardWidth * 1; // Scroll 1 cards at a time
+// Initialize Owl Carousel
+$vegCarouselContainer.owlCarousel({
+    loop: false, // Enables infinite looping
+    margin: 5, // Gap between items
+    nav: false, // Disable default navigation
+    dots: false, // Disable dots
+    touchDrag: true, // Enable touch dragging
+    mouseDrag: true, // Enable mouse dragging
+    responsive: {
+        0: {
+            items: 1, // Show 1 item for small screens
+        },
+        600: {
+            items: 3, // Show 2 items for medium screens
+        },
+        1000: {
+            items: 6, // Show 4 items for large screens
+        },
+    },
+});
 
-    const updateCarouselButtons = () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        carouselPrev.classList.toggle('hidden', scrollPosition <= 0);
-        carouselNext.classList.toggle('hidden', scrollPosition >= maxScroll);
-    };
+// Add event listeners for custom next and previous buttons
+vegCarouselPrev.addEventListener('click', () => {
+    $vegCarouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
+});
 
-    carouselPrev.addEventListener('click', () => {
-        scrollPosition -= scrollStep;
-        if (scrollPosition < 0) scrollPosition = 0;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth',
-        });
-        updateCarouselButtons();
-    });
-
-    carouselNext.addEventListener('click', () => {
-        const maxScroll = carouselContainer.scrollWidth - carouselContainer.offsetWidth;
-        scrollPosition += scrollStep;
-        if (scrollPosition > maxScroll) scrollPosition = maxScroll;
-        carouselContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth',
-        });
-        updateCarouselButtons();
-    });
-
-    updateCarouselButtons();
+vegCarouselNext.addEventListener('click', () => {
+    $vegCarouselContainer.trigger('next.owl.carousel'); // Go to the next item
+});
 
 
 
 
-   
+
 // Fruits Carousel Functionality
 const fruitsCarouselPrev = document.getElementById('fruits-carousel-prev');
 const fruitsCarouselNext = document.getElementById('fruits-carousel-next');
-const fruitsCarouselContainer = document.getElementById('fruits-carousel-container');
+// Use jQuery for the carousel container
+const $fruitsCarouselContainer = $('#fruits-carousel-container');
 
-let fruitsScrollPosition = 0;
-const fruitsCardWidth = 220; // Width of a card (including margin)
-const fruitsScrollStep = fruitsCardWidth * 1; // Scroll 1 cards at a time
+// Initialize Owl Carousel
+$fruitsCarouselContainer.owlCarousel({
+    loop: false, // Enables infinite looping
+    margin: 5, // Gap between items
+    nav: false, // Disable default navigation
+    dots: false, // Disable dots
+    touchDrag: true, // Enable touch dragging
+    mouseDrag: true, // Enable mouse dragging
+    responsive: {
+        0: {
+            items: 1, // Show 1 item for small screens
+        },
+        600: {
+            items: 3, // Show 2 items for medium screens
+        },
+        1000: {
+            items: 6, // Show 4 items for large screens
+        },
+    },
+});
 
-const updateFruitsCarouselButtons = () => {
-    const maxScroll = fruitsCarouselContainer.scrollWidth - fruitsCarouselContainer.offsetWidth;
-    fruitsCarouselPrev.classList.toggle('hidden', fruitsScrollPosition <= 0);
-    fruitsCarouselNext.classList.toggle('hidden', fruitsScrollPosition >= maxScroll);
-};
-
+// Add event listeners for custom next and previous buttons
 fruitsCarouselPrev.addEventListener('click', () => {
-    fruitsScrollPosition -= fruitsScrollStep;
-    if (fruitsScrollPosition < 0) fruitsScrollPosition = 0;
-    fruitsCarouselContainer.scrollTo({
-        left: fruitsScrollPosition,
-        behavior: 'smooth',
-    });
-    updateFruitsCarouselButtons();
+    $fruitsCarouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
 });
 
 fruitsCarouselNext.addEventListener('click', () => {
-    const maxScroll = fruitsCarouselContainer.scrollWidth - fruitsCarouselContainer.offsetWidth;
-    fruitsScrollPosition += fruitsScrollStep;
-    if (fruitsScrollPosition > maxScroll) fruitsScrollPosition = maxScroll;
-    fruitsCarouselContainer.scrollTo({
-        left: fruitsScrollPosition,
-        behavior: 'smooth',
-    });
-    updateFruitsCarouselButtons();
+    $fruitsCarouselContainer.trigger('next.owl.carousel'); // Go to the next item
 });
-
-updateFruitsCarouselButtons();
 
 
 
 // Carousel Functionality for Dairy & Poultry Section
 const dairyCarouselPrev = document.getElementById('dairy-carousel-prev');
 const dairyCarouselNext = document.getElementById('dairy-carousel-next');
-const dairyCarouselContainer = document.getElementById('dairy-carousel-container');
+// Use jQuery for the carousel container
+const $dairyCarouselContainer = $('#dairy-carousel-container');
 
-let dairyScrollPosition = 0;
-const dairyCardWidth = 220; // Width of a card (including gap)
-const dairyScrollStep = dairyCardWidth * 1; // Scroll 1 cards at a time
+// Initialize Owl Carousel
+$dairyCarouselContainer.owlCarousel({
+    loop: false, // Enables infinite looping
+    margin: 5, // Gap between items
+    nav: false, // Disable default navigation
+    dots: false, // Disable dots
+    touchDrag: true, // Enable touch dragging
+    mouseDrag: true, // Enable mouse dragging
+    responsive: {
+        0: {
+            items: 1, // Show 1 item for small screens
+        },
+        600: {
+            items: 3, // Show 2 items for medium screens
+        },
+        1000: {
+            items: 6, // Show 4 items for large screens
+        },
+    },
+});
 
-
-
-const updateDairyCarouselButtons = () => {
-    const maxScroll = dairyCarouselContainer.scrollWidth - dairyCarouselContainer.offsetWidth;
-    dairyCarouselPrev.classList.toggle('hidden', dairyScrollPosition <= 0);
-    dairyCarouselNext.classList.toggle('hidden', dairyScrollPosition >= maxScroll);
-};
-
+// Add event listeners for custom next and previous buttons
 dairyCarouselPrev.addEventListener('click', () => {
-    dairyScrollPosition -= dairyScrollStep;
-    if (dairyScrollPosition < 0) dairyScrollPosition = 0;
-    dairyCarouselContainer.scrollTo({
-        left: dairyScrollPosition,
-        behavior: 'smooth',
-    });
-    updateDairyCarouselButtons();
+    $dairyCarouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
 });
 
 dairyCarouselNext.addEventListener('click', () => {
-    const maxScroll = dairyCarouselContainer.scrollWidth - dairyCarouselContainer.offsetWidth;
-    dairyScrollPosition += dairyScrollStep;
-    if (dairyScrollPosition > maxScroll) dairyScrollPosition = maxScroll;
-    dairyCarouselContainer.scrollTo({
-        left: dairyScrollPosition,
-        behavior: 'smooth',
-    });
-    updateDairyCarouselButtons();
+    $dairyCarouselContainer.trigger('next.owl.carousel'); // Go to the next item
 });
 
-updateDairyCarouselButtons();
-
-    
 
 
-   
+

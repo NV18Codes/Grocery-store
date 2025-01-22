@@ -26,6 +26,12 @@
     padding: 1rem;
     background-color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-width: 200px;
+    max-width: 220px;
 }
 
 .product-card:hover {
@@ -93,13 +99,6 @@
     transform: translateY(-50%);
 }
 
-.carousel-prev.hidden,
-.carousel-next.hidden {
-    display: none;
-}
-
-
-
 .counter-section {
     display: none;
 }
@@ -113,79 +112,23 @@
     /* Include padding in the element's total width */
 }
 
-#carousel-container-veg {
-    display: flex;
-    overflow-x: hidden;
-    /* Prevent horizontal scroll */
-    gap: 4px;
-}
-
-.product-card {
-    min-width: 200px;
-    text-align: center;
-    box-sizing: border-box;
-    /* Include padding and border within width */
-}
 
 /* Carousel Styling */
-.carousel {
+.owl-carousel {
     position: relative;
 }
 
-.carousel-prev,
-.carousel-next {
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(239, 235, 235, 0.852);
-    transition: background-color 0.3s;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background-color: #f3f3f3;
-}
 
 .carousel-prev.hidden,
 .carousel-next.hidden {
     display: none;
 }
 
-/* Carousel Container Styling */
-#carousel-container-veg {
-    display: flex;
-    gap: 16px;
-    /* Space between cards */
-    overflow-x: hidden;
-    /* Hide scrollbar */
-    scroll-behavior: smooth;
-    /* Smooth scrolling */
-}
-
-/* Hide Scrollbar */
-#carousel-container-veg::-webkit-scrollbar {
-    display: none;
-    /* For WebKit browsers */
-}
-
-#carousel-container-veg {
-    -ms-overflow-style: none;
-    /* For Internet Explorer and Edge */
-    scrollbar-width: none;
-    /* For Firefox */
-}
 
 /* Navigation Buttons */
 .carousel-prev,
 .carousel-next {
     background-color: #f3f4f6;
-    /* Light gray */
     border: none;
     position: absolute;
     top: 50%;
@@ -209,22 +152,15 @@
 }
 
 .carousel-prev {
-    left: -20px;
+    left: -10px;
     /* Adjust based on container padding */
 }
 
 .carousel-next {
-    right: -20px;
+    right: -10px;
     /* Adjust based on container padding */
 }
 
-/* Product Card Styling */
-.product-card {
-    flex-shrink: 0;
-    min-width: 200px;
-    max-width: 220px;
-    text-align: center;
-}
 
 .footer{
     padding-top: 20px;
@@ -261,4 +197,9 @@
     }
     
    
+}
+
+.app{
+    background-color: rgb(22 163 74);
+ 
 }
