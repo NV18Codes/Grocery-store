@@ -44,41 +44,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // Carousel Functionality
-    const carouselPrev = document.getElementById('carousel-prev');
-    const carouselNext = document.getElementById('carousel-next');
-    // Use jQuery for the carousel container
+    //Flash deals Carousel Functionality
+const carouselPrev = document.getElementById('carousel-prev');
+const carouselNext = document.getElementById('carousel-next');
+// Use jQuery for the carousel container
 const $carouselContainer = $('#carousel-container');
 
 // Initialize Owl Carousel
 $carouselContainer.owlCarousel({
-        loop: false, // Enables infinite looping
-        margin: 5, // Gap between items
-        nav: false, // Disable default navigation
-        dots: false, // Disable dots
-        touchDrag: true, // Enable touch dragging
-        mouseDrag: true, // Enable mouse dragging
-        responsive: {
-            0: {
-                items: 1, // Show 1 item for small screens
-            },
-            600: {
-                items: 3, // Show 2 items for medium screens
-            },
-            1000: {
-                items: 5, // Show 4 items for large screens
-            },
+    loop: false, // Enables infinite looping
+    margin: 5, // Gap between items
+    nav: false, // Disable default navigation
+    dots: false, // Disable dots
+    touchDrag: true, // Enable touch dragging
+    mouseDrag: true, // Enable mouse dragging
+    responsive: {
+        0: {
+            items: 1, // Show 1 item for small screens
         },
-    });
+        600: {
+            items: 3, // Show 2 items for medium screens
+        },
+        1000: {
+            items: 5, // Show 4 items for large screens
+        },
+    },
+});
 
-    // Add event listeners for custom next and previous buttons
-    carouselPrev.addEventListener('click', () => {
-        $carouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
-    });
+// Add event listeners for custom next and previous buttons
+carouselPrev.addEventListener('click', () => {
+    $carouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
+});
 
-    carouselNext.addEventListener('click', () => {
-        $carouselContainer.trigger('next.owl.carousel'); // Go to the next item
-    });
+carouselNext.addEventListener('click', () => {
+    $carouselContainer.trigger('next.owl.carousel'); // Go to the next item
+});
+
+
+
 
 
 
