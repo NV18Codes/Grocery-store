@@ -13,12 +13,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-.flash-deals {
-    background-color: #e7f6e7;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 .product-card {
     border: 1px solid #d1d5db;
@@ -148,15 +142,7 @@
     /* Darker gray */
 }
 
-.carousel-prev {
-    left: -10px;
-    /* Adjust based on container padding */
-}
 
-.carousel-next {
-    right: -10px;
-    /* Adjust based on container padding */
-}
 
 
 .footer{
