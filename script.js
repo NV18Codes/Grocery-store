@@ -45,40 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Flash deals Carousel Functionality
-const carouselPrev = document.getElementById('carousel-prev');
-const carouselNext = document.getElementById('carousel-next');
-// Use jQuery for the carousel container
-const $carouselContainer = $('#carousel-container');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    // Use jQuery for the carousel container
+    const $carouselContainer = $('#carousel-container');
 
-// Initialize Owl Carousel
-$carouselContainer.owlCarousel({
-    loop: false, // Enables infinite looping
-    margin: 5, // Gap between items
-    nav: false, // Disable default navigation
-    dots: false, // Disable dots
-    touchDrag: true, // Enable touch dragging
-    mouseDrag: true, // Enable mouse dragging
-    responsive: {
-        0: {
-            items: 1, // Show 1 item for small screens
+    // Initialize Owl Carousel
+    $carouselContainer.owlCarousel({
+        loop: false, // Enables infinite looping
+        nav: false, // Disable default navigation
+        dots: false, // Disable dots
+        touchDrag: true, // Enable touch dragging
+        mouseDrag: true, // Enable mouse dragging
+        responsive: {
+            0: { items: 1 },      // Mobile (1 item)
+            480: { items: 2 },    // Small tablets (2 items)
+            768: { items: 3 },    // Tablets (3 items)
+            1024: { items: 4 },   // Laptops (4 items)
+            1280: { items: 5 },   // 14-inch screens (5 items)
+            1440: { items: 6 },   // 15.6-inch screens and larger (6 items)
         },
-        600: {
-            items: 3, // Show 2 items for medium screens
-        },
-        1000: {
-            items: 5, // Show 4 items for large screens
-        },
-    },
-});
+    });
 
-// Add event listeners for custom next and previous buttons
-carouselPrev.addEventListener('click', () => {
-    $carouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
-});
+    // Add event listeners for custom next and previous buttons
+    carouselPrev.addEventListener('click', () => {
+        $carouselContainer.trigger('prev.owl.carousel'); // Go to the previous item
+    });
 
-carouselNext.addEventListener('click', () => {
-    $carouselContainer.trigger('next.owl.carousel'); // Go to the next item
-});
+    carouselNext.addEventListener('click', () => {
+        $carouselContainer.trigger('next.owl.carousel'); // Go to the next item
+    });
 
 
 
@@ -137,23 +133,19 @@ const $vegCarouselContainer = $('#veg-carousel-container');
 // Initialize Owl Carousel
 $vegCarouselContainer.owlCarousel({
     loop: false, // Enables infinite looping
-    margin: 5, // Gap between items
     nav: false, // Disable default navigation
     dots: false, // Disable dots
     touchDrag: true, // Enable touch dragging
     mouseDrag: true, // Enable mouse dragging
     responsive: {
-        0: {
-            items: 1, // Show 1 item for small screens
+        0: { items: 1 },      // Mobile (1 item)
+        480: { items: 2 },    // Small tablets (2 items)
+        768: { items: 3 },    // Tablets (3 items)
+        1024: { items: 4 },   // Laptops (4 items)
+        1280: { items: 5 },   // 14-inch screens (5 items)
+        1440: { items: 6 },   // 15.6-inch screens and larger (6 items)    
         },
-        600: {
-            items: 3, // Show 2 items for medium screens
-        },
-        1000: {
-            items: 5, // Show 4 items for large screens
-        },
-    },
-});
+    });
 
 // Add event listeners for custom next and previous buttons
 vegCarouselPrev.addEventListener('click', () => {
@@ -177,23 +169,19 @@ const $fruitsCarouselContainer = $('#fruits-carousel-container');
 // Initialize Owl Carousel
 $fruitsCarouselContainer.owlCarousel({
     loop: false, // Enables infinite looping
-    margin: 5, // Gap between items
     nav: false, // Disable default navigation
     dots: false, // Disable dots
     touchDrag: true, // Enable touch dragging
     mouseDrag: true, // Enable mouse dragging
     responsive: {
-        0: {
-            items: 1, // Show 1 item for small screens
+        0: { items: 1 },      // Mobile (1 item)
+        480: { items: 2 },    // Small tablets (2 items)
+        768: { items: 3 },    // Tablets (3 items)
+        1024: { items: 4 },   // Laptops (4 items)
+        1280: { items: 5 },   // 14-inch screens (5 items)
+        1440: { items: 6 },   // 15.6-inch screens and larger (6 items)    
         },
-        600: {
-            items: 3, // Show 2 items for medium screens
-        },
-        1000: {
-            items: 5, // Show 4 items for large screens
-        },
-    },
-});
+    });
 
 // Add event listeners for custom next and previous buttons
 fruitsCarouselPrev.addEventListener('click', () => {
@@ -215,21 +203,17 @@ const $dairyCarouselContainer = $('#dairy-carousel-container');
 // Initialize Owl Carousel
 $dairyCarouselContainer.owlCarousel({
     loop: false, // Enables infinite looping
-    margin: 5, // Gap between items
     nav: false, // Disable default navigation
     dots: false, // Disable dots
     touchDrag: true, // Enable touch dragging
     mouseDrag: true, // Enable mouse dragging
     responsive: {
-        0: {
-            items: 1, // Show 1 item for small screens
-        },
-        600: {
-            items: 3, // Show 2 items for medium screens
-        },
-        1000: {
-            items: 5, // Show 4 items for large screens
-        },
+        0: { items: 1 },      // Mobile (1 item)
+        480: { items: 2 },    // Small tablets (2 items)
+        768: { items: 3 },    // Tablets (3 items)
+        1024: { items: 4 },   // Laptops (4 items)
+        1280: { items: 5 },   // 14-inch screens (5 items)
+        1440: { items: 6 },   // 15.6-inch screens and larger (6 items)
     },
 });
 
