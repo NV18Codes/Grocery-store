@@ -20,12 +20,10 @@
     padding: 1rem;
     background-color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 200px;
     text-align: center;
     box-sizing: border-box;
     flex-shrink: 0;
-    min-width: 200px;
-    max-width: 220px;
+    position:relative;
 }
 
 .product-card:hover {
