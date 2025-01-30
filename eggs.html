@@ -30,10 +30,45 @@
                 <input type="text" id="search-input" placeholder="Search products..."
                     class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
                     aria-label="Search products" />
-                <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
-
+            <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInput = document.getElementById("search-input");
+                const productCards = document.querySelectorAll(".product-card");
+                const noResultsMessage = document.getElementById("no-results");
+            
+                // Listen for input changes in the search bar
+                searchInput.addEventListener("input", function () {
+                    const query = searchInput.value.trim().toLowerCase(); // Get the query and ensure it's lower case
+                    console.log('Search Query:', query); // Log the query to check what user types
+            
+                    let hasVisibleResults = false;
+            
+                    // Loop through each product card and check if it matches the search query
+                    productCards.forEach((card) => {
+                        const productName = card.getAttribute("data-product-name").toLowerCase(); // Get the product name
+                        console.log('Checking card:', productName); // Log each product name being checked
+            
+                        if (productName.includes(query)) {  // This performs a partial match
+                            card.style.display = "block"; // Show the product card
+                            hasVisibleResults = true;
+                        } else {
+                            card.style.display = "none"; // Hide the product card
+                        }
+                    });
+            
+                    // Show the "No items found" message if no results are visible
+                    if (!hasVisibleResults) {
+                        console.log('No products matched. Showing "No items found".');
+                        noResultsMessage.classList.remove("hidden"); // Show the "No items found" message
+                    } else {
+                        console.log('Products found. Hiding "No items found".');
+                        noResultsMessage.classList.add("hidden"); // Hide the "No items found" message
+                    }
+                });
+            });
+        </script>
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
                 <button id="login-btn"
@@ -58,10 +93,6 @@
                 <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
             </div>
         </div>
-
-
-
-
 
         <!-- Login Modal -->
         <div id="login-modal"
@@ -269,59 +300,7 @@
         }
     </style>
 
-
-
-    <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            const addButtons = document.querySelectorAll(".addButton");
-
-            addButtons.forEach((addButton) => {
-                addButton.addEventListener("click", () => {
-                    addButton.classList.add("hidden");
-                    const counterSection = addButton.nextElementSibling;
-                    counterSection.classList.remove("hidden");
-                    const counter = counterSection.querySelector(".counter");
-                    counter.textContent = 1;
-                    updateCartCount(1);
-                });
-            });
-
-            const counters = document.querySelectorAll(".counterSection");
-            counters.forEach((counterSection) => {
-                const decreaseButton = counterSection.querySelector(".decrease");
-                const increaseButton = counterSection.querySelector(".increase");
-                const counter = counterSection.querySelector(".counter");
-
-                decreaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    if (currentCount > 1) {
-                        currentCount--;
-                        counter.textContent = currentCount;
-                        updateCartCount(-1);
-                    } else {
-                        counterSection.classList.add("hidden");
-                        const addButton = counterSection.previousElementSibling;
-                        addButton.classList.remove("hidden");
-                        updateCartCount(-1);
-                    }
-                });
-
-                increaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    currentCount++;
-                    counter.textContent = currentCount;
-                    updateCartCount(1);
-                });
-            });
-        });
-
-        function updateCartCount(change) {
-            const cartCount = document.getElementById("cart-count");
-            let currentCount = parseInt(cartCount.textContent);
-            currentCount += change;
-            cartCount.textContent = currentCount;
-        }
-    </script>
+    
 
     <main class="container mx-auto px-4 py-2">
         <!-- Back Button -->
@@ -331,9 +310,14 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
+        <div id="no-results" class="hidden text-center w-96 mx-auto mt-4 py-3 px-6 rounded-md mb-4">
+            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4" alt="search_img">
+            <p class="text-red-500 text-xl font-bold">No results found</p>
+            <h2 class="text-gray-500 text-lg">Try checking your spelling or use more general terms</h2>
+        </div>        
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Chicken Cut Pieces">
                 <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Cut Pieces</h3>
                 <p class="text-green-600 font-bold">R 75.00/kg</p>
@@ -351,11 +335,10 @@
                                 class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Eggs">
                 <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">30 Eggs</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
@@ -375,37 +358,10 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
-                <!-- Out of Stock Badge -->
-                <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
-                    Out of Stock
-                </div>
-
-                <!-- Product Image -->
-                <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
-                    alt="Whole Chicken" class="w-full h-32 rounded object-cover mb-2 opacity-40">
-
-                <!-- Product Details -->
-                <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
-                <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
-                <p class="text-gray-500">Currently unavailable</p>
-
-
-                <!-- Disabled Add Button -->
-                <div class="mt-4">
-                    <button
-                        class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
-                        disabled>
-                        ADD
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
-                <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg" alt="chicken fillets"
-                    class="w-full h-32 object-cover rounded">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Chicken Fillets">
+                <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Fillets</h3>
-                <p class="text-green-600 font-bold">R 80.00/dozen</p>
+                <p class="text-green-600 font-bold">R 80.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
@@ -422,6 +378,82 @@
                     </div>
                 </div>
             </div>
+
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Whole Chicken">
+                <!-- Out of Stock Badge -->
+                <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
+                    Out of Stock
+                </div>
+
+                <!-- Product Image -->
+                <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
+                    alt="Whole Chicken" class="w-full h-32 rounded object-cover opacity-40">
+
+                <!-- Product Details -->
+                <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
+                <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
+                <!-- Disabled Add Button -->
+                <div class="mt-4">
+                    <button
+                        class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
+                        disabled>
+                        ADD
+                    </button>
+                </div>
+                <p class="text-gray-500 mt-2">Currently unavailable</p>
+            </div>
+
+            <script defer>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const addButtons = document.querySelectorAll(".addButton");
+        
+                    addButtons.forEach((addButton) => {
+                        addButton.addEventListener("click", () => {
+                            addButton.classList.add("hidden");
+                            const counterSection = addButton.nextElementSibling;
+                            counterSection.classList.remove("hidden");
+                            const counter = counterSection.querySelector(".counter");
+                            counter.textContent = 1;
+                            updateCartCount(1);
+                        });
+                    });
+        
+                    const counters = document.querySelectorAll(".counterSection");
+                    counters.forEach((counterSection) => {
+                        const decreaseButton = counterSection.querySelector(".decrease");
+                        const increaseButton = counterSection.querySelector(".increase");
+                        const counter = counterSection.querySelector(".counter");
+        
+                        decreaseButton.addEventListener("click", () => {
+                            let currentCount = parseInt(counter.textContent);
+                            if (currentCount > 1) {
+                                currentCount--;
+                                counter.textContent = currentCount;
+                                updateCartCount(-1);
+                            } else {
+                                counterSection.classList.add("hidden");
+                                const addButton = counterSection.previousElementSibling;
+                                addButton.classList.remove("hidden");
+                                updateCartCount(-1);
+                            }
+                        });
+        
+                        increaseButton.addEventListener("click", () => {
+                            let currentCount = parseInt(counter.textContent);
+                            currentCount++;
+                            counter.textContent = currentCount;
+                            updateCartCount(1);
+                        });
+                    });
+                });
+        
+                function updateCartCount(change) {
+                    const cartCount = document.getElementById("cart-count");
+                    let currentCount = parseInt(cartCount.textContent);
+                    currentCount += change;
+                    cartCount.textContent = currentCount;
+                }
+            </script>
         </div>
     </main>
 
