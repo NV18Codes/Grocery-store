@@ -22,17 +22,52 @@
                     <a href="index.html"> <img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
                     </a>
                 </div>
-
             </div>
 
-            <!-- Search Bar Section (Centered) -->
+            <!-- Search Bar Section -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
                     aria-label="Search products" />
-                <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInput = document.getElementById("search-input");
+                const productCards = document.querySelectorAll(".product-card");
+                const noResultsMessage = document.getElementById("no-results");
+            
+                // Listen for input changes in the search bar
+                searchInput.addEventListener("input", function () {
+                    const query = searchInput.value.trim().toLowerCase(); // Get the query and ensure it's lower case
+                    console.log('Search Query:', query); // Log the query to check what user types
+            
+                    let hasVisibleResults = false;
+            
+                    // Loop through each product card and check if it matches the search query
+                    productCards.forEach((card) => {
+                        const productName = card.getAttribute("data-product-name").toLowerCase(); // Get the product name
+                        console.log('Checking card:', productName); // Log each product name being checked
+            
+                        if (productName.includes(query)) {  // This performs a partial match
+                            card.style.display = "block"; // Show the product card
+                            hasVisibleResults = true;
+                        } else {
+                            card.style.display = "none"; // Hide the product card
+                        }
+                    });
+            
+                    // Show the "No items found" message if no results are visible
+                    if (!hasVisibleResults) {
+                        console.log('No products matched. Showing "No items found".');
+                        noResultsMessage.classList.remove("hidden"); // Show the "No items found" message
+                    } else {
+                        console.log('Products found. Hiding "No items found".');
+                        noResultsMessage.classList.add("hidden"); // Hide the "No items found" message
+                    }
+                });
+            });
+        </script>
 
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
@@ -348,9 +383,14 @@ gap: 20px;
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
+        <div id="no-results" class="hidden text-center w-120 mx-auto mt-4 py-3 px-6 rounded-md mb-4">
+            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4" alt="search_img">
+            <p class="text-red-500 text-xl font-bold">No results found</p>
+            <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
+        </div> 
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Potatoes">
                 <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="French Beans"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Potatoes</h3>
@@ -372,7 +412,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Tomatoes">
                 <img src="https://cdn.pixabay.com/photo/2016/03/26/16/44/tomatoes-1280859_640.jpg" alt="Tomatoes"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Tomatoes</h3>
@@ -394,7 +434,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Onions">
                 <img src="https://cdn.pixabay.com/photo/2013/09/06/16/02/onion-179474_1280.jpg" alt="Onions"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Onions</h3>
@@ -416,7 +456,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card " data-product-name="Red onions">
                 <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_640.jpg" alt="Onions"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold"> Red onions</h3>
@@ -438,7 +478,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Beans">
                 <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg" alt="French Beans"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Beans</h3>
@@ -460,7 +500,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Okra">
                 <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Okra</h3>
@@ -482,7 +522,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green chillies">
                 <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green chillies</h3>
@@ -504,7 +544,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Dhania/Coriander">
                 <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Dhania/Coriander</h3>
@@ -526,7 +566,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Mint">
+                <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" >
                 <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Mint</h3>
@@ -548,7 +589,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Ginger">
                 <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Ginger</h3>
@@ -570,7 +611,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Garlic">
                 <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Garlic</h3>
@@ -592,7 +633,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Spinach">
                 <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/spinach-7650539_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Spinach</h3>
@@ -614,7 +655,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Sour herbs">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmbmCXaY-kDUjo7hPYPdIHByJHh38sbcckU4ZcHlUJAvE6p4LSh4kBvmev9r3O4FB4MYs&usqp=CAU"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Sour herbs</h3>
@@ -636,7 +677,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Cabbage">
                 <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cabbage</h3>
@@ -658,7 +699,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Broccoli">
                 <img src="https://cdn.pixabay.com/photo/2023/01/25/18/46/broccoli-7744338_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Broccoli</h3>
@@ -680,7 +721,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Cauliflower">
                 <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cauliflower</h3>
@@ -702,7 +743,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Gourd/Calabash">
                 <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Gourd/Calabash</h3>
@@ -724,7 +765,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Carrots">
                 <img src="https://cdn.pixabay.com/photo/2016/11/23/00/22/carrots-1851424_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Carrots</h3>
@@ -746,7 +787,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Beetroot">
                 <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Beetroot</h3>
@@ -768,7 +809,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Raddish">
                 <img src="https://imgs.search.brave.com/RQIfVoABzthwoI5A0Umz6gh8U0gEv7Ro95BPTBhzIXA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JnYW5pY2ZhY3Rz/Lm5ldC93cC1jb250/ZW50L3VwbG9hZHMv/MjAxMy8wNS9SYWRk/aXNoLmpwZw"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Raddish</h3>
@@ -790,7 +831,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Baby marrow">
                 <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Baby marrow</h3>
@@ -812,7 +853,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Butternut">
                 <img src="https://cdn.pixabay.com/photo/2013/05/06/13/32/butternut-squash-109131_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Butternut</h3>
@@ -834,7 +875,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Eggplant">
                 <img src="https://media.istockphoto.com/id/865271826/photo/raw-ripe-eggplant-display-at-vegetable-stall.jpg?s=612x612&w=0&k=20&c=ornq52DBAgslGActK1I-w5ESE-fAIx7xR3RA-ksbk8U="
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Eggplant</h3>
@@ -856,7 +897,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Cucumber">
                 <img src="https://cdn.pixabay.com/photo/2023/06/05/01/04/cucumber-8041166_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cucumber</h3>
@@ -878,7 +919,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Peas">
                 <img src="https://cdn.pixabay.com/photo/2015/05/23/13/10/vegetables-780528_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Peas</h3>
@@ -901,10 +942,10 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Bitter gourd">
                 <img src="https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534410_1280.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
-                <h3 class="text-lg font-semibold">Bitter Gourd</h3>
+                <h3 class="text-lg font-semibold">Bitter gourd</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
                 <div class="flex items-center mt-4 text-center justify-center">
@@ -924,7 +965,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Brinjal">
                 <img src="https://cdn.pixabay.com/photo/2018/08/29/10/25/bhutan-3639572_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Brinjal</h3>
@@ -947,7 +988,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Gilora">
                 <img src="https://cdn.pixabay.com/photo/2020/07/26/02/05/potato-5438263_640.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Gilora</h3>
@@ -970,7 +1011,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Madumbe">
                 <img src="https://cdn.pixabay.com/photo/2020/07/03/23/52/taro-5367857_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Madumbe</h3>
@@ -993,7 +1034,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Methi/Fenugreek Herbs">
                 <img src="https://cdn.pixabay.com/photo/2017/11/09/10/08/fenugreek-2932921_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Methi/Fenugreek Herbs</h3>
@@ -1016,7 +1057,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Peppers Mixed">
                 <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg" alt="Product Image"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Peppers Mixed</h3>
@@ -1040,7 +1081,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Ridge Gourd/Luffa">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyyPA1JWT77C-jVktv2kkgo91dXndgnwqEzg&s"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Ridge Gourd/Luffa</h3>
@@ -1063,7 +1104,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Spring Onions">
                 <img src="https://cdn.pixabay.com/photo/2019/04/29/08/56/fresh-green-onion-bunches-4165548_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Spring Onions</h3>
@@ -1086,7 +1127,7 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Bananas">
                 <img src="https://cdn.pixabay.com/photo/2023/06/16/09/42/banana-tree-8067514_1280.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Bananas</h3>
@@ -1139,12 +1180,7 @@ gap: 20px;
         </div>
     </main>
 
-
-
-
-
     <!--Footer start-->
-
     <footer class="footer text-white py-2">
         <div class="container  mx-auto px-10">
             <!-- Top Section -->

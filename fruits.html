@@ -25,14 +25,50 @@
 
             </div>
 
-            <!-- Search Bar Section (Centered) -->
-            <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
+             <!-- Search Bar Section -->
+             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
                     aria-label="Search products" />
-                <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInput = document.getElementById("search-input");
+                const productCards = document.querySelectorAll(".product-card");
+                const noResultsMessage = document.getElementById("no-results");
+            
+                // Listen for input changes in the search bar
+                searchInput.addEventListener("input", function () {
+                    const query = searchInput.value.trim().toLowerCase(); // Get the query and ensure it's lower case
+                    console.log('Search Query:', query); // Log the query to check what user types
+            
+                    let hasVisibleResults = false;
+            
+                    // Loop through each product card and check if it matches the search query
+                    productCards.forEach((card) => {
+                        const productName = card.getAttribute("data-product-name").toLowerCase(); // Get the product name
+                        console.log('Checking card:', productName); // Log each product name being checked
+            
+                        if (productName.includes(query)) {  // This performs a partial match
+                            card.style.display = "block"; // Show the product card
+                            hasVisibleResults = true;
+                        } else {
+                            card.style.display = "none"; // Hide the product card
+                        }
+                    });
+            
+                    // Show the "No items found" message if no results are visible
+                    if (!hasVisibleResults) {
+                        console.log('No products matched. Showing "No items found".');
+                        noResultsMessage.classList.remove("hidden"); // Show the "No items found" message
+                    } else {
+                        console.log('Products found. Hiding "No items found".');
+                        noResultsMessage.classList.add("hidden"); // Hide the "No items found" message
+                    }
+                });
+            });
+        </script>
 
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
@@ -351,9 +387,16 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
+
+        <div id="no-results" class="hidden text-center w-120 mx-auto mt-4 py-3 px-6 rounded-md mb-4">
+            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4" alt="search_img">
+            <p class="text-red-500 text-xl font-bold">No results found</p>
+            <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
+        </div> 
+
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Red">
                 <img src="https://cdn.pixabay.com/photo/2016/08/12/22/38/apple-1589874_640.jpg" alt="Apple"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Apples Red</h3>
@@ -375,7 +418,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Oranges">
                 <img src="https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_640.jpg" alt="Oranges"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Oranges</h3>
@@ -397,7 +440,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes White">
                 <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="Grapes"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Grapes White</h3>
@@ -419,7 +462,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Strawberries">
                 <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_640.jpg" alt="Strawberries"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Strawberries</h3>
@@ -441,7 +484,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Mangoes">
                 <img src="https://cdn.pixabay.com/photo/2016/04/10/15/13/mangoes-1320111_640.jpg" alt="Mangoes"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Mangoes</h3>
@@ -462,7 +505,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Pineapple">
                 <img src="https://cdn.pixabay.com/photo/2018/11/11/15/42/pineapple-3808963_640.jpg" alt="Pineapple"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Pineapple</h3>
@@ -483,7 +526,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Guava">
                 <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_640.jpg" alt="Guava"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Guava</h3>
@@ -504,7 +547,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Papaya">
                 <img src="https://cdn.pixabay.com/photo/2019/08/08/03/28/papaya-4391846_640.jpg" alt="Papaya"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Papaya</h3>
@@ -525,7 +568,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Watermelon">
                 <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg" alt="Watermelon"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Watermelon</h3>
@@ -546,7 +589,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Muskmelon">
                 <img src="https://cdn.pixabay.com/photo/2014/07/08/14/17/muskmelons-387466_640.jpg" alt="muskmelon"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Muskmelon</h3>
@@ -567,7 +610,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Bananas">
                 <img src="https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_640.jpg" alt="banana"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Bananas</h3>
@@ -588,10 +631,10 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Green">
                 <img src="https://cdn.pixabay.com/photo/2022/06/07/15/24/green-apple-7248616_640.jpg" alt="green apple"
                     class="w-full h-32 object-cover rounded">
-                <h3 class="text-lg font-semibold">Apples Green Granny Smith</h3>
+                <h3 class="text-lg font-semibold">Apples Green</h3>
                 <p class="text-green-600 font-bold">R 100.00/kg</p>
                 <div class="flex items-center mt-4 justify-center text-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -609,7 +652,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes Red">
                 <img src="https://cdn.pixabay.com/photo/2016/03/27/17/14/grapes-1283162_640.jpg" alt="grapes red"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Grapes Red</h3>
@@ -630,10 +673,10 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Golden Delicious">
                 <img src="https://cdn.pixabay.com/photo/2018/05/27/16/16/apple-3433812_1280.jpg" alt="apple golden"
                     class="w-full h-32 object-cover rounded">
-                <h3 class="text-lg font-semibold">Apples Golden Delicious</h3>
+                <h3 class="text-lg font-semibold">Apples Golden</h3>
                 <p class="text-green-600 font-bold">R 100.00/kg</p>
                 <div class="flex items-center mt-4 justify-center text-center">
                     <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -653,7 +696,7 @@
             </div>
 
 
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card relative">
+            <div class="bg-white p-4 rounded shadow min-w-[224px] text-center product-card relative" data-product-name="Avocados">
                 <!-- Out of Stock Badge -->
                 <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
                     Out of Stock
@@ -666,8 +709,6 @@
                 <!-- Product Details -->
                 <h3 class="text-lg font-semibold text-gray-500">Avocados</h3>
                 <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
-                <p class="text-gray-500">Currently unavailable</p>
-
                 <!-- Disabled Add Button -->
                 <div class="mt-4">
                     <button
@@ -676,6 +717,7 @@
                         ADD
                     </button>
                 </div>
+                <p class="text-gray-500 mt-2">Currently unavailable</p>
             </div>
 
         </div>
