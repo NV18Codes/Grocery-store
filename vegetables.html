@@ -232,6 +232,44 @@
                 }
             };
         </script>
+
+<style>
+    .counterSection {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hidden {
+        display: none;
+    }
+    #product-grid {
+display: grid;
+grid-template-columns: repeat(1, 1fr); /* Default: 1 column */
+gap: 20px;
+}
+
+@media (min-width: 480px) {
+#product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns */
+}
+
+@media (min-width: 768px) {
+#product-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columns */
+}
+
+@media (min-width: 1024px) {
+#product-grid { grid-template-columns: repeat(4, 1fr); } /* 4 columns */
+}
+
+@media (min-width: 1280px) {
+#product-grid { grid-template-columns: repeat(5, 1fr); } /* 5 columns */
+}
+
+@media (min-width: 1440px) {
+#product-grid { grid-template-columns: repeat(6, 1fr); } /* 6 columns */
+}
+
+</style>
     </header>
 
     <nav class="bg-green-100 py-3 flex justify-center space-x-6">
@@ -310,7 +348,7 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card">
                 <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="French Beans"
