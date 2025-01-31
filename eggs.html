@@ -298,11 +298,36 @@
         .hidden {
             display: none;
         }
+        #product-grid {
+display: grid;
+grid-template-columns: repeat(1, 1fr); /* Default: 1 column */
+gap: 20px;
+}
+
+@media (min-width: 480px) {
+#product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns */
+}
+
+@media (min-width: 768px) {
+#product-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columns */
+}
+
+@media (min-width: 1024px) {
+#product-grid { grid-template-columns: repeat(4, 1fr); } /* 4 columns */
+}
+
+@media (min-width: 1280px) {
+#product-grid { grid-template-columns: repeat(5, 1fr); } /* 5 columns */
+}
+
+@media (min-width: 1440px) {
+#product-grid { grid-template-columns: repeat(6, 1fr); } /* 6 columns */
+}
     </style>
 
     
 
-    <main class="container mx-auto px-4 py-2">
+    <main class="container mx-auto px-8 py-2">
         <!-- Back Button -->
         <div class="mb-4">
             <a href="index.html"
@@ -315,7 +340,7 @@
             <p class="text-red-500 text-xl font-bold">No results found</p>
             <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
         </div>        
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
+                <div id="product-grid" div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             <!-- 10 Product Cards -->
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Chicken Cut Pieces">
                 <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover rounded">
@@ -338,7 +363,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Eggs">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="30 Eggs">
                 <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">30 Eggs</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
