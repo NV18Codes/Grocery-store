@@ -1,25 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Search Functionality
-    const searchInput = document.getElementById('search-input');
-    const noResults = document.getElementById('no-results');
-    const productSections = document.querySelectorAll('.product-card');
-
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        let found = false;
-
-        productSections.forEach(section => {
-            const title = section.querySelector('h4').textContent.toLowerCase();
-            if (title.includes(query)) {
-                section.style.display = 'block';
-                found = true;
-            } else {
-                section.style.display = 'none';
-            }
-        });
-
-        noResults.style.display = found ? 'none' : 'block';
-    });
 
 
 
@@ -120,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-});
+
 
 
 

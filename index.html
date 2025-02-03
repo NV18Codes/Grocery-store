@@ -27,23 +27,66 @@
 
 <body>
     <header class="header sticky top-0 left-0 w-full z-50 text-white shadow-md">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
-
-            <!-- Store Title with Logo (Left Aligned) -->
-            <div class="flex items-center space-x-4  sm:mb-0">
-                <div class="flex items-center justify-center p-2 rounded-lg">
-                    <a href="index.html"><img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20 "></a>
+        <!-- Small Screens Header (Hidden on Large Screens) -->
+        <div id="element" class="container mx-auto  sm:flex flex-col items-center justify-between px-6 md:hidden ">
+            <!-- Top Row (Logo, Login, Cart) -->
+            <div class="flex w-full justify-between items-center">
+                <!-- Store Logo (Left Aligned) -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-20 sm:w-30 h-auto">
+                    </a>
                 </div>
 
+                <!-- Login & Cart (Right Aligned) -->
+                <div class="flex items-center space-x-4">
+                    <button id="login-btn"
+                        class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 price font-bold transition duration-300"
+                        aria-label="Login">
+                        Login
+                    </button>
+                    <div class="relative">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart text-xl text-white"></i>
+                            <span id="cart-count"
+                                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                                0
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
+            <!-- Search Bar Section (Centered, Location below it on small screens) -->
+            <div class="relative w-full mt-2 sm:mt-0 sm:w-96">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="p-2 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-10 shadow-md"
+                    aria-label="Search products" />
+                <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            </div>
 
-            <!-- Search Bar Section (Centered) -->
+            <!-- Location (Below Search Bar on Small Screens, Inline on Large Screens) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-2 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
+        </div>
+
+        <!-- Large Screens Header  -->
+        <div id="element" class="container mx-auto hidden md:flex flex-row items-center justify-between px-6 sm:hidden">
+            <!-- Store Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0 ">
+                <div class="flex items-center justify-center p-1 rounded-lg">
+                    <a href="index.html"> <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Search Bar Section -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-10 shadow-md"
                     aria-label="Search products" />
-                <div id="no-results" class="text-red-500 hidden">No items found</div>
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
 
@@ -71,7 +114,46 @@
                 <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInputs = document.querySelectorAll("#search-input"); // Select all search bars
+                const productCards = document.querySelectorAll(".product-card");
+                const noResultsMessage = document.getElementById("no-results");
 
+                function handleSearch(event) {
+                    const query = event.target.value.trim().toLowerCase(); // Get the search query
+                    console.log('Search Query:', query);
+
+                    let hasVisibleResults = false;
+
+                    productCards.forEach((card) => {
+                        const productName = card.getAttribute("data-product-name").toLowerCase();
+                        console.log('Checking card:', productName);
+
+                        if (productName.includes(query)) {
+                            card.style.display = "block";
+                            hasVisibleResults = true;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (!hasVisibleResults) {
+                        console.log('No products matched. Showing "No items found".');
+                        noResultsMessage.classList.remove("hidden");
+                    } else {
+                        console.log('Products found. Hiding "No items found".');
+                        noResultsMessage.classList.add("hidden");
+                    }
+                }
+
+                // Attach event listener to both small and large screen search bars
+                searchInputs.forEach((searchInput) => {
+                    searchInput.addEventListener("input", handleSearch);
+                });
+            });
+
+        </script>
 
 
 
@@ -203,106 +285,7 @@
         </div>
 
 
-        
-        <!-- Tailwind CSS & FontAwesome Icons CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-        <script>
-            // JavaScript to close modals
-            document.getElementById('close-login-modal').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.add('hidden');
-            });
-
-            document.getElementById('close-sign-up-modal').addEventListener('click', function () {
-                document.getElementById('sign-up-modal').classList.add('hidden');
-            });
-
-            // JavaScript to reload captcha image using an icon click
-            document.getElementById('reload-captcha').addEventListener('click', function () {
-                var captchaImage = document.getElementById('captcha-image');
-                captchaImage.src = "captcha_image.php?" + new Date().getTime(); // Prevent caching
-            });
-
-            // Show Login Modal
-            document.getElementById('login-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Show Sign Up Modal
-            document.getElementById('sign-up-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.add('hidden');
-                document.getElementById('sign-up-modal').classList.remove('hidden');
-            });
-
-            // Show Login Modal from Sign Up Modal
-            document.getElementById('login-btn-sign-up').addEventListener('click', function () {
-                document.getElementById('sign-up-modal').classList.add('hidden');
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Close the modal when clicking outside of it
-            window.onclick = function (event) {
-                if (event.target == document.getElementById('login-modal')) {
-                    document.getElementById('login-modal').classList.add('hidden');
-                }
-                if (event.target == document.getElementById('sign-up-modal')) {
-                    document.getElementById('sign-up-modal').classList.add('hidden');
-                }
-            };
-        </script>
     </header>
-
-    <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            const addButtons = document.querySelectorAll(".addButton");
-
-            addButtons.forEach((addButton) => {
-                addButton.addEventListener("click", () => {
-                    addButton.classList.add("hidden");
-                    const counterSection = addButton.nextElementSibling;
-                    counterSection.classList.remove("hidden");
-                    const counter = counterSection.querySelector(".counter");
-                    counter.textContent = 1;
-                    updateCartCount(1);
-                });
-            });
-
-            const counters = document.querySelectorAll(".counterSection");
-            counters.forEach((counterSection) => {
-                const decreaseButton = counterSection.querySelector(".decrease");
-                const increaseButton = counterSection.querySelector(".increase");
-                const counter = counterSection.querySelector(".counter");
-
-                decreaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    if (currentCount > 1) {
-                        currentCount--;
-                        counter.textContent = currentCount;
-                        updateCartCount(-1);
-                    } else {
-                        counterSection.classList.add("hidden");
-                        const addButton = counterSection.previousElementSibling;
-                        addButton.classList.remove("hidden");
-                        updateCartCount(-1);
-                    }
-                });
-
-                increaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    currentCount++;
-                    counter.textContent = currentCount;
-                    updateCartCount(1);
-                });
-            });
-        });
-
-        function updateCartCount(change) {
-            const cartCount = document.getElementById("cart-count");
-            let currentCount = parseInt(cartCount.textContent);
-            currentCount += change;
-            cartCount.textContent = currentCount;
-        }
-    </script>
 
     <nav class="category bg-green-100 py-3 flex justify-center items-center space-x-6 flex-wrap">
         <a href="vegetables.html" class="text-green-700 font-semibold nav-link">Vegetables</a>
@@ -311,6 +294,12 @@
     </nav>
 
     <div class="container mx-auto px-8">
+        <div id="no-results" class="hidden text-center w-120 mx-auto mt-4 py-3 px-6 rounded-md mb-4">
+            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4"
+                alt="search_img">
+            <p class="text-red-500 text-xl font-bold">No results found</p>
+            <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
+        </div>
         <!-- Flash Deals Section -->
         <section id="flash-deals" class="py-8">
             <div class="container mx-auto">
@@ -330,7 +319,7 @@
                     <div id="carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Potatoes">
                             <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
                                 alt="Potatoes" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Potatoes</h4>
@@ -352,7 +341,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Tomatoes">
                             <img src="https://cdn.pixabay.com/photo/2016/03/26/16/44/tomatoes-1280859_640.jpg"
                                 alt="Tomatoes" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Tomatoes</h4>
@@ -374,7 +363,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Red Onions">
                             <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_1280.jpg"
                                 alt="Onions" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Red Onions</h4>
@@ -396,7 +385,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Beans">
                             <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg"
                                 alt="Green Beans" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Beans</h4>
@@ -418,7 +407,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Okra">
                             <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg"
                                 alt="Okra" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Okra</h4>
@@ -440,7 +429,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Chillies">
                             <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
                                 alt="Green Chillies" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Chillies</h4>
@@ -462,7 +451,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Dhania / Coriander">
                             <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_1280.jpg"
                                 alt="Dhania/Coriander" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Dhania / Coriander</h4>
@@ -484,7 +473,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Mint">
                             <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
                                 alt="Mint" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Mint</h4>
@@ -506,7 +495,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Ginger">
                             <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg"
                                 alt="Ginger" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Ginger</h4>
@@ -528,7 +517,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Garlic">
                             <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg"
                                 alt="Garlic" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Garlic</h4>
@@ -550,7 +539,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Sour Herbs">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmbmCXaY-kDUjo7hPYPdIHByJHh38sbcckU4ZcHlUJAvE6p4LSh4kBvmev9r3O4FB4MYs&usqp=CAU"
                                 alt="Sour Herbs" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Sour Herbs</h4>
@@ -595,16 +584,16 @@
                 <div class="relative ">
 
                     <!-- Prev Button -->
-                    <button id="carousel-prev-veg"
+                    <button id="carousel-prev"
                         class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
                         &#8249;
                     </button>
 
-                    <div id="veg-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
+                    <div id="carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
 
                         <!-- Product Card for Cabbage -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Cabbage">
                             <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg"
                                 alt="Cabbage" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Cabbage</h4>
@@ -628,7 +617,7 @@
                         </div>
 
                         <!-- Product Card for Broccoli -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Broccoli">
                             <img src="https://cdn.pixabay.com/photo/2023/01/25/18/46/broccoli-7744338_1280.jpg"
                                 alt="Broccoli" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Broccoli</h4>
@@ -652,7 +641,7 @@
                         </div>
 
                         <!-- Product Card for Cauliflower -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Cauliflower">
                             <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
                                 alt="Cauliflower" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Cauliflower</h4>
@@ -676,7 +665,7 @@
                         </div>
 
                         <!-- Product Card for Green Guard / Calabash -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Guard/Calabash">
                             <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg"
                                 alt="Green Guard / Calabash" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Green Guard/Calabash</h4>
@@ -700,7 +689,7 @@
                         </div>
 
                         <!-- Product Card for Carrots -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Carrots">
                             <img src="https://cdn.pixabay.com/photo/2016/11/23/00/22/carrots-1851424_640.jpg"
                                 alt="Carrots" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Carrots</h4>
@@ -724,7 +713,7 @@
                         </div>
 
                         <!-- Product Card for Beetroot -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Beetroot">
                             <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_640.jpg"
                                 alt="Beetroot" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Beetroot</h4>
@@ -748,10 +737,10 @@
                         </div>
 
                         <!-- Product Card for Radish -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Raddish">
                             <img src="https://imgs.search.brave.com/RQIfVoABzthwoI5A0Umz6gh8U0gEv7Ro95BPTBhzIXA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JnYW5pY2ZhY3Rz/Lm5ldC93cC1jb250/ZW50L3VwbG9hZHMv/MjAxMy8wNS9SYWRk/aXNoLmpwZw"
                                 alt="Radish" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Radish</h4>
+                            <h4 class="text-lg font-semibold mt-2">Raddish</h4>
                             <p class="price font-bold">R 20 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -772,7 +761,7 @@
                         </div>
 
                         <!-- Product Card for Baby Marrow -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Baby Marrow">
                             <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
                                 alt="Baby Marrow" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Baby Marrow</h4>
@@ -796,7 +785,7 @@
                         </div>
 
                         <!-- Product Card for Butternut -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Butternut">
                             <img src="https://cdn.pixabay.com/photo/2013/05/06/13/32/butternut-squash-109131_640.jpg"
                                 alt="Butternut" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Butternut</h4>
@@ -820,7 +809,7 @@
                         </div>
 
                         <!-- Product Card for Peppers -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Peppers Mixed">
                             <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg"
                                 alt="Peppers" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Peppers Mixed</h4>
@@ -845,7 +834,7 @@
                     </div>
 
                     <!-- Next Button -->
-                    <button id="carousel-next-veg"
+                    <button id="carousel-next"
                         class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>
@@ -883,7 +872,7 @@
                     <div id="fruits-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
                         style="overflow: hidden; scroll-behavior: smooth;">
                         <!-- Product Cards -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Apples Red">
                             <img src="https://cdn.pixabay.com/photo/2016/08/12/22/38/apple-1589874_1280.jpg"
                                 alt="Apples" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Apples Red</h4>
@@ -906,7 +895,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Oranges">
                             <img src="https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_640.jpg"
                                 alt="Oranges" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Oranges</h4>
@@ -929,7 +918,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Strawberries">
                             <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_640.jpg"
                                 alt="Strawberries" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
@@ -952,7 +941,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto relative">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto relative"  data-product-name="Avocados">
                             <!-- Out of Stock Badge -->
                             <div
                                 class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
@@ -978,7 +967,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Bananas">
                             <img src="https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_640.jpg"
                                 alt="Bananas" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Bananas</h4>
@@ -1001,7 +990,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Grapes White">
                             <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg"
                                 alt="Grapes" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Grapes White</h4>
@@ -1024,7 +1013,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Watermelon">
                             <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
                                 alt="Watermelon" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Watermelon</h4>
@@ -1047,7 +1036,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Lemons">
                             <img src="https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_1280.jpg"
                                 alt="Lemons" class="w-full h-32 object-cover rounded">
                             <h4 class="text-lg font-semibold mt-2">Lemons</h4>
@@ -1099,122 +1088,122 @@
 
 
         <!-- Dairy & Poultry Section -->
-        <section id="dairy-poultry" class="py-8"">
-            <div class="container mx-auto">
-                <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
-                <div class="relative ">
+        <section id="dairy-poultry" class="py-8">
+            <div class=" container mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
+            <div class="relative ">
 
 
 
-                    <button id="dairy-carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
-                        &#8249;</button>
-                    <!-- Carousel Container -->
-                    <div id="dairy-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
-                        style="overflow: hidden; scroll-behavior: smooth;">
+                <button id="dairy-carousel-prev"
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
+                    &#8249;</button>
+                <!-- Carousel Container -->
+                <div id="dairy-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
+                    style="overflow: hidden; scroll-behavior: smooth;">
 
-                        <!-- Product Cards -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto relative">
-                            <img src="img/eggs/cutchicken.jpg" alt="Chicken" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Chicken Cut Pieces</h4>
-                            <p class="price font-bold">R 75/kg</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                    <!-- Product Cards -->
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto "  data-product-name="Chicken Cut Pieces">
+                        <img src="img/eggs/cutchicken.jpg" alt="Chicken" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Chicken Cut Pieces</h4>
+                        <p class="price font-bold">R 75/kg</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
-                            <img src="img/eggs/30eggs.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">30 Eggs</h4>
-                            <p class="price font-bold">R 60.00 </p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
-                            <!-- Out of Stock Badge -->
-                            <div
-                                class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
-                                Out of Stock
-                            </div>
-
-                            <!-- Product Image -->
-                            <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
-                                alt="Whole Chicken" class="w-full h-32 object-cover rounded opacity-50">
-
-                            <!-- Product Details -->
-                            <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
-                            <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
-                            <p class="text-gray-500">Currently unavailable</p>
-
-                            <!-- Disabled Add Button -->
-                            <div class="mt-4">
-                                <button
-                                    class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
-                                    disabled>
-                                    ADD
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto">
-                            <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg"
-                                alt="Chicken fillets" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Chicken Fillets</h4>
-                            <p class="price font-bold">R 75/kg</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Next Button -->
 
-                    <button id="dairy-carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
-                        &#8250;
-                    </button>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="30 Eggs">
+                        <img src="img/eggs/30eggs.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">30 Eggs</h4>
+                        <p class="price font-bold">R 60.00 </p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Whole Chicken">
+                        <!-- Out of Stock Badge -->
+                        <div
+                            class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
+                            Out of Stock
+                        </div>
+
+                        <!-- Product Image -->
+                        <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
+                            alt="Whole Chicken" class="w-full h-32 object-cover rounded opacity-50">
+
+                        <!-- Product Details -->
+                        <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
+                        <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
+                        <p class="text-gray-500">Currently unavailable</p>
+
+                        <!-- Disabled Add Button -->
+                        <div class="mt-4">
+                            <button
+                                class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
+                                disabled>
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Chicken Fillets">
+                        <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg"
+                            alt="Chicken fillets" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">Chicken Fillets</h4>
+                        <p class="price font-bold">R 75/kg</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Next Button -->
+
+                <button id="dairy-carousel-next"
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
+                    &#8250;
+                </button>
             </div>
+
             <div class="flex justify-end mt-4">
                 <a href="eggs.html" class="flex items-center text-[#090] font-bold text-md">
                     SEE MORE
@@ -1325,7 +1314,6 @@
         </div>
         </div>
     </footer>
-
 
 
 </body>
