@@ -54,6 +54,12 @@
     transition: background-color 0.3s ease;
 
 }
+.counter-section {
+    background-color: rgb(0, 153, 0);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 .increase {
     font-size: 1.2rem;
@@ -86,9 +92,7 @@
     transform: translateY(-50%);
 }
 
-.counter-section {
-    display: none;
-}
+
 
 .carousel {
     overflow-x: hidden;
@@ -185,4 +189,98 @@
 .shoppingbutton{
     background-color: rgb(0, 153, 0);
 
+}
+
+/* Default: Hide on all screen sizes */
+.element {
+    display: none;
+}
+
+/* Mobile (0px - 479px) */
+@media (max-width: 479px) {
+    .element {
+        display: flex;  /* Display flex for small mobile screens */
+    }
+}
+
+/* Small tablets (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .element {
+        display: flex;  /* Display flex for small tablets */
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .element {
+        display: flex;  /* Display flex for tablets */
+    }
+}
+
+/* Laptops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .element {
+        display: flex;  /* Display flex for laptops */
+    }
+}
+
+/* 14-inch screens (1280px - 1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    .element {
+        display: flex;  /* Display flex for 14-inch screens */
+    }
+}
+
+/* 15.6-inch screens and larger (1440px and above) */
+@media (min-width: 1440px) {
+    .element {
+        display: flex;  /* Display flex for larger screens */
+    }
+}
+
+#product-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* Default: 1 column */
+    gap: 20px;
+}
+
+@media (min-width: 480px) {
+    #product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 2 columns */
+}
+
+@media (min-width: 768px) {
+    #product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* 3 columns */
+}
+
+@media (min-width: 1024px) {
+    #product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* 4 columns */
+}
+
+@media (min-width: 1280px) {
+    #product-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* 5 columns */
+}
+
+@media (min-width: 1440px) {
+    #product-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    /* 6 columns */
 }

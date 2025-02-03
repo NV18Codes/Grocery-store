@@ -4,72 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gems Fruit & Veg | Fruits</title>
+    <title>Gems Fruit & Veg | Eggs & Poultry</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+
 </head>
 
 <body>
     <header class="header sticky top-0 left-0 w-full z-50 text-white shadow-md">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-6">
-
-            <!-- Store Title with Logo (Left Aligned) -->
-            <div class="flex items-center space-x-4 mb-4 sm:mb-0">
-                <div class="flex items-center justify-center p-2 rounded-lg">
-                    <a href="index.html"> <img src="img\logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
+        <!-- Small Screens Header (Hidden on Large Screens) -->
+        <div id="element" class="container mx-auto  sm:flex flex-col items-center justify-between px-6 md:hidden ">
+            <!-- Top Row (Logo, Login, Cart) -->
+            <div class="flex w-full justify-between items-center">
+                <!-- Store Logo (Left Aligned) -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-20 sm:w-30 h-auto">
                     </a>
                 </div>
 
+                <!-- Login & Cart (Right Aligned) -->
+                <div class="flex items-center space-x-4">
+                    <button id="login-btn"
+                        class="bg-white py-2 px-4 rounded-md text-sm hover:bg-green-200 price font-bold transition duration-300"
+                        aria-label="Login">
+                        Login
+                    </button>
+                    <div class="relative">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart text-xl text-white"></i>
+                            <span id="cart-count"
+                                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg">
+                                0
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Search Bar Section (Centered) -->
+            <!-- Search Bar Section (Centered, Location below it on small screens) -->
+            <div class="relative w-full mt-2 sm:mt-0 sm:w-96">
+                <input type="text" id="search-input" placeholder="Search products..."
+                    class="p-2 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-10 shadow-md"
+                    aria-label="Search products" />
+                <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+            </div>
+
+            <!-- Location (Below Search Bar on Small Screens, Inline on Large Screens) -->
+            <div class="w-full sm:w-auto flex items-center justify-center sm:justify-start mt-2 sm:mt-0 sm:ml-8">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
+            </div>
+        </div>
+
+        <!-- Large Screens Header  -->
+        <div id="element" class="container mx-auto hidden md:flex flex-row items-center justify-between px-6 sm:hidden">
+            <!-- Store Logo (Left Aligned) -->
+            <div class="flex items-center space-x-4 mb-4 sm:mb-0 ">
+                <div class="flex items-center justify-center p-1 rounded-lg">
+                    <a href="index.html"> <img src="img/logo4.png" alt="Gems Grocery Store Logo" class="w-30 h-20">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Search Bar Section -->
             <div class="relative flex-1 mx-6 max-w-lg mb-4 sm:mb-0 sm:w-96">
                 <input type="text" id="search-input" placeholder="Search products..."
-                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-12 shadow-md"
+                    class="p-3 w-full rounded-md text-black focus:outline-none focus:ring-2 focus:ring-green-800 pr-10 shadow-md"
                     aria-label="Search products" />
                 <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
             </div>
-
-            <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const searchInput = document.getElementById("search-input");
-                    const productCards = document.querySelectorAll(".product-card");
-                    const noResultsMessage = document.getElementById("no-results");
-                
-                    // Listen for input changes in the search bar
-                    searchInput.addEventListener("input", function () {
-                        const query = searchInput.value.trim().toLowerCase(); // Get the query and ensure it's lower case
-                        console.log('Search Query:', query); // Log the query to check what user types
-                
-                        let hasVisibleResults = false;
-                
-                        // Loop through each product card and check if it matches the search query
-                        productCards.forEach((card) => {
-                            const productName = card.getAttribute("data-product-name").toLowerCase(); // Get the product name
-                            console.log('Checking card:', productName); // Log each product name being checked
-                
-                            if (productName.includes(query)) {  // This performs a partial match
-                                card.style.display = "block"; // Show the product card
-                                hasVisibleResults = true;
-                            } else {
-                                card.style.display = "none"; // Hide the product card
-                            }
-                        });
-                
-                        // Show the "No items found" message if no results are visible
-                        if (!hasVisibleResults) {
-                            console.log('No products matched. Showing "No items found".');
-                            noResultsMessage.classList.remove("hidden"); // Show the "No items found" message
-                        } else {
-                            console.log('Products found. Hiding "No items found".');
-                            noResultsMessage.classList.add("hidden"); // Hide the "No items found" message
-                        }
-                    });
-                });
-            </script>
 
             <!-- Login, Cart, and Location Section (Right Aligned) -->
             <div class="flex items-center space-x-6 mb-4 sm:mb-0">
@@ -95,6 +104,49 @@
                 <span id="location-text" class="text-sm font-medium text-gray-200">Bangalore</span>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInputs = document.querySelectorAll("#search-input"); // Select all search bars
+                const productCards = document.querySelectorAll(".product-card");
+                const noResultsMessage = document.getElementById("no-results");
+
+                function handleSearch(event) {
+                    const query = event.target.value.trim().toLowerCase(); // Get the search query
+                    console.log('Search Query:', query);
+
+                    let hasVisibleResults = false;
+
+                    productCards.forEach((card) => {
+                        const productName = card.getAttribute("data-product-name").toLowerCase();
+                        console.log('Checking card:', productName);
+
+                        if (productName.includes(query)) {
+                            card.style.display = "block";
+                            hasVisibleResults = true;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (!hasVisibleResults) {
+                        console.log('No products matched. Showing "No items found".');
+                        noResultsMessage.classList.remove("hidden");
+                    } else {
+                        console.log('Products found. Hiding "No items found".');
+                        noResultsMessage.classList.add("hidden");
+                    }
+                }
+
+                // Attach event listener to both small and large screen search bars
+                searchInputs.forEach((searchInput) => {
+                    searchInput.addEventListener("input", handleSearch);
+                });
+            });
+
+        </script>
+
+
+
         <!-- Login Modal -->
         <div id="login-modal"
             class="fixed inset-0 bg-gray-500 bg-opacity-50 z-50 hidden flex justify-center items-center">
@@ -223,90 +275,6 @@
         </div>
 
 
-        <!-- Tailwind CSS & FontAwesome Icons CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-
-        <script>
-            // JavaScript to close modals
-            document.getElementById('close-login-modal').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.add('hidden');
-            });
-
-            document.getElementById('close-sign-up-modal').addEventListener('click', function () {
-                document.getElementById('sign-up-modal').classList.add('hidden');
-            });
-
-            // JavaScript to reload captcha image using an icon click
-            document.getElementById('reload-captcha').addEventListener('click', function () {
-                var captchaImage = document.getElementById('captcha-image');
-                captchaImage.src = "captcha_image.php?" + new Date().getTime(); // Prevent caching
-            });
-
-            // Show Login Modal
-            document.getElementById('login-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Show Sign Up Modal
-            document.getElementById('sign-up-btn').addEventListener('click', function () {
-                document.getElementById('login-modal').classList.add('hidden');
-                document.getElementById('sign-up-modal').classList.remove('hidden');
-            });
-
-            // Show Login Modal from Sign Up Modal
-            document.getElementById('login-btn-sign-up').addEventListener('click', function () {
-                document.getElementById('sign-up-modal').classList.add('hidden');
-                document.getElementById('login-modal').classList.remove('hidden');
-            });
-
-            // Close the modal when clicking outside of it
-            window.onclick = function (event) {
-                if (event.target == document.getElementById('login-modal')) {
-                    document.getElementById('login-modal').classList.add('hidden');
-                }
-                if (event.target == document.getElementById('sign-up-modal')) {
-                    document.getElementById('sign-up-modal').classList.add('hidden');
-                }
-            };
-        </script>
-
-<style>
-    .counterSection {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .hidden {
-        display: none;
-    }
-    #product-grid {
-display: grid;
-grid-template-columns: repeat(1, 1fr); /* Default: 1 column */
-gap: 20px;
-}
-
-@media (min-width: 480px) {
-#product-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns */
-}
-
-@media (min-width: 768px) {
-#product-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columns */
-}
-
-@media (min-width: 1024px) {
-#product-grid { grid-template-columns: repeat(4, 1fr); } /* 4 columns */
-}
-
-@media (min-width: 1280px) {
-#product-grid { grid-template-columns: repeat(5, 1fr); } /* 5 columns */
-}
-
-@media (min-width: 1440px) {
-#product-grid { grid-template-columns: repeat(6, 1fr); } /* 6 columns */
-}
-
-</style>
     </header>
 
     <nav class="bg-green-100 py-3 flex justify-center space-x-6">
@@ -315,57 +283,7 @@ gap: 20px;
         <a href="eggs.html" class="text-green-700 font-semibold nav-link">Eggs & Poultry</a>
     </nav>
 
-    <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            const addButtons = document.querySelectorAll(".addButton");
-
-            addButtons.forEach((addButton) => {
-                addButton.addEventListener("click", () => {
-                    addButton.classList.add("hidden");
-                    const counterSection = addButton.nextElementSibling;
-                    counterSection.classList.remove("hidden");
-                    const counter = counterSection.querySelector(".counter");
-                    counter.textContent = 1;
-                    updateCartCount(1);
-                });
-            });
-
-            const counters = document.querySelectorAll(".counterSection");
-            counters.forEach((counterSection) => {
-                const decreaseButton = counterSection.querySelector(".decrease");
-                const increaseButton = counterSection.querySelector(".increase");
-                const counter = counterSection.querySelector(".counter");
-
-                decreaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    if (currentCount > 1) {
-                        currentCount--;
-                        counter.textContent = currentCount;
-                        updateCartCount(-1);
-                    } else {
-                        counterSection.classList.add("hidden");
-                        const addButton = counterSection.previousElementSibling;
-                        addButton.classList.remove("hidden");
-                        updateCartCount(-1);
-                    }
-                });
-
-                increaseButton.addEventListener("click", () => {
-                    let currentCount = parseInt(counter.textContent);
-                    currentCount++;
-                    counter.textContent = currentCount;
-                    updateCartCount(1);
-                });
-            });
-        });
-
-        function updateCartCount(change) {
-            const cartCount = document.getElementById("cart-count");
-            let currentCount = parseInt(cartCount.textContent);
-            currentCount += change;
-            cartCount.textContent = currentCount;
-        }
-    </script>
+    
     <!-- Categories -->
     <div class=" p-4 flex flex-wrap gap-4 justify-center">
         <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">All</button>
@@ -386,11 +304,13 @@ gap: 20px;
             </a>
         </div>
         <div id="no-results" class="hidden text-center w-120 mx-auto mt-4 py-3 px-6 rounded-md mb-4">
-            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4" alt="search_img">
+            <img src="https://img.crofarm.com/otipyecom/assets/nullsearch.png" class="w-24 h-24 mx-auto mb-4"
+                alt="search_img">
             <p class="text-red-500 text-xl font-bold">No results found</p>
             <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
-        </div> 
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
+        </div>
+        <div id="product-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
             <!-- 10 Product Cards -->
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Potatoes">
                 <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg" alt="Potatoes"
@@ -406,7 +326,7 @@ gap: 20px;
                         <div class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                             <button
                                 class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                            <span class="counter text-lg font-bold">1</span>
+                            <span class="counter text-lg font-bold">0</span>
                             <button
                                 class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
                         </div>
@@ -480,7 +400,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Beans">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Green Beans">
                 <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg" alt="Green Beans"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Beans</h3>
@@ -503,8 +424,8 @@ gap: 20px;
             </div>
 
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Okra">
-                <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg"
-                    alt="Okra" class="w-full h-32 object-cover rounded">
+                <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg" alt="Okra"
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Okra</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
@@ -524,7 +445,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Chillies">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Green Chillies">
                 <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
                     alt="Green Chillies" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Chillies</h3>
@@ -546,7 +468,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Dhania/Coriander">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Dhania/Coriander">
                 <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_640.jpg"
                     alt="Dhania/Coriander" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Dhania/Coriander</h3>
@@ -569,8 +492,8 @@ gap: 20px;
             </div>
 
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Mint">
-                <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
-                    alt="Mint" class="w-full h-32 object-cover rounded">
+                <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg" alt="Mint"
+                    class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Mint</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
@@ -722,7 +645,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Cauliflower">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Cauliflower">
                 <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Cauliflower</h3>
@@ -744,9 +668,10 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Gourd/Calabash">
-                <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg" alt="Green Gourd/Calabash"
-                    class="w-full h-32 object-cover rounded">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Green Gourd/Calabash">
+                <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg"
+                    alt="Green Gourd/Calabash" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Gourd/Calabash</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <div class="flex items-center mt-4 text-center justify-center">
@@ -832,7 +757,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Baby Marrow">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Baby Marrow">
                 <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
                     alt="Product Image" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Baby Marrow</h3>
@@ -943,7 +869,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Bitter Gourd">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Bitter Gourd">
                 <img src="https://cdn.pixabay.com/photo/2021/08/09/21/49/bitter-gourd-6534410_1280.jpg"
                     alt="Bitter Gourd" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Bitter Gourd</h3>
@@ -1035,9 +962,10 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Methi/Fenugreek Herbs">
-                <img src="https://cdn.pixabay.com/photo/2017/11/09/10/08/fenugreek-2932921_1280.jpg" alt="Methi/Fenugreek Herbs"
-                    class="w-full h-32 object-cover rounded">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Methi/Fenugreek Herbs">
+                <img src="https://cdn.pixabay.com/photo/2017/11/09/10/08/fenugreek-2932921_1280.jpg"
+                    alt="Methi/Fenugreek Herbs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Methi/Fenugreek Herbs</h3>
                 <p class="text-green-600 font-bold">R 52.00/kg</p>
                 <p class="text-sm">400 g</p>
@@ -1058,7 +986,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Peppers Mixed">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Peppers Mixed">
                 <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg" alt="Peppers Mixed"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Peppers Mixed</h3>
@@ -1082,7 +1011,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Ridge Gourd/Luffa">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Ridge Gourd/Luffa">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyyPA1JWT77C-jVktv2kkgo91dXndgnwqEzg&s"
                     alt="Ridge Gourd/Luffa" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Ridge Gourd/Luffa</h3>
@@ -1105,7 +1035,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Spring Onions">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Spring Onions">
                 <img src="https://cdn.pixabay.com/photo/2019/04/29/08/56/fresh-green-onion-bunches-4165548_640.jpg"
                     alt="Spring Onions" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Spring Onions</h3>
@@ -1128,7 +1059,8 @@ gap: 20px;
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Green Bananas">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
+                data-product-name="Green Bananas">
                 <img src="https://cdn.pixabay.com/photo/2023/06/16/09/42/banana-tree-8067514_1280.jpg"
                     alt="Green Bananas" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Green Bananas</h3>
@@ -1152,7 +1084,8 @@ gap: 20px;
             </div>
 
 
-            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card relative" data-product-name="Sweet Potato">
+            <div class="bg-white p-4 rounded shadow min-w-[200px] text-center product-card relative"
+                data-product-name="Sweet Potato">
                 <!-- Out of Stock Badge -->
                 <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
                     Out of Stock
@@ -1174,10 +1107,64 @@ gap: 20px;
                         ADD
                     </button>
                 </div>
+                <p class="text-gray-500 mt-2">Currently unavailable</p>
             </div>
+            <script defer>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const addButtons = document.querySelectorAll(".addButton");
 
+                    addButtons.forEach((addButton) => {
+                        addButton.addEventListener("click", () => {
+                            addButton.classList.add("hidden");
+                            const counterSection = addButton.nextElementSibling;
+                            counterSection.classList.remove("hidden");
+                            const counter = counterSection.querySelector(".counter");
+                            counter.textContent = 1;
+                            updateCartCount(1);
+                        });
+                    });
 
-        </div>
+                    const counters = document.querySelectorAll(".counterSection");
+                    counters.forEach((counterSection) => {
+                        const decreaseButton = counterSection.querySelector(".decrease");
+                        const increaseButton = counterSection.querySelector(".increase");
+                        const counter = counterSection.querySelector(".counter");
+
+                        decreaseButton.addEventListener("click", () => {
+                            let currentCount = parseInt(counter.textContent);
+                            if (currentCount > 1) {
+                                currentCount--;
+                                counter.textContent = currentCount;
+                                updateCartCount(-1);
+                            } else {
+                                counterSection.classList.add("hidden");
+                                const addButton = counterSection.previousElementSibling;
+                                addButton.classList.remove("hidden");
+                                updateCartCount(-1);
+                            }
+                        });
+
+                        increaseButton.addEventListener("click", () => {
+                            let currentCount = parseInt(counter.textContent);
+                            currentCount++;
+                            counter.textContent = currentCount;
+                            updateCartCount(1);
+                        });
+                    });
+                });
+
+                function updateCartCount(change) {
+                    // Select both cart count elements (small & large screens)
+                    const cartCounts = document.querySelectorAll("#cart-count");
+
+                    cartCounts.forEach(cartCount => {
+                        let currentCount = parseInt(cartCount.textContent);
+                        currentCount += change;
+                        cartCount.textContent = currentCount;
+                    });
+                }
+
+            </script>
         </div>
     </main>
 
@@ -1245,6 +1232,70 @@ gap: 20px;
         </div>
     </footer>
 
+
+    <script>
+        // JavaScript to close modals
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to show a modal
+            function showModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.remove("hidden");
+            }
+
+            // Function to hide a modal
+            function hideModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.classList.add("hidden");
+            }
+
+            // Attach event listeners to all login buttons (both headers)
+            document.querySelectorAll("#login-btn").forEach(btn => {
+                btn.addEventListener("click", () => showModal("login-modal"));
+            });
+
+            // Attach event listeners to all sign-up buttons
+            document.querySelectorAll("#sign-up-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    hideModal("login-modal");
+                    showModal("sign-up-modal");
+                });
+            });
+
+            // Switching from Sign-Up to Login Modal
+            document.querySelectorAll("#login-btn-sign-up").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    hideModal("sign-up-modal");
+                    showModal("login-modal");
+                });
+            });
+
+            // Close modals when clicking the close button
+            document.querySelectorAll("#close-login-modal").forEach(btn => {
+                btn.addEventListener("click", () => hideModal("login-modal"));
+            });
+
+            document.querySelectorAll("#close-sign-up-modal").forEach(btn => {
+                btn.addEventListener("click", () => hideModal("sign-up-modal"));
+            });
+
+            // Close modal when clicking outside of it
+            window.onclick = function (event) {
+                if (event.target.classList.contains("modal")) {
+                    hideModal(event.target.id);
+                }
+            };
+
+            // Reload Captcha Image
+            const captchaReload = document.getElementById("reload-captcha");
+            if (captchaReload) {
+                captchaReload.addEventListener("click", function () {
+                    var captchaImage = document.getElementById("captcha-image");
+                    captchaImage.src = "captcha_image.php?" + new Date().getTime();
+                });
+            }
+        });
+
+    </script>
 
 
 </body>
