@@ -60,6 +60,9 @@
     align-items: center;
     gap: 10px;
 }
+.hidden{
+    display: none;
+}
 
 .increase {
     font-size: 1.2rem;
@@ -76,33 +79,13 @@
     font-size: 1.1rem;
 }
 
-#carousel-container {
+.carousel-container {
     display: flex;
+    flex-wrap: nowrap !important;
     gap: 10px;
     transition: transform 0.5s ease;
-    width: calc(25% * 4);
-    /* This will show 4 items at once */
     overflow: hidden;
 }
-
-
-.carousel-prev,
-.carousel-next {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-
-
-.carousel {
-    overflow-x: hidden;
-    /* Ensure no horizontal scrolling */
-    padding: 0;
-    /* Make sure there’s no unintended padding causing overflow */
-    box-sizing: border-box;
-    /* Include padding in the element's total width */
-}
-
 
 /* Carousel Styling */
 .owl-carousel {
@@ -143,6 +126,10 @@
     /* Darker gray */
 }
 
+.owl-carousel .owl-stage {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+}
 
 
 

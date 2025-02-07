@@ -212,7 +212,7 @@
 
                     <!-- Login Button -->
                     <button type="submit"
-                        class="w-full py-2 px-4 bg-green-500 text-white rounded-md font-bold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
+                        class="w-full py-2 px-4 bg-green-500 text-white rounded-md font-bold hover:bg-[#090] focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
                         Login
                     </button>
                 </form>
@@ -272,7 +272,7 @@
 
                     <!-- Sign Up Button -->
                     <button type="submit"
-                        class="w-full py-2 px-4 bg-green-500 text-white rounded-md font-bold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
+                        class="w-full py-2 px-4 bg-green-500 text-white rounded-md font-bold hover:bg-[#090] focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300">
                         Sign Up
                     </button>
                 </form>
@@ -283,9 +283,73 @@
                 </div>
             </div>
         </div>
+        <script>
+            // JavaScript to close modals
+            document.addEventListener("DOMContentLoaded", function () {
+                // Function to show a modal
+                function showModal(modalId) {
+                    const modal = document.getElementById(modalId);
+                    if (modal) modal.classList.remove("hidden");
+                }
 
+                // Function to hide a modal
+                function hideModal(modalId) {
+                    const modal = document.getElementById(modalId);
+                    if (modal) modal.classList.add("hidden");
+                }
+
+                // Attach event listeners to all login buttons (both headers)
+                document.querySelectorAll("#login-btn").forEach(btn => {
+                    btn.addEventListener("click", () => showModal("login-modal"));
+                });
+
+                // Attach event listeners to all sign-up buttons
+                document.querySelectorAll("#sign-up-btn").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        hideModal("login-modal");
+                        showModal("sign-up-modal");
+                    });
+                });
+
+                // Switching from Sign-Up to Login Modal
+                document.querySelectorAll("#login-btn-sign-up").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        hideModal("sign-up-modal");
+                        showModal("login-modal");
+                    });
+                });
+
+                // Close modals when clicking the close button
+                document.querySelectorAll("#close-login-modal").forEach(btn => {
+                    btn.addEventListener("click", () => hideModal("login-modal"));
+                });
+
+                document.querySelectorAll("#close-sign-up-modal").forEach(btn => {
+                    btn.addEventListener("click", () => hideModal("sign-up-modal"));
+                });
+
+                // Close modal when clicking outside of it
+                window.onclick = function (event) {
+                    if (event.target.classList.contains("modal")) {
+                        hideModal(event.target.id);
+                    }
+                };
+
+                // Reload Captcha Image
+                const captchaReload = document.getElementById("reload-captcha");
+                if (captchaReload) {
+                    captchaReload.addEventListener("click", function () {
+                        var captchaImage = document.getElementById("captcha-image");
+                        captchaImage.src = "captcha_image.php?" + new Date().getTime();
+                    });
+                }
+            });
+
+        </script>
 
     </header>
+
+
 
     <nav class="category bg-green-100 py-3 flex justify-center items-center space-x-6 flex-wrap">
         <a href="vegetables.html" class="text-green-700 font-semibold nav-link">Vegetables</a>
@@ -300,282 +364,293 @@
             <p class="text-red-500 text-xl font-bold">No results found</p>
             <h2 class="text-black text-lg">Try checking your spelling or use more general terms</h2>
         </div>
+
         <!-- Flash Deals Section -->
-        <section id="flash-deals" class="py-8">
-            <div class="container mx-auto">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-2xl font-bold">Flash Deals</h3>
-                    <span class="bg-yellow-300 text-black text-sm px-4 py-1 rounded-full">Limited Offer</span>
-                </div>
-                <div class="relative">
+        <section id="flash-deals" class="py-8 carousel-section">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Flash Deals</h3>
+                <span class="bg-yellow-300 text-black text-sm px-4 py-1 rounded-full">Limited Offer</span>
+            </div>
+            <div class="relative">
 
-                    <!-- Prev Button -->
-                    <button id="carousel-prev"
-                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
-                        &#8249;
-                    </button>
+                <!-- Prev Button -->
+                <button id="carousel-prev"
+                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
+                    &#8249;
+                </button>
 
 
-                    <div id="carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
-                        style="overflow: hidden; scroll-behavior: smooth;">
+                <div class="flex justify-start gap-4 owl-carousel carousel-container"
+                    style="overflow: hidden; scroll-behavior: smooth;">
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Potatoes">
-                            <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
-                                alt="Potatoes" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Potatoes</h4>
-                            <p class="price font-bold">R 25 / 1kg</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Potatoes">
+                        <img src="https://cdn.pixabay.com/photo/2016/08/11/08/43/potatoes-1585060_1280.jpg"
+                            alt="Potatoes" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Potatoes</h4>
+                        <p class="price font-bold">R 25 / 1kg</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Tomatoes">
-                            <img src="https://cdn.pixabay.com/photo/2016/03/26/16/44/tomatoes-1280859_640.jpg"
-                                alt="Tomatoes" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Tomatoes</h4>
-                            <p class="price font-bold">R 30 / 500g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Red Onions">
-                            <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_1280.jpg"
-                                alt="Onions" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Red Onions</h4>
-                            <p class="price font-bold">R 18 / 500g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Beans">
-                            <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg"
-                                alt="Green Beans" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Green Beans</h4>
-                            <p class="price font-bold">R 35 / 500g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Okra">
-                            <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg"
-                                alt="Okra" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Okra</h4>
-                            <p class="price font-bold">R 40 / 500g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Chillies">
-                            <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
-                                alt="Green Chillies" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Green Chillies</h4>
-                            <p class="price font-bold">R 20 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Dhania / Coriander">
-                            <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_1280.jpg"
-                                alt="Dhania/Coriander" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Dhania / Coriander</h4>
-                            <p class="price font-bold">R 10 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Mint">
-                            <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
-                                alt="Mint" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Mint</h4>
-                            <p class="price font-bold">R 15 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Ginger">
-                            <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg"
-                                alt="Ginger" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Ginger</h4>
-                            <p class="price font-bold">R 25 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Garlic">
-                            <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg"
-                                alt="Garlic" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Garlic</h4>
-                            <p class="price font-bold">R 30 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Sour Herbs">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmbmCXaY-kDUjo7hPYPdIHByJHh38sbcckU4ZcHlUJAvE6p4LSh4kBvmev9r3O4FB4MYs&usqp=CAU"
-                                alt="Sour Herbs" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Sour Herbs</h4>
-                            <p class="price font-bold">R 12 / 100g</p>
-                            <div class="flex items-center mt-4 text-center justify-center">
-                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                                <div class="counterSection flex items-center space-x-2 hidden">
-                                    <!-- Counter Button -->
-                                    <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                        <button
-                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                        <span class="counter text-lg font-bold">1</span>
-                                        <button
-                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                    </div>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Next Button -->
-
-                    <button id="carousel-next"
-                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
-                        &#8250;
-                    </button>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Tomatoes">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/26/16/44/tomatoes-1280859_640.jpg"
+                            alt="Tomatoes" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Tomatoes</h4>
+                        <p class="price font-bold">R 30 / 500g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Red Onions">
+                        <img src="https://cdn.pixabay.com/photo/2021/08/18/08/49/onions-6555030_1280.jpg" alt="Onions"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Red Onions</h4>
+                        <p class="price font-bold">R 18 / 500g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Green Beans">
+                        <img src="https://cdn.pixabay.com/photo/2018/09/25/20/09/bush-beans-3702999_640.jpg"
+                            alt="Green Beans" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Green Beans</h4>
+                        <p class="price font-bold">R 35 / 500g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Okra">
+                        <img src="https://cdn.pixabay.com/photo/2020/06/21/05/20/vegetable-5323257_1280.jpg" alt="Okra"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Okra</h4>
+                        <p class="price font-bold">R 40 / 500g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Green Chillies">
+                        <img src="https://cdn.pixabay.com/photo/2016/04/25/21/22/serrano-peppers-1353233_640.jpg"
+                            alt="Green Chillies" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Green Chillies</h4>
+                        <p class="price font-bold">R 20 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Dhania / Coriander">
+                        <img src="https://cdn.pixabay.com/photo/2022/12/12/08/54/real-coriander-7650541_1280.jpg"
+                            alt="Dhania/Coriander" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Dhania / Coriander</h4>
+                        <p class="price font-bold">R 10 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Mint">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/12/19/23/moroccan-mint-2396530_640.jpg"
+                            alt="Mint" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Mint</h4>
+                        <p class="price font-bold">R 15 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Ginger">
+                        <img src="https://cdn.pixabay.com/photo/2020/02/23/15/13/ginger-4873614_640.jpg" alt="Ginger"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Ginger</h4>
+                        <p class="price font-bold">R 25 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Garlic">
+                        <img src="https://cdn.pixabay.com/photo/2018/05/21/21/23/garlic-3419544_1280.jpg" alt="Garlic"
+                            class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Garlic</h4>
+                        <p class="price font-bold">R 30 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                        data-product-name="Sour Herbs">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmbmCXaY-kDUjo7hPYPdIHByJHh38sbcckU4ZcHlUJAvE6p4LSh4kBvmev9r3O4FB4MYs&usqp=CAU"
+                            alt="Sour Herbs" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2 product-name">Sour Herbs</h4>
+                        <p class="price font-bold">R 12 / 100g</p>
+                        <div class="flex items-center mt-4 text-center justify-center">
+                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                            <div class="counterSection flex items-center space-x-2 hidden">
+                                <!-- Counter Button -->
+                                <div
+                                    class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                    <button
+                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                    <span class="counter text-lg font-bold">1</span>
+                                    <button
+                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Next Button -->
+
+                <button id="carousel-next"
+                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
+                    &#8250;
+                </button>
+
         </section>
 
 
 
 
         <!-- Vegetables Section -->
-        <section id="vegetables" class="py-8">
+        <section id="vegetables" class="py-8 carousel-section">
             <div class="container mx-auto">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-2xl font-bold">Vegetables</h3>
@@ -589,14 +664,16 @@
                         &#8249;
                     </button>
 
-                    <div id="carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
+
+                    <div class="flex justify-start gap-4 owl-carousel carousel-container"
                         style="overflow: hidden; scroll-behavior: smooth;">
 
                         <!-- Product Card for Cabbage -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Cabbage">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Cabbage">
                             <img src="https://cdn.pixabay.com/photo/2022/05/12/16/02/cabbage-7191817_1280.jpg"
                                 alt="Cabbage" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Cabbage</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Cabbage</h4>
                             <p class="price font-bold">R 30 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -605,7 +682,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -617,10 +694,11 @@
                         </div>
 
                         <!-- Product Card for Broccoli -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Broccoli">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Broccoli">
                             <img src="https://cdn.pixabay.com/photo/2023/01/25/18/46/broccoli-7744338_1280.jpg"
                                 alt="Broccoli" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Broccoli</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Broccoli</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -629,7 +707,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -641,10 +719,11 @@
                         </div>
 
                         <!-- Product Card for Cauliflower -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Cauliflower">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Cauliflower">
                             <img src="https://cdn.pixabay.com/photo/2024/04/24/14/14/ai-generated-8717843_640.jpg"
                                 alt="Cauliflower" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Cauliflower</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Cauliflower</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -653,7 +732,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -665,10 +744,11 @@
                         </div>
 
                         <!-- Product Card for Green Guard / Calabash -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Green Guard/Calabash">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Green Guard/Calabash">
                             <img src="https://cdn.pixabay.com/photo/2022/08/09/11/16/organic-7374764_1280.jpg"
                                 alt="Green Guard / Calabash" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Green Guard/Calabash</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Green Guard/Calabash</h4>
                             <p class="price font-bold">R 25 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -677,7 +757,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -689,10 +769,11 @@
                         </div>
 
                         <!-- Product Card for Carrots -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Carrots">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Carrots">
                             <img src="https://cdn.pixabay.com/photo/2016/11/23/00/22/carrots-1851424_640.jpg"
                                 alt="Carrots" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Carrots</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Carrots</h4>
                             <p class="price font-bold">R 30 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -701,7 +782,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -713,10 +794,11 @@
                         </div>
 
                         <!-- Product Card for Beetroot -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Beetroot">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Beetroot">
                             <img src="https://cdn.pixabay.com/photo/2017/02/23/08/53/burak-2091568_640.jpg"
                                 alt="Beetroot" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Beetroot</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Beetroot</h4>
                             <p class="price font-bold">R 35 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -725,7 +807,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -737,10 +819,11 @@
                         </div>
 
                         <!-- Product Card for Radish -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Raddish">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Raddish">
                             <img src="https://imgs.search.brave.com/RQIfVoABzthwoI5A0Umz6gh8U0gEv7Ro95BPTBhzIXA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/b3JnYW5pY2ZhY3Rz/Lm5ldC93cC1jb250/ZW50L3VwbG9hZHMv/MjAxMy8wNS9SYWRk/aXNoLmpwZw"
                                 alt="Radish" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Raddish</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Raddish</h4>
                             <p class="price font-bold">R 20 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -749,7 +832,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -761,10 +844,11 @@
                         </div>
 
                         <!-- Product Card for Baby Marrow -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Baby Marrow">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Baby Marrow">
                             <img src="https://imgs.search.brave.com/QeMQkgHQ4wsmeWWPCm7BE_ALevD6UcUP4yyRdM9YIzM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEwLzc0LzU3LzAw/LzM2MF9GXzEwNzQ1/NzAwMDZfMUsxUThp/aElTbldGQ0pRcUJp/eUVNbGJKZmkzdm8x/bG4uanBn"
                                 alt="Baby Marrow" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Baby Marrow</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Baby Marrow</h4>
                             <p class="price font-bold">R 50 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -773,7 +857,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -785,10 +869,11 @@
                         </div>
 
                         <!-- Product Card for Butternut -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Butternut">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Butternut">
                             <img src="https://cdn.pixabay.com/photo/2013/05/06/13/32/butternut-squash-109131_640.jpg"
                                 alt="Butternut" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Butternut</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Butternut</h4>
                             <p class="price font-bold">R 40 / 1kg</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -797,7 +882,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -809,10 +894,11 @@
                         </div>
 
                         <!-- Product Card for Peppers -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Peppers Mixed">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Peppers Mixed">
                             <img src="https://cdn.pixabay.com/photo/2015/09/13/15/32/peppers-938285_1280.jpg"
                                 alt="Peppers" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Peppers Mixed</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Peppers Mixed</h4>
                             <p class="price font-bold">R 80 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -821,7 +907,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -858,24 +944,25 @@
 
 
         <!-- Fruits Section -->
-        <section id="fruits" class="py-8">
+        <section id="fruits" class="py-8 carousel-section">
             <div class="container mx-auto">
                 <h3 class="text-2xl font-bold mb-4">Fruits</h3>
                 <div class="relative ">
                     <!-- Prev Button -->
-                    <button id="fruits-carousel-prev"
+                    <button id="carousel-prev"
                         class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
                         &#8249;
                     </button>
 
-                    <!-- Carousel Container -->
-                    <div id="fruits-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
+
+                    <div class="flex justify-start gap-4 owl-carousel carousel-container"
                         style="overflow: hidden; scroll-behavior: smooth;">
                         <!-- Product Cards -->
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Apples Red">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Apples Red">
                             <img src="https://cdn.pixabay.com/photo/2016/08/12/22/38/apple-1589874_1280.jpg"
                                 alt="Apples" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Apples Red</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Apples Red</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -884,7 +971,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -895,10 +982,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Oranges">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Oranges">
                             <img src="https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_640.jpg"
                                 alt="Oranges" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Oranges</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Oranges</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -907,7 +995,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -918,10 +1006,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Strawberries">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Strawberries">
                             <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_640.jpg"
                                 alt="Strawberries" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Strawberries</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Strawberries</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -930,7 +1019,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -941,7 +1030,8 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto relative"  data-product-name="Avocados">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto relative"
+                            data-product-name="Avocados">
                             <!-- Out of Stock Badge -->
                             <div
                                 class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
@@ -967,10 +1057,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Bananas">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Bananas">
                             <img src="https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_640.jpg"
                                 alt="Bananas" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Bananas</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Bananas</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -979,7 +1070,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -990,10 +1081,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Grapes White">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Grapes White">
                             <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg"
                                 alt="Grapes" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Grapes White</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Grapes White</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -1002,7 +1094,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -1013,10 +1105,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"  data-product-name="Watermelon">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Watermelon">
                             <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg"
                                 alt="Watermelon" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Watermelon</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Watermelon</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -1025,7 +1118,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -1036,10 +1129,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Lemons">
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Lemons">
                             <img src="https://cdn.pixabay.com/photo/2017/02/05/12/31/lemons-2039830_1280.jpg"
                                 alt="Lemons" class="w-full h-32 object-cover rounded">
-                            <h4 class="text-lg font-semibold mt-2">Lemons</h4>
+                            <h4 class="text-lg font-semibold mt-2 product-name">Lemons</h4>
                             <p class="price font-bold">R 60 / 500g</p>
                             <div class="flex items-center mt-4 text-center justify-center">
                                 <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
@@ -1048,7 +1142,7 @@
                                 <div class="counterSection flex items-center space-x-2 hidden">
                                     <!-- Counter Button -->
                                     <div
-                                        class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
                                         <button
                                             class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
                                         <span class="counter text-lg font-bold">1</span>
@@ -1061,7 +1155,7 @@
                     </div>
 
                     <!-- Next Button -->
-                    <button id="fruits-carousel-next"
+                    <button id="carousel-next"
                         class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
                         &#8250;
                     </button>
@@ -1088,135 +1182,214 @@
 
 
         <!-- Dairy & Poultry Section -->
-        <section id="dairy-poultry" class="py-8">
+        <section id="dairy-poultry" class="py-8 carousel-section">
             <div class=" container mx-auto">
-            <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
-            <div class="relative ">
+                <h3 class="text-2xl font-bold mb-4">Eggs & Poultry</h3>
+                <div class="relative ">
+
+                    <!-- Prev Button -->
+                    <button id="carousel-prev"
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
+                        &#8249;
+                    </button>
 
 
+                    <div class="flex justify-start gap-4 owl-carousel carousel-container"
+                        style="overflow: hidden; scroll-behavior: smooth;">
 
-                <button id="dairy-carousel-prev"
-                    class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full ml-5 text-2xl">
-                    &#8249;</button>
-                <!-- Carousel Container -->
-                <div id="dairy-carousel-container" class="flex flex-wrap justify-center gap-4 owl-carousel"
-                    style="overflow: hidden; scroll-behavior: smooth;">
-
-                    <!-- Product Cards -->
-                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto "  data-product-name="Chicken Cut Pieces">
-                        <img src="img/eggs/cutchicken.jpg" alt="Chicken" class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Chicken Cut Pieces</h4>
-                        <p class="price font-bold">R 75/kg</p>
-                        <div class="flex items-center mt-4 text-center justify-center">
-                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                        <!-- Product Cards -->
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto "
+                            data-product-name="Chicken Cut Pieces">
+                            <img src="img/eggs/cutchicken.jpg" alt="Chicken" class="w-full h-32 object-cover rounded">
+                            <h4 class="text-lg font-semibold mt-2 product-name">Chicken Cut Pieces</h4>
+                            <p class="price font-bold">R 75/kg</p>
+                            <div class="flex items-center mt-4 text-center justify-center">
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
                                     border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
                                     focus:ring-green-400 transition duration-300">ADD</button>
-                            <div class="counterSection flex items-center space-x-2 hidden">
-                                <!-- Counter Button -->
-                                <div
-                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                    <button
-                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                    <span class="counter text-lg font-bold">1</span>
-                                    <button
-                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                <div class="counterSection flex items-center space-x-2 hidden">
+                                    <!-- Counter Button -->
+                                    <div
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        <button
+                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                        <span class="counter text-lg font-bold">1</span>
+                                        <button
+                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="30 Eggs">
+                            <img src="img/eggs/30eggs.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
+                            <h4 class="text-lg font-semibold mt-2 product-name">30 Eggs</h4>
+                            <p class="price font-bold">R 60.00 </p>
+                            <div class="flex items-center mt-4 text-center justify-center">
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                                <div class="counterSection flex items-center space-x-2 hidden">
+                                    <!-- Counter Button -->
+                                    <div
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        <button
+                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                        <span class="counter text-lg font-bold">1</span>
+                                        <button
+                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Whole Chicken">
+                            <!-- Out of Stock Badge -->
+                            <div
+                                class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
+                                Out of Stock
+                            </div>
+
+                            <!-- Product Image -->
+                            <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
+                                alt="Whole Chicken" class="w-full h-32 object-cover rounded opacity-50">
+
+                            <!-- Product Details -->
+                            <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
+                            <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
+                            <p class="text-gray-500">Currently unavailable</p>
+
+                            <!-- Disabled Add Button -->
+                            <div class="mt-4">
+                                <button
+                                    class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
+                                    disabled>
+                                    ADD
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto"
+                            data-product-name="Chicken Fillets">
+                            <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg"
+                                alt="Chicken Fillets" class="w-full h-32 object-cover rounded">
+                            <h4 class="text-lg font-semibold mt-2 product-name">Chicken Fillets</h4>
+                            <p class="price font-bold">R 75/kg</p>
+                            <div class="flex items-center mt-4 text-center justify-center">
+                                <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
+                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
+                                    focus:ring-green-400 transition duration-300">ADD</button>
+                                <div class="counterSection flex items-center space-x-2 hidden">
+                                    <!-- Counter Button -->
+                                    <div
+                                        class="flex items-center bg-[#090] text-white rounded-lg px-2 py-1 shadow-md space-x-2">
+                                        <button
+                                            class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
+                                        <span class="counter text-lg font-bold">1</span>
+                                        <button
+                                            class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Next Button -->
 
-                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="30 Eggs">
-                        <img src="img/eggs/30eggs.jpg" alt="Eggs" class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">30 Eggs</h4>
-                        <p class="price font-bold">R 60.00 </p>
-                        <div class="flex items-center mt-4 text-center justify-center">
-                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                            <div class="counterSection flex items-center space-x-2 hidden">
-                                <!-- Counter Button -->
-                                <div
-                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                    <button
-                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                    <span class="counter text-lg font-bold">1</span>
-                                    <button
-                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Whole Chicken">
-                        <!-- Out of Stock Badge -->
-                        <div
-                            class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
-                            Out of Stock
-                        </div>
-
-                        <!-- Product Image -->
-                        <img src="https://media.istockphoto.com/id/1323003448/photo/fresh-raw-chicken-on-a-rustic-wooden-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=Kft2vBCjhcJDVVBeYOOlSoNIxU1jo5XJzgK68MhI3UU="
-                            alt="Whole Chicken" class="w-full h-32 object-cover rounded opacity-50">
-
-                        <!-- Product Details -->
-                        <h3 class="text-lg font-semibold text-gray-500">Whole Chicken</h3>
-                        <p class="text-green-600 font-bold line-through">R 80.00/kg</p>
-                        <p class="text-gray-500">Currently unavailable</p>
-
-                        <!-- Disabled Add Button -->
-                        <div class="mt-4">
-                            <button
-                                class="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 border border-gray-400 font-bold cursor-not-allowed"
-                                disabled>
-                                ADD
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card mx-auto" data-product-name="Chicken Fillets">
-                        <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg"
-                            alt="Chicken fillets" class="w-full h-32 object-cover rounded">
-                        <h4 class="text-lg font-semibold mt-2">Chicken Fillets</h4>
-                        <p class="price font-bold">R 75/kg</p>
-                        <div class="flex items-center mt-4 text-center justify-center">
-                            <button class="addButton text-green-600 py-2 px-6 rounded-lg bg-green-100
-                                    border border-green-600 font-bold hover:bg-white focus:outline-none focus:ring-2
-                                    focus:ring-green-400 transition duration-300">ADD</button>
-                            <div class="counterSection flex items-center space-x-2 hidden">
-                                <!-- Counter Button -->
-                                <div
-                                    class="flex items-center bg-green-600 text-white rounded-lg px-2 py-1 shadow-md space-x-2">
-                                    <button
-                                        class="decrease text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">-</button>
-                                    <span class="counter text-lg font-bold">1</span>
-                                    <button
-                                        class="increase text-white font-bold text-xl  w-8 h-8 flex items-center justify-center ">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button id="carousel-next"
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
+                        &#8250;
+                    </button>
                 </div>
-                <!-- Next Button -->
 
-                <button id="dairy-carousel-next"
-                    class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-black p-2 rounded-full text-2xl mr-5">
-                    &#8250;
-                </button>
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <a href="eggs.html" class="flex items-center text-[#090] font-bold text-md">
-                    SEE MORE
-                    <span
-                        class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#090] text-[#090]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </span>
-                </a>
-            </div>
+                <div class="flex justify-end mt-4">
+                    <a href="eggs.html" class="flex items-center text-[#090] font-bold text-md">
+                        SEE MORE
+                        <span
+                            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#090] text-[#090]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
         </section>
+
+        <script defer>
+            document.addEventListener("DOMContentLoaded", () => {
+                const addButtons = document.querySelectorAll(".addButton");
+
+                addButtons.forEach((addButton) => {
+                    addButton.addEventListener("click", () => {
+                        addButton.classList.add("hidden"); // Hide the "ADD" button
+                        const counterSection = addButton.nextElementSibling;
+                        counterSection.classList.remove("hidden"); // Show counter
+
+                        const counter = counterSection.querySelector(".counter");
+
+                        // **Reset count to 1 properly**
+                        counter.textContent = "1";
+                        counter.setAttribute("data-count", "1"); // Store actual count
+
+                        updateCartCount(1);
+                    });
+                });
+
+                const counters = document.querySelectorAll(".counterSection");
+
+                counters.forEach((counterSection) => {
+                    const decreaseButton = counterSection.querySelector(".decrease");
+                    const increaseButton = counterSection.querySelector(".increase");
+                    const counter = counterSection.querySelector(".counter");
+
+                    decreaseButton.addEventListener("click", (event) => {
+                        event.stopPropagation();
+
+                        let currentCount = parseInt(counter.getAttribute("data-count"), 10);
+
+                        if (currentCount > 1) {
+                            currentCount--;
+                            counter.textContent = currentCount;
+                            counter.setAttribute("data-count", currentCount);
+                            updateCartCount(-1);
+                        } else {
+                            counterSection.classList.add("hidden"); // Hide counter
+                            const addButton = counterSection.previousElementSibling;
+                            addButton.classList.remove("hidden"); // Show "ADD" button
+
+                            counter.setAttribute("data-count", "1"); // Reset count
+                            counter.textContent = "1";
+
+                            updateCartCount(-1);
+                        }
+                    });
+
+                    increaseButton.addEventListener("click", (event) => {
+                        event.stopPropagation();
+
+                        let currentCount = parseInt(counter.getAttribute("data-count"), 10);
+                        currentCount++;
+                        counter.textContent = currentCount;
+                        counter.setAttribute("data-count", currentCount);
+
+                        updateCartCount(1);
+                    });
+                });
+            });
+
+            function updateCartCount(change) {
+                const cartCounts = document.querySelectorAll("#cart-count");
+
+                cartCounts.forEach(cartCount => {
+                    let currentCount = parseInt(cartCount.textContent.trim(), 10);
+                    cartCount.textContent = currentCount + change;
+                });
+            }
+        </script>
+
     </div>
 
 
@@ -1230,7 +1403,7 @@
             <!-- Offer Badge -->
             <div
                 class="relative bg-yellow-400 w-24 h-24 flex items-center border-4 border-lime-800 justify-center rounded-full shadow-md">
-                <span class="text-black font-bold text-4xl">R 25</span>
+                <span class="text-black font-bold text-4xl ">R25</span>
 
             </div>
 
@@ -1315,7 +1488,43 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("search-input");
+            const productCards = document.querySelectorAll(".product-card");
+            const otherSections = document.querySelectorAll(".flash-deals, .categories, .navigation-buttons");
 
+            if (!searchInput) {
+                console.error("Search input not found!");
+                return;
+            }
+
+            searchInput.addEventListener("input", function () {
+                const searchQuery = this.value.toLowerCase();
+                let hasResults = false;
+
+                productCards.forEach(card => {
+                    const productName = card.querySelector(".product-name").textContent.toLowerCase();
+                    if (productName.includes(searchQuery)) {
+                        card.style.display = "block";
+                        hasResults = true;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                // Hide other sections only if there's a search input
+                if (searchQuery.length > 0) {
+                    otherSections.forEach(section => section.style.display = "none");
+                } else {
+                    otherSections.forEach(section => section.style.display = "block");
+                }
+
+                console.log(`Search Query: ${searchQuery}, Results Found: ${hasResults}`);
+            });
+        });
+
+    </script>
 </body>
 
 </html>
