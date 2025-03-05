@@ -285,18 +285,53 @@
     </nav>
 
     <!-- Categories -->
-    <div class=" p-4 flex flex-wrap gap-4 justify-center">
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">All</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Eggs</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Poultry</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Chicken</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Duck</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Turkey</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Quail</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Goose</button>
+    <div class="p-4 flex flex-wrap gap-4 justify-center">
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">All</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Eggs</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Poultry</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Chicken</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Duck</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Turkey</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Quail</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Goose</button>
     </div>
+    
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".p-4 button"); // Category buttons
+    const products = document.querySelectorAll(".product-card"); // Product cards
+    const noResults = document.getElementById("no-results"); // No results message
 
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const category = button.textContent.trim().toLowerCase(); // Get category name
+            let found = false;
+
+            products.forEach(product => {
+                const productCategory = product.getAttribute("data-category")?.toLowerCase(); // Handle null values
+
+                if (category === "all" || productCategory === category) {
+                    product.style.display = "block"; // Show matching product
+                    found = true;
+                } else {
+                    product.style.display = "none"; // Hide non-matching products
+                }
+            });
+
+            // Show or hide the "No results" message
+            if (noResults) {
+                if (found) {
+                    noResults.classList.add("hidden");
+                } else {
+                    noResults.classList.remove("hidden");
+                }
+            }
+        });
+    });
+});
+
+        </script>        
 
     <main class="container mx-auto px-8 py-2">
         <!-- Back Button -->
@@ -316,7 +351,7 @@
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             <!-- 10 Product Cards -->
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
-                data-product-name="Chicken Cut Pieces">
+                data-product-name="Chicken Cut Pieces" data-category="chicken">
                 <img src="img/eggs/cutchicken.jpg" alt="cut chicken pieces" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Cut Pieces</h3>
                 <p class="text-green-600 font-bold">R 75.00/kg</p>
@@ -337,7 +372,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="30 Eggs">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="30 Eggs" data-category="eggs">
                 <img src="img/eggs/30eggs.jpg" alt="30 eggs" class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">30 Eggs</h3>
                 <p class="text-green-600 font-bold">R 80.00/dozen</p>
@@ -358,7 +393,7 @@
                 </div>
             </div>
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
-                data-product-name="Chicken Fillets">
+                data-product-name="Chicken Fillets" data-category="chicken">
                 <img src="https://cdn.pixabay.com/photo/2018/03/09/17/41/chicken-3212144_640.jpg" alt="30 eggs"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Chicken Fillets</h3>
@@ -381,7 +416,7 @@
             </div>
 
             <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card"
-                data-product-name="Whole Chicken">
+                data-product-name="Whole Chicken" data-category="chicken">
                 <!-- Out of Stock Badge -->
                 <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
                     Out of Stock

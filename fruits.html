@@ -283,18 +283,53 @@
     </nav>
 
     <!-- Categories -->
-    <div class=" p-4 flex flex-wrap gap-4 justify-center">
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">All</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Citrus</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Berries</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Tropical</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Stone Fruits</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Melons</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Exotic Fruits</button>
-        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800">Dried Fruits</button>
+    <div class="p-4 flex flex-wrap gap-4 justify-center">
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">All</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Citrus</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Berries</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Tropical</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Stone Fruits</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Melons</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Exotic Fruits</button>
+        <button class="bg-white px-4 py-2 rounded-full shadow border border-green-800 hover:bg-green-600 hover:text-white hover:border-green-600 transition duration-300">Dried Fruits</button>
     </div>
-
     
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".p-4 button"); // Category buttons
+    const products = document.querySelectorAll(".product-card"); // Product cards
+    const noResults = document.getElementById("no-results"); // No results message
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const category = button.textContent.trim().toLowerCase(); // Get category name
+            let found = false;
+
+            products.forEach(product => {
+                const productCategory = product.getAttribute("data-category")?.toLowerCase(); // Handle null values
+
+                if (category === "all" || productCategory === category) {
+                    product.style.display = "block"; // Show matching product
+                    found = true;
+                } else {
+                    product.style.display = "none"; // Hide non-matching products
+                }
+            });
+
+            // Show or hide the "No results" message
+            if (noResults) {
+                if (found) {
+                    noResults.classList.add("hidden");
+                } else {
+                    noResults.classList.remove("hidden");
+                }
+            }
+        });
+    });
+});
+
+        </script> 
 
     <main class="container mx-auto px-8 py-2">
         <!-- Back Button -->
@@ -313,7 +348,7 @@
 
         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
             <!-- 10 Product Cards -->
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Red">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Red" data-category="">
                 <img src="https://cdn.pixabay.com/photo/2016/08/12/22/38/apple-1589874_640.jpg" alt="Apple"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Apples Red</h3>
@@ -335,7 +370,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Oranges">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Oranges" data-category="citrus">
                 <img src="https://cdn.pixabay.com/photo/2017/02/26/12/27/oranges-2100108_640.jpg" alt="Oranges"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Oranges</h3>
@@ -357,7 +392,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes White">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes White" data-category="">
                 <img src="https://cdn.pixabay.com/photo/2014/12/28/18/22/grapes-582207_1280.jpg" alt="Grapes"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Grapes White</h3>
@@ -379,7 +414,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Strawberries">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Strawberries" data-category="berries">
                 <img src="https://cdn.pixabay.com/photo/2020/04/22/17/24/strawberry-5079237_640.jpg" alt="Strawberries"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Strawberries</h3>
@@ -401,7 +436,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Mangoes">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Mangoes" data-category="Tropical">
                 <img src="https://cdn.pixabay.com/photo/2016/04/10/15/13/mangoes-1320111_640.jpg" alt="Mangoes"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Mangoes</h3>
@@ -422,7 +457,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Pineapple">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Pineapple" data-category="Tropical">
                 <img src="https://cdn.pixabay.com/photo/2018/11/11/15/42/pineapple-3808963_640.jpg" alt="Pineapple"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Pineapple</h3>
@@ -443,7 +478,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Guava">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Guava" data-category="Tropical">
                 <img src="https://cdn.pixabay.com/photo/2021/12/16/03/16/guava-6873684_640.jpg" alt="Guava"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Guava</h3>
@@ -464,7 +499,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Papaya">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Papaya" data-category="Tropical">
                 <img src="https://cdn.pixabay.com/photo/2019/08/08/03/28/papaya-4391846_640.jpg" alt="Papaya"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Papaya</h3>
@@ -485,7 +520,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Watermelon">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Watermelon" data-category="Melons">
                 <img src="https://cdn.pixabay.com/photo/2017/06/16/14/35/watermelon-2409368_1280.jpg" alt="Watermelon"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Watermelon</h3>
@@ -506,7 +541,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Muskmelon">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Muskmelon" data-category="Melons">
                 <img src="https://cdn.pixabay.com/photo/2014/07/08/14/17/muskmelons-387466_640.jpg" alt="muskmelon"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Muskmelon</h3>
@@ -527,7 +562,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Bananas">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Bananas" data-category="Tropical">
                 <img src="https://cdn.pixabay.com/photo/2018/09/24/20/12/bananas-3700718_640.jpg" alt="banana"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Bananas</h3>
@@ -569,7 +604,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes Red">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Grapes Red" data-category="Exotic">
                 <img src="https://cdn.pixabay.com/photo/2016/03/27/17/14/grapes-1283162_640.jpg" alt="grapes red"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Grapes Red</h3>
@@ -590,7 +625,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Golden Delicious">
+            <div class="bg-white p-4 rounded shadow w-[224px]  text-center product-card" data-product-name="Apples Golden Delicious" data-category="ex">
                 <img src="https://cdn.pixabay.com/photo/2018/05/27/16/16/apple-3433812_1280.jpg" alt="apple golden"
                     class="w-full h-32 object-cover rounded">
                 <h3 class="text-lg font-semibold">Apples Golden</h3>
@@ -613,7 +648,7 @@
             </div>
 
 
-            <div class="bg-white p-4 rounded shadow min-w-[224px] text-center product-card relative" data-product-name="Avocados">
+            <div class="bg-white p-4 rounded shadow min-w-[224px] text-center product-card relative" data-product-name="Avocados" data-category="Stone Fruits">
                 <!-- Out of Stock Badge -->
                 <div class="absolute  bg-black text-white font-bold w-24 text-sm px-2 py-1 rounded font-semibold">
                     Out of Stock
